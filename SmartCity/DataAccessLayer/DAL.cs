@@ -26,12 +26,12 @@ namespace DataAccessLayer
             return Instance.DEFAUTs.ToList();
         }
 
-        public static List<INTERVENTION> SelectAllDefauts()
+        public static List<INTERVENTION> SelectAllInterventions()
         {
             return Instance.INTERVENTIONs.ToList();
         }
 
-        public static List<PERSONNE> SelectAllDefauts()
+        public static List<PERSONNE> SelectAllPersonnes()
         {
             return Instance.PERSONNEs.ToList();
         }
