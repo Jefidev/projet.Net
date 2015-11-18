@@ -30,15 +30,15 @@ namespace DataAccessLayer
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
-    partial void InsertDEFAUT(DEFAUT instance);
-    partial void UpdateDEFAUT(DEFAUT instance);
-    partial void DeleteDEFAUT(DEFAUT instance);
-    partial void InsertINTERVENTION(INTERVENTION instance);
-    partial void UpdateINTERVENTION(INTERVENTION instance);
-    partial void DeleteINTERVENTION(INTERVENTION instance);
-    partial void InsertPERSONNE(PERSONNE instance);
-    partial void UpdatePERSONNE(PERSONNE instance);
-    partial void DeletePERSONNE(PERSONNE instance);
+    partial void InsertDefaut(Defaut instance);
+    partial void UpdateDefaut(Defaut instance);
+    partial void DeleteDefaut(Defaut instance);
+    partial void InsertIntervention(Intervention instance);
+    partial void UpdateIntervention(Intervention instance);
+    partial void DeleteIntervention(Intervention instance);
+    partial void InsertPersonne(Personne instance);
+    partial void UpdatePersonne(Personne instance);
+    partial void DeletePersonne(Personne instance);
     #endregion
 		
 		public DataContextDALDataContext() : 
@@ -71,46 +71,46 @@ namespace DataAccessLayer
 			OnCreated();
 		}
 		
-		public System.Data.Linq.Table<DEFAUT> DEFAUTs
+		public System.Data.Linq.Table<Defaut> Defauts
 		{
 			get
 			{
-				return this.GetTable<DEFAUT>();
+				return this.GetTable<Defaut>();
 			}
 		}
 		
-		public System.Data.Linq.Table<INTERVENTION> INTERVENTIONs
+		public System.Data.Linq.Table<Intervention> Interventions
 		{
 			get
 			{
-				return this.GetTable<INTERVENTION>();
+				return this.GetTable<Intervention>();
 			}
 		}
 		
-		public System.Data.Linq.Table<PERSONNE> PERSONNEs
+		public System.Data.Linq.Table<Personne> Personnes
 		{
 			get
 			{
-				return this.GetTable<PERSONNE>();
+				return this.GetTable<Personne>();
 			}
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.DEFAUTS")]
-	public partial class DEFAUT : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Defauts")]
+	public partial class Defaut : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
 		private int _IdDefaut;
 		
-		private string _Photo;
+		private System.Data.Linq.Binary _Photo;
 		
 		private string _Description;
 		
 		private string _Position;
 		
-		private EntitySet<INTERVENTION> _INTERVENTIONs;
+		private EntitySet<Intervention> _Interventions;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -118,7 +118,7 @@ namespace DataAccessLayer
     partial void OnCreated();
     partial void OnIdDefautChanging(int value);
     partial void OnIdDefautChanged();
-    partial void OnPhotoChanging(string value);
+    partial void OnPhotoChanging(System.Data.Linq.Binary value);
     partial void OnPhotoChanged();
     partial void OnDescriptionChanging(string value);
     partial void OnDescriptionChanged();
@@ -126,9 +126,9 @@ namespace DataAccessLayer
     partial void OnPositionChanged();
     #endregion
 		
-		public DEFAUT()
+		public Defaut()
 		{
-			this._INTERVENTIONs = new EntitySet<INTERVENTION>(new Action<INTERVENTION>(this.attach_INTERVENTIONs), new Action<INTERVENTION>(this.detach_INTERVENTIONs));
+			this._Interventions = new EntitySet<Intervention>(new Action<Intervention>(this.attach_Interventions), new Action<Intervention>(this.detach_Interventions));
 			OnCreated();
 		}
 		
@@ -152,8 +152,8 @@ namespace DataAccessLayer
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Photo", DbType="VarChar(50)")]
-		public string Photo
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Photo", DbType="VarBinary(MAX)", UpdateCheck=UpdateCheck.Never)]
+		public System.Data.Linq.Binary Photo
 		{
 			get
 			{
@@ -212,16 +212,16 @@ namespace DataAccessLayer
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="DEFAUT_INTERVENTION", Storage="_INTERVENTIONs", ThisKey="IdDefaut", OtherKey="Defaut")]
-		public EntitySet<INTERVENTION> INTERVENTIONs
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Defaut_Intervention", Storage="_Interventions", ThisKey="IdDefaut", OtherKey="Defaut")]
+		public EntitySet<Intervention> Interventions
 		{
 			get
 			{
-				return this._INTERVENTIONs;
+				return this._Interventions;
 			}
 			set
 			{
-				this._INTERVENTIONs.Assign(value);
+				this._Interventions.Assign(value);
 			}
 		}
 		
@@ -245,21 +245,21 @@ namespace DataAccessLayer
 			}
 		}
 		
-		private void attach_INTERVENTIONs(INTERVENTION entity)
+		private void attach_Interventions(Intervention entity)
 		{
 			this.SendPropertyChanging();
-			entity.DEFAUT1 = this;
+			entity.Defaut1 = this;
 		}
 		
-		private void detach_INTERVENTIONs(INTERVENTION entity)
+		private void detach_Interventions(Intervention entity)
 		{
 			this.SendPropertyChanging();
-			entity.DEFAUT1 = null;
+			entity.Defaut1 = null;
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.INTERVENTIONS")]
-	public partial class INTERVENTION : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Interventions")]
+	public partial class Intervention : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
@@ -276,9 +276,9 @@ namespace DataAccessLayer
 		
 		private string _Personne;
 		
-		private EntityRef<DEFAUT> _DEFAUT1;
+		private EntityRef<Defaut> _Defaut1;
 		
-		private EntityRef<PERSONNE> _PERSONNE1;
+		private EntityRef<Personne> _Personne1;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -298,10 +298,10 @@ namespace DataAccessLayer
     partial void OnPersonneChanged();
     #endregion
 		
-		public INTERVENTION()
+		public Intervention()
 		{
-			this._DEFAUT1 = default(EntityRef<DEFAUT>);
-			this._PERSONNE1 = default(EntityRef<PERSONNE>);
+			this._Defaut1 = default(EntityRef<Defaut>);
+			this._Personne1 = default(EntityRef<Personne>);
 			OnCreated();
 		}
 		
@@ -396,7 +396,7 @@ namespace DataAccessLayer
 			{
 				if ((this._Defaut != value))
 				{
-					if (this._DEFAUT1.HasLoadedOrAssignedValue)
+					if (this._Defaut1.HasLoadedOrAssignedValue)
 					{
 						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
 					}
@@ -420,7 +420,7 @@ namespace DataAccessLayer
 			{
 				if ((this._Personne != value))
 				{
-					if (this._PERSONNE1.HasLoadedOrAssignedValue)
+					if (this._Personne1.HasLoadedOrAssignedValue)
 					{
 						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
 					}
@@ -433,70 +433,70 @@ namespace DataAccessLayer
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="DEFAUT_INTERVENTION", Storage="_DEFAUT1", ThisKey="Defaut", OtherKey="IdDefaut", IsForeignKey=true)]
-		public DEFAUT DEFAUT1
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Defaut_Intervention", Storage="_Defaut1", ThisKey="Defaut", OtherKey="IdDefaut", IsForeignKey=true)]
+		public Defaut Defaut1
 		{
 			get
 			{
-				return this._DEFAUT1.Entity;
+				return this._Defaut1.Entity;
 			}
 			set
 			{
-				DEFAUT previousValue = this._DEFAUT1.Entity;
+				Defaut previousValue = this._Defaut1.Entity;
 				if (((previousValue != value) 
-							|| (this._DEFAUT1.HasLoadedOrAssignedValue == false)))
+							|| (this._Defaut1.HasLoadedOrAssignedValue == false)))
 				{
 					this.SendPropertyChanging();
 					if ((previousValue != null))
 					{
-						this._DEFAUT1.Entity = null;
-						previousValue.INTERVENTIONs.Remove(this);
+						this._Defaut1.Entity = null;
+						previousValue.Interventions.Remove(this);
 					}
-					this._DEFAUT1.Entity = value;
+					this._Defaut1.Entity = value;
 					if ((value != null))
 					{
-						value.INTERVENTIONs.Add(this);
+						value.Interventions.Add(this);
 						this._Defaut = value.IdDefaut;
 					}
 					else
 					{
 						this._Defaut = default(Nullable<int>);
 					}
-					this.SendPropertyChanged("DEFAUT1");
+					this.SendPropertyChanged("Defaut1");
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PERSONNE_INTERVENTION", Storage="_PERSONNE1", ThisKey="Personne", OtherKey="Mail", IsForeignKey=true)]
-		public PERSONNE PERSONNE1
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Personne_Intervention", Storage="_Personne1", ThisKey="Personne", OtherKey="Mail", IsForeignKey=true)]
+		public Personne Personne1
 		{
 			get
 			{
-				return this._PERSONNE1.Entity;
+				return this._Personne1.Entity;
 			}
 			set
 			{
-				PERSONNE previousValue = this._PERSONNE1.Entity;
+				Personne previousValue = this._Personne1.Entity;
 				if (((previousValue != value) 
-							|| (this._PERSONNE1.HasLoadedOrAssignedValue == false)))
+							|| (this._Personne1.HasLoadedOrAssignedValue == false)))
 				{
 					this.SendPropertyChanging();
 					if ((previousValue != null))
 					{
-						this._PERSONNE1.Entity = null;
-						previousValue.INTERVENTIONs.Remove(this);
+						this._Personne1.Entity = null;
+						previousValue.Interventions.Remove(this);
 					}
-					this._PERSONNE1.Entity = value;
+					this._Personne1.Entity = value;
 					if ((value != null))
 					{
-						value.INTERVENTIONs.Add(this);
+						value.Interventions.Add(this);
 						this._Personne = value.Mail;
 					}
 					else
 					{
 						this._Personne = default(string);
 					}
-					this.SendPropertyChanged("PERSONNE1");
+					this.SendPropertyChanged("Personne1");
 				}
 			}
 		}
@@ -522,8 +522,8 @@ namespace DataAccessLayer
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.PERSONNES")]
-	public partial class PERSONNE : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Personnes")]
+	public partial class Personne : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
@@ -538,7 +538,7 @@ namespace DataAccessLayer
 		
 		private string _Type;
 		
-		private EntitySet<INTERVENTION> _INTERVENTIONs;
+		private EntitySet<Intervention> _Interventions;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -556,9 +556,9 @@ namespace DataAccessLayer
     partial void OnTypeChanged();
     #endregion
 		
-		public PERSONNE()
+		public Personne()
 		{
-			this._INTERVENTIONs = new EntitySet<INTERVENTION>(new Action<INTERVENTION>(this.attach_INTERVENTIONs), new Action<INTERVENTION>(this.detach_INTERVENTIONs));
+			this._Interventions = new EntitySet<Intervention>(new Action<Intervention>(this.attach_Interventions), new Action<Intervention>(this.detach_Interventions));
 			OnCreated();
 		}
 		
@@ -662,16 +662,16 @@ namespace DataAccessLayer
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PERSONNE_INTERVENTION", Storage="_INTERVENTIONs", ThisKey="Mail", OtherKey="Personne")]
-		public EntitySet<INTERVENTION> INTERVENTIONs
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Personne_Intervention", Storage="_Interventions", ThisKey="Mail", OtherKey="Personne")]
+		public EntitySet<Intervention> Interventions
 		{
 			get
 			{
-				return this._INTERVENTIONs;
+				return this._Interventions;
 			}
 			set
 			{
-				this._INTERVENTIONs.Assign(value);
+				this._Interventions.Assign(value);
 			}
 		}
 		
@@ -695,16 +695,16 @@ namespace DataAccessLayer
 			}
 		}
 		
-		private void attach_INTERVENTIONs(INTERVENTION entity)
+		private void attach_Interventions(Intervention entity)
 		{
 			this.SendPropertyChanging();
-			entity.PERSONNE1 = this;
+			entity.Personne1 = this;
 		}
 		
-		private void detach_INTERVENTIONs(INTERVENTION entity)
+		private void detach_Interventions(Intervention entity)
 		{
 			this.SendPropertyChanging();
-			entity.PERSONNE1 = null;
+			entity.Personne1 = null;
 		}
 	}
 }
