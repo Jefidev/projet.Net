@@ -7,7 +7,7 @@ using System.Data.Linq;
 
 namespace BusinessLogicLayer.DTO
 {
-    class DefautDTO
+    public class DefautDTO
     {
         public int IdDefaut {get; set; }
         public Binary Photo {get; set; }

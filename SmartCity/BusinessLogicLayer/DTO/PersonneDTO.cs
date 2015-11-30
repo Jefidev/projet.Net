@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BusinessLogicLayer.DTO
 {
-    class PersonneDTO
+    public class PersonneDTO
     {
         public string Mail {get; set; }
         public string Password {get; set; }

@@ -1,1 +1,7 @@
 C:\Users\Utilisateur\Desktop\projet.Net\SmartCity\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.csprojResolveAssemblyReference.cache
+C:\Users\Utilisateur\Desktop\projet.Net\SmartCity\BusinessLogicLayer\bin\Debug\BusinessLogicLayer.dll
+C:\Users\Utilisateur\Desktop\projet.Net\SmartCity\BusinessLogicLayer\bin\Debug\BusinessLogicLayer.pdb
+C:\Users\Utilisateur\Desktop\projet.Net\SmartCity\BusinessLogicLayer\bin\Debug\DataAccessLayer.dll
+C:\Users\Utilisateur\Desktop\projet.Net\SmartCity\BusinessLogicLayer\bin\Debug\DataAccessLayer.pdb
+C:\Users\Utilisateur\Desktop\projet.Net\SmartCity\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.dll
+C:\Users\Utilisateur\Desktop\projet.Net\SmartCity\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.pdb
