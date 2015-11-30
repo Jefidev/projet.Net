@@ -123,8 +123,22 @@ namespace DataAccessLayer
         #region DELETE
             public static void DeleteDefaut(int id)
             {
-                Defaut d = InstanceDC.Defauts.Single(ud => ud.IdDefaut.Equals(id));
-                
+                Defaut d = InstanceDC.Defauts.Single(dd => dd.IdDefaut.Equals(id));
+                InstanceDC.Defauts.DeleteOnSubmit(d);
+                InstanceDC.SubmitChanges();
+            }
+
+            public static void DeleteIntervention(int id)
+            {
+                Intervention i = InstanceDC.Interventions.Single(di=> di.IdIntervention.Equals(id));
+                InstanceDC.Interventions.DeleteOnSubmit(i);
+                InstanceDC.SubmitChanges();
+            }
+
+            public static void DeletePersonne(string m)
+            {
+                Personne p = InstanceDC.Personnes.Single(dp => dp.Mail.Equals(m));
+                InstanceDC.Personnes.DeleteOnSubmit(p);
                 InstanceDC.SubmitChanges();
             }
         #endregion
