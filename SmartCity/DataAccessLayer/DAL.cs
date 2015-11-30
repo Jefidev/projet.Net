@@ -8,7 +8,7 @@ using System.Data.Linq;
 
 namespace DataAccessLayer
 {
-    public class DAL
+    public static class DAL
     {
         private static DataContextDALDataContext instanceDC = null;
 
