@@ -12,7 +12,7 @@ namespace BusinessLogicLayer
     {
         #region Gestion des défauts
 
-        public static List<DefautDTO> SelectAllPersonneDiminuee()
+        public static List<DefautDTO> SelectAllDefauts()
         {
             Console.WriteLine("BLL ==> Je passe dans SelectAllPersonneDiminuee");
             return DAL.SelectAllDefauts().Select
@@ -32,7 +32,7 @@ namespace BusinessLogicLayer
 
         #region Gestion des interventions
 
-        public static List<InterventionDTO> SelectAllPersonneDiminuee()
+        public static List<InterventionDTO> SelectAllInterventions()
         {
             Console.WriteLine("BLL ==> Je passe dans SelectAllPersonneDiminuee");
             return DAL.SelectAllInterventions().Select
@@ -45,6 +45,27 @@ namespace BusinessLogicLayer
                     DateIntervention = i.DateIntervention,
                     Defaut = i.Defaut,
                     Personne = i.Personne
+                }
+            ).ToList();
+        }
+
+        #endregion
+
+
+        #region Gestion des Personnes
+
+        public static List<PersonneDTO> SelectAllPersonnes()
+        {
+            Console.WriteLine("BLL ==> Je passe dans SelectAllPersonneDiminuee");
+            return DAL.SelectAllPersonnes().Select
+            (
+                p => new PersonneDTO
+                {
+                    Mail = p.Mail,
+                    Password = p.Password,
+                    Nom = p.Nom,
+                    Prenom = p.Prenom,
+                    Type = p.Type
                 }
             ).ToList();
         }
