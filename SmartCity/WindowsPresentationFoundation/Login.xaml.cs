@@ -12,7 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using BusinessLogicLayer.DTO;
+using WindowsCommunicationFoundation;
+
 
 namespace WindowsPresentationFoundation
 {
@@ -26,7 +27,7 @@ namespace WindowsPresentationFoundation
 
         private void ConnexionButton_Click(object sender, RoutedEventArgs e)
         {
-            PersonneDTO p = BusinessLogicLayer.BLL.SelectPersonne(LoginTB.Text);
+            /*PersonneDTO p = BusinessLogicLayer.BLL.SelectPersonne(LoginTB.Text);
 
             if (p == null || !PasswordTB.Text.Equals(p.Password))
                 ResultatLabel.Content = "Login Raté";
@@ -34,7 +35,7 @@ namespace WindowsPresentationFoundation
             {
                 ResultatLabel.Content = "Réussi";
                 // Lancer la fenêtre suivante
-            }
+            }*/
         }
     }
 }
