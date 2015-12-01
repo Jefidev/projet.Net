@@ -29,10 +29,12 @@ namespace WindowsPresentationFoundation
             PersonneDTO p = BusinessLogicLayer.BLL.SelectPersonne(LoginTB.Text);
 
             if (p == null || !PasswordTB.Text.Equals(p.Password))
-                ResultatLabel.Content = "Raté";
+                ResultatLabel.Content = "Login Raté";
             else
+            {
                 ResultatLabel.Content = "Réussi";
+                // Lancer la fenêtre suivante
+            }
         }
-
     }
 }
