@@ -9,6 +9,6 @@
         <Label x:Name="LoginLabel" Content="Login (mail) :" HorizontalAlignment="Left" Margin="70,195,0,0" VerticalAlignment="Top"/>
         <Label x:Name="PasswordLabel" Content="Mot de passe :" HorizontalAlignment="Left" Margin="70,252,0,0" VerticalAlignment="Top"/>
         <Button x:Name="ConnexionButton" Content="Connexion" HorizontalAlignment="Left" Margin="150,320,0,0" VerticalAlignment="Top" Width="75" Click="ConnexionButton_Click"/>
-        <Label x:Name="ResultatLabel" Content="Label" HorizontalAlignment="Left" Margin="90,100,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="ResultatLabel" Content="Label" HorizontalAlignment="Left" Margin="250,320,0,0" VerticalAlignment="Top" Foreground="Red" FontWeight="Bold" Visibility="Hidden"/>
     </Grid>
 </Window>
