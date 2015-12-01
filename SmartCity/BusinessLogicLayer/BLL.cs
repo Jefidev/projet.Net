@@ -74,6 +74,9 @@ namespace BusinessLogicLayer
         {
             var p = DAL.SelectPersonneByMail(m);
 
+            if (p == null)
+                return null;
+
             return new PersonneDTO
             {
                 Mail = p.Mail,

@@ -28,10 +28,10 @@ namespace WindowsPresentationFoundation
         {
             PersonneDTO p = BusinessLogicLayer.BLL.SelectPersonne(LoginTB.Text);
 
-            if (PasswordTB.Text.Equals(p.Password))
-                ResultatLabel.Content = "Réussi";
-            else
+            if (p == null || !PasswordTB.Text.Equals(p.Password))
                 ResultatLabel.Content = "Raté";
+            else
+                ResultatLabel.Content = "Réussi";
         }
 
     }
