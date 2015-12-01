@@ -70,6 +70,20 @@ namespace BusinessLogicLayer
             ).ToList();
         }
 
+        public static PersonneDTO SelectPersonne(string m)
+        {
+            var p = DAL.SelectPersonneByMail(m);
+
+            return new PersonneDTO
+            {
+                Mail = p.Mail,
+                Password = p.Password,
+                Nom = p.Nom,
+                Prenom = p.Prenom,
+                Type = p.Type
+            };
+        }
+
         #endregion
     }
 }

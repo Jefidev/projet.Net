@@ -39,6 +39,11 @@ namespace DataAccessLayer
             {
                 return InstanceDC.Personnes.ToList();
             }
+
+            public static Personne SelectPersonneByMail(string m)
+            {
+                return InstanceDC.Personnes.Where(p => p.Mail.Equals(m)).SingleOrDefault();
+            }
         #endregion
 
 
