@@ -12,10 +12,13 @@ namespace WindowsCommunicationFoundation
     public interface IServiceWCFSmartCity
     {
         [OperationContract]
-        List<PersonneWCF> GetAllPersonne();
+        string Connexion(string m, string pwd);
 
         [OperationContract]
-        PersonneWCF GetPersonne(string m);
+        List<PersonneWCF> GetAllPersonnes();
+
+        /*[OperationContract]
+        PersonneWCF GetPersonne(string m);*/
     }
 
 

@@ -14,13 +14,7 @@ namespace DataAccessLayer
 
         public static DataContextDALDataContext InstanceDC
         {
-            get
-            {
-                if (instanceDC == null)
-                    instanceDC = new DataContextDALDataContext();
-
-                return instanceDC;
-            }
+            get { return instanceDC ?? (instanceDC = new DataContextDALDataContext()); }
         }
 
 

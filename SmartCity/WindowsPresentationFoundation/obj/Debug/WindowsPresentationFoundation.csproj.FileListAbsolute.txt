@@ -15,3 +15,5 @@ C:\Users\Utilisateur\Desktop\projet.Net\SmartCity\WindowsPresentationFoundation\
 C:\Users\Utilisateur\Desktop\projet.Net\SmartCity\WindowsPresentationFoundation\bin\Debug\DataAccessLayer.dll
 C:\Users\Utilisateur\Desktop\projet.Net\SmartCity\WindowsPresentationFoundation\bin\Debug\BusinessLogicLayer.pdb
 C:\Users\Utilisateur\Desktop\projet.Net\SmartCity\WindowsPresentationFoundation\bin\Debug\DataAccessLayer.pdb
+C:\Users\Utilisateur\Desktop\projet.Net\SmartCity\WindowsPresentationFoundation\bin\Debug\WindowsCommunicationFoundation.dll
+C:\Users\Utilisateur\Desktop\projet.Net\SmartCity\WindowsPresentationFoundation\bin\Debug\WindowsCommunicationFoundation.pdb

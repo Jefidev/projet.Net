@@ -27,6 +27,8 @@ namespace WindowsPresentationFoundation
 
         private void ConnexionButton_Click(object sender, RoutedEventArgs e)
         {
+            ServiceWCFSmartCityReference.ServiceWCFSmartCityClient service = new ServiceWCFSmartCityReference.ServiceWCFSmartCityClient();
+
             /*PersonneDTO p = BusinessLogicLayer.BLL.SelectPersonne(LoginTB.Text);
 
             if (p == null || !PasswordTB.Text.Equals(p.Password))
