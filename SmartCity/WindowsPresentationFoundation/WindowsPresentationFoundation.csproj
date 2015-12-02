@@ -114,6 +114,9 @@
     <None Include="Service References\ServiceWCFSmartCityReference\ServiceWCFSmartCity2.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Service References\ServiceWCFSmartCityReference\WindowsPresentationFoundation.ServiceWCFSmartCityReference.PersonneWCF.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

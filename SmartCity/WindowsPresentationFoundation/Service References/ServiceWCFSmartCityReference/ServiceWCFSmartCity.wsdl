@@ -13,35 +13,16 @@
   <wsdl:message name="IServiceWCFSmartCity_Connexion_OutputMessage">
     <wsdl:part name="parameters" element="tns:ConnexionResponse" />
   </wsdl:message>
-  <wsdl:message name="IServiceWCFSmartCity_GetAllPersonnes_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetAllPersonnes" />
-  </wsdl:message>
-  <wsdl:message name="IServiceWCFSmartCity_GetAllPersonnes_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetAllPersonnesResponse" />
-  </wsdl:message>
   <wsdl:portType name="IServiceWCFSmartCity">
     <wsdl:operation name="Connexion">
       <wsdl:input wsaw:Action="http://tempuri.org/IServiceWCFSmartCity/Connexion" message="tns:IServiceWCFSmartCity_Connexion_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServiceWCFSmartCity/ConnexionResponse" message="tns:IServiceWCFSmartCity_Connexion_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GetAllPersonnes">
-      <wsdl:input wsaw:Action="http://tempuri.org/IServiceWCFSmartCity/GetAllPersonnes" message="tns:IServiceWCFSmartCity_GetAllPersonnes_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IServiceWCFSmartCity/GetAllPersonnesResponse" message="tns:IServiceWCFSmartCity_GetAllPersonnes_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IServiceWCFSmartCity" type="tns:IServiceWCFSmartCity">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="Connexion">
       <soap:operation soapAction="http://tempuri.org/IServiceWCFSmartCity/Connexion" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetAllPersonnes">
-      <soap:operation soapAction="http://tempuri.org/IServiceWCFSmartCity/GetAllPersonnes" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

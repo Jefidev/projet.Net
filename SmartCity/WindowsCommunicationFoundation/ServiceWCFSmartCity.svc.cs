@@ -17,7 +17,7 @@ namespace WindowsCommunicationFoundation
         {            
             PersonneDTO p = BLL.Connexion(m, pwd);
 
-            if (p == null || !pwd.Equals(p.Password))
+            if (p == null)
                 return null;
             else
             {

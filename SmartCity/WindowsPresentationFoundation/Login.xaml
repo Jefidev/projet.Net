@@ -1,7 +1,7 @@
 ﻿<Window x:Class="WindowsPresentationFoundation.Login"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MainWindow" Height="700" Width="1000">
+        Title="Connexion" Height="700" Width="1000">
     <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
         <Label x:Name="TitreLabel" Content="Bienvenue sur Admin@SmartCity" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="24" RenderTransformOrigin="-0.114,0.515" FontWeight="Bold" Foreground="#FF75D141"/>
         <TextBox x:Name="LoginTB" HorizontalAlignment="Left" Height="23" Margin="170,198,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>

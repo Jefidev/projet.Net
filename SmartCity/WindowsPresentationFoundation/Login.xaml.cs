@@ -27,15 +27,22 @@ namespace WindowsPresentationFoundation
         private void ConnexionButton_Click(object sender, RoutedEventArgs e)
         {
             ServiceWCFSmartCityReference.ServiceWCFSmartCityClient service = new ServiceWCFSmartCityReference.ServiceWCFSmartCityClient();
+            ServiceWCFSmartCityReference.PersonneWCF p = service.Connexion(LoginTB.Text, PasswordTB.Text);
 
-            PasswordTB.Text = "";
-
-            if (service.Connexion(LoginTB.Text, PasswordTB.Text))
-                ResultatLabel.Content = "Connexion réussie !";
-            else
+            if (p == null)
                 ResultatLabel.Content = "Connexion ratée !";
+            else if (p.Type.Equals("CHEF"))
+            {
+                MenuChef menuchef = new MenuChef();
+                App.Current.MainWindow = menuchef;
+                this.Close();
+                menuchef.Show();
+            }
+            else if (p.Type.Equals("OUVRIER"))
+                ResultatLabel.Content = "OUVRIER";
 
             ResultatLabel.Visibility = Visibility.Visible;
+            PasswordTB.Text = "";
         }
     }
 }

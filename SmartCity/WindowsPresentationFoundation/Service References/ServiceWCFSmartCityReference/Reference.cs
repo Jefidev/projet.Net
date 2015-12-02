@@ -9,23 +9,128 @@
 //------------------------------------------------------------------------------
 
 namespace WindowsPresentationFoundation.ServiceWCFSmartCityReference {
+    using System.Runtime.Serialization;
+    using System;
     
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="PersonneWCF", Namespace="http://schemas.datacontract.org/2004/07/WindowsCommunicationFoundation")]
+    [System.SerializableAttribute()]
+    public partial class PersonneWCF : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string MailField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NomField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PasswordField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PrenomField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TypeField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Mail {
+            get {
+                return this.MailField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MailField, value) != true)) {
+                    this.MailField = value;
+                    this.RaisePropertyChanged("Mail");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Nom {
+            get {
+                return this.NomField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NomField, value) != true)) {
+                    this.NomField = value;
+                    this.RaisePropertyChanged("Nom");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Password {
+            get {
+                return this.PasswordField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PasswordField, value) != true)) {
+                    this.PasswordField = value;
+                    this.RaisePropertyChanged("Password");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Prenom {
+            get {
+                return this.PrenomField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PrenomField, value) != true)) {
+                    this.PrenomField = value;
+                    this.RaisePropertyChanged("Prenom");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Type {
+            get {
+                return this.TypeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TypeField, value) != true)) {
+                    this.TypeField = value;
+                    this.RaisePropertyChanged("Type");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceWCFSmartCityReference.IServiceWCFSmartCity")]
     public interface IServiceWCFSmartCity {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceWCFSmartCity/Connexion", ReplyAction="http://tempuri.org/IServiceWCFSmartCity/ConnexionResponse")]
-        bool Connexion(string m, string pwd);
+        WindowsPresentationFoundation.ServiceWCFSmartCityReference.PersonneWCF Connexion(string m, string pwd);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceWCFSmartCity/Connexion", ReplyAction="http://tempuri.org/IServiceWCFSmartCity/ConnexionResponse")]
-        System.Threading.Tasks.Task<bool> ConnexionAsync(string m, string pwd);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceWCFSmartCity/GetAllPersonnes", ReplyAction="http://tempuri.org/IServiceWCFSmartCity/GetAllPersonnesResponse")]
-        WindowsCommunicationFoundation.PersonneWCF[] GetAllPersonnes();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceWCFSmartCity/GetAllPersonnes", ReplyAction="http://tempuri.org/IServiceWCFSmartCity/GetAllPersonnesResponse")]
-        System.Threading.Tasks.Task<WindowsCommunicationFoundation.PersonneWCF[]> GetAllPersonnesAsync();
+        System.Threading.Tasks.Task<WindowsPresentationFoundation.ServiceWCFSmartCityReference.PersonneWCF> ConnexionAsync(string m, string pwd);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -55,20 +160,12 @@ namespace WindowsPresentationFoundation.ServiceWCFSmartCityReference {
                 base(binding, remoteAddress) {
         }
         
-        public bool Connexion(string m, string pwd) {
+        public WindowsPresentationFoundation.ServiceWCFSmartCityReference.PersonneWCF Connexion(string m, string pwd) {
             return base.Channel.Connexion(m, pwd);
         }
         
-        public System.Threading.Tasks.Task<bool> ConnexionAsync(string m, string pwd) {
+        public System.Threading.Tasks.Task<WindowsPresentationFoundation.ServiceWCFSmartCityReference.PersonneWCF> ConnexionAsync(string m, string pwd) {
             return base.Channel.ConnexionAsync(m, pwd);
-        }
-        
-        public WindowsCommunicationFoundation.PersonneWCF[] GetAllPersonnes() {
-            return base.Channel.GetAllPersonnes();
-        }
-        
-        public System.Threading.Tasks.Task<WindowsCommunicationFoundation.PersonneWCF[]> GetAllPersonnesAsync() {
-            return base.Channel.GetAllPersonnesAsync();
         }
     }
 }
