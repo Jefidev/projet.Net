@@ -16,10 +16,10 @@ namespace WindowsPresentationFoundation.ServiceWCFSmartCityReference {
     public interface IServiceWCFSmartCity {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceWCFSmartCity/Connexion", ReplyAction="http://tempuri.org/IServiceWCFSmartCity/ConnexionResponse")]
-        string Connexion(string m, string pwd);
+        bool Connexion(string m, string pwd);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceWCFSmartCity/Connexion", ReplyAction="http://tempuri.org/IServiceWCFSmartCity/ConnexionResponse")]
-        System.Threading.Tasks.Task<string> ConnexionAsync(string m, string pwd);
+        System.Threading.Tasks.Task<bool> ConnexionAsync(string m, string pwd);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceWCFSmartCity/GetAllPersonnes", ReplyAction="http://tempuri.org/IServiceWCFSmartCity/GetAllPersonnesResponse")]
         WindowsCommunicationFoundation.PersonneWCF[] GetAllPersonnes();
@@ -55,11 +55,11 @@ namespace WindowsPresentationFoundation.ServiceWCFSmartCityReference {
                 base(binding, remoteAddress) {
         }
         
-        public string Connexion(string m, string pwd) {
+        public bool Connexion(string m, string pwd) {
             return base.Channel.Connexion(m, pwd);
         }
         
-        public System.Threading.Tasks.Task<string> ConnexionAsync(string m, string pwd) {
+        public System.Threading.Tasks.Task<bool> ConnexionAsync(string m, string pwd) {
             return base.Channel.ConnexionAsync(m, pwd);
         }
         

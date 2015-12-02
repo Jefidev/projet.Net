@@ -12,20 +12,9 @@ namespace WindowsCommunicationFoundation
 {
     public class ServiceWCFSmartCity : IServiceWCFSmartCity
     {
-        public string Connexion(string m, string pwd)
+        public bool Connexion(string m, string pwd)
         {
-            foreach(PersonneWCF p in GetAllPersonnes())
-            {
-                if (p.Mail == m)
-                {
-                    if (p.Password == pwd)
-                        return p.Mail;
-                    else
-                        return null;
-                }
-            }
-
-            return null;
+            return BLL.Connexion(m, pwd);
         }
 
 
@@ -33,7 +22,6 @@ namespace WindowsCommunicationFoundation
 
         public List<PersonneWCF> GetAllPersonnes()
         {
-            Console.WriteLine("Service ==> Je passe dans GetAllPersonnes");
             return BLL.SelectAllPersonnes().Select
             (
                 p => new PersonneWCF
@@ -46,6 +34,21 @@ namespace WindowsCommunicationFoundation
                 }
             ).ToList();
         }
+
+        /*public PersonneWCF GetPersonneByMail(string m)
+        {
+            return BLL.SelectPersonneByMail(m).Select
+            (
+                p => new PersonneWCF
+                {
+                    Mail = p.Mail,
+                    Password = p.Password,
+                    Nom = p.Nom,
+                    Prenom = p.Prenom,
+                    Type = p.Type
+                }
+            ).ToList();
+        }*/
 
         #endregion
     }

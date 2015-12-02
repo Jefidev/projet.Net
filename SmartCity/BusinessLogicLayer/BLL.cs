@@ -11,11 +11,21 @@ namespace BusinessLogicLayer
 {
     public static class BLL
     {
+        public static bool Connexion(string m, string pwd)
+        {
+            Personne p = DAL.SelectPersonneByMail(m);
+
+            if (p == null || !pwd.Equals(p.Password))
+                return false;
+            else
+                return true;
+        }
+
+
         #region Gestion des défauts
 
         public static List<DefautDTO> SelectAllDefauts()
         {
-            Console.WriteLine("BLL ==> Je passe dans SelectAllPersonneDiminuee");
             return DAL.SelectAllDefauts().Select
             (
                 d => new DefautDTO
@@ -35,7 +45,6 @@ namespace BusinessLogicLayer
 
         public static List<InterventionDTO> SelectAllInterventions()
         {
-            Console.WriteLine("BLL ==> Je passe dans SelectAllPersonneDiminuee");
             return DAL.SelectAllInterventions().Select
             (
                 i => new InterventionDTO
@@ -57,7 +66,6 @@ namespace BusinessLogicLayer
 
         public static List<PersonneDTO> SelectAllPersonnes()
         {
-            Console.WriteLine("BLL ==> Je passe dans SelectAllPersonneDiminuee");
             return DAL.SelectAllPersonnes().Select
             (
                 p => new PersonneDTO
@@ -71,7 +79,7 @@ namespace BusinessLogicLayer
             ).ToList();
         }
 
-        public static PersonneDTO SelectPersonne(string m)
+        public static PersonneDTO SelectPersonneByMail(string m)
         {
             var p = DAL.SelectPersonneByMail(m);
 

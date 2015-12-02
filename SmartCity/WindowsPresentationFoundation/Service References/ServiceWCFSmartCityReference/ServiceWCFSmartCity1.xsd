@@ -12,7 +12,7 @@
   <xs:element name="ConnexionResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="ConnexionResult" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ConnexionResult" type="xs:boolean" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

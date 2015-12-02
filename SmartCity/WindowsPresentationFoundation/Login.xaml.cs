@@ -29,15 +29,14 @@ namespace WindowsPresentationFoundation
         {
             ServiceWCFSmartCityReference.ServiceWCFSmartCityClient service = new ServiceWCFSmartCityReference.ServiceWCFSmartCityClient();
 
-            /*PersonneDTO p = BusinessLogicLayer.BLL.SelectPersonne(LoginTB.Text);
+            PasswordTB.Text = "";
 
-            if (p == null || !PasswordTB.Text.Equals(p.Password))
-                ResultatLabel.Content = "Login Raté";
+            if (service.Connexion(LoginTB.Text, PasswordTB.Text))
+                ResultatLabel.Content = "Connexion réussie !";
             else
-            {
-                ResultatLabel.Content = "Réussi";
-                // Lancer la fenêtre suivante
-            }*/
+                ResultatLabel.Content = "Connexion ratée !";
+
+            ResultatLabel.Visibility = Visibility.Visible;
         }
     }
 }
