@@ -20,7 +20,7 @@ namespace WindowsCommunicationFoundation
 
         #region Gestion des personnes
 
-        public List<PersonneWCF> GetAllPersonnes()
+        /*public List<PersonneWCF> GetAllPersonnes()
         {
             return BLL.SelectAllPersonnes().Select
             (
@@ -35,7 +35,7 @@ namespace WindowsCommunicationFoundation
             ).ToList();
         }
 
-        /*public PersonneWCF GetPersonneByMail(string m)
+        public PersonneWCF GetPersonneByMail(string m)
         {
             return BLL.SelectPersonneByMail(m).Select
             (

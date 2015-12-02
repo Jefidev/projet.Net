@@ -14,10 +14,10 @@ namespace WindowsCommunicationFoundation
         [OperationContract]
         bool Connexion(string m, string pwd);
 
-        [OperationContract]
+        /*[OperationContract]
         List<PersonneWCF> GetAllPersonnes();
 
-        /*[OperationContract]
+        [OperationContract]
         PersonneWCF GetPersonneByMail(string m);*/
     }
 
