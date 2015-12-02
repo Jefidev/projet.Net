@@ -11,14 +11,23 @@ namespace BusinessLogicLayer
 {
     public static class BLL
     {
-        public static bool Connexion(string m, string pwd)
+        public static PersonneDTO Connexion(string m, string pwd)
         {
             Personne p = DAL.SelectPersonneByMail(m);
 
             if (p == null || !pwd.Equals(p.Password))
-                return false;
+                return null;
             else
-                return true;
+            {
+                return new PersonneDTO
+                {
+                    Mail = p.Mail,
+                    Password = p.Password,
+                    Nom = p.Nom,
+                    Prenom = p.Prenom,
+                    Type = p.Type
+                };
+            }
         }
 
 

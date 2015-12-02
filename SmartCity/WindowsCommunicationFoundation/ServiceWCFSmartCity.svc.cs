@@ -6,15 +6,30 @@ using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
 using BusinessLogicLayer;
+using BusinessLogicLayer.DTO;
 
 
 namespace WindowsCommunicationFoundation
 {
     public class ServiceWCFSmartCity : IServiceWCFSmartCity
     {
-        public bool Connexion(string m, string pwd)
-        {
-            return BLL.Connexion(m, pwd);
+        public PersonneWCF Connexion(string m, string pwd)
+        {            
+            PersonneDTO p = BLL.Connexion(m, pwd);
+
+            if (p == null || !pwd.Equals(p.Password))
+                return null;
+            else
+            {
+                return new PersonneWCF
+                {
+                    Mail = p.Mail,
+                    Password = p.Password,
+                    Nom = p.Nom,
+                    Prenom = p.Prenom,
+                    Type = p.Type
+                };
+            }
         }
 
 
