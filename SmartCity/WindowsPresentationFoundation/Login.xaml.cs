@@ -25,14 +25,14 @@ namespace WindowsPresentationFoundation
 
         private void ConnexionButton_Click(object sender, RoutedEventArgs e)
         {
-            ServiceWCFSmartCityReference.ServiceWCFSmartCityClient service = new ServiceWCFSmartCityReference.ServiceWCFSmartCityClient();
-            ServiceWCFSmartCityReference.PersonneWCF p = service.Connexion(LoginTB.Text, PasswordTB.Text);
+            SmartCityReference.ServiceWCFSmartCityClient service = new SmartCityReference.ServiceWCFSmartCityClient();
+            SmartCityReference.PersonneWCF p = service.Connexion(LoginTB.Text, PasswordTB.Text);
 
             if (p == null)
                 ResultatLabel.Content = "Connexion ratée !";
             else if (p.Type.Equals("CHEF"))
             {
-                MenuChef menuchef = new MenuChef(LoginTB.Text);
+                MenuChef menuchef = new MenuChef(service, LoginTB.Text);
                 App.Current.MainWindow = menuchef;
                 this.Close();
                 menuchef.Show();

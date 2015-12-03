@@ -5,8 +5,8 @@
     <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Width="1300" Height="750">
         <Label x:Name="TitreLabel" Content="Admin@SmartCity : Chef" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="24"  Margin="0,15,0,0" FontWeight="Bold" Foreground="#FF75D141"/>
         <Label x:Name="FiltreLabel" Content="Filtre (état) :" HorizontalAlignment="Left" Margin="70,100,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name="FiltreCB" HorizontalAlignment="Left" Margin="45,130,0,0" VerticalAlignment="Top" Width="120"/>
-        <ListView x:Name="DefautsLV" HorizontalAlignment="Right" Height="200" Margin="0,75,0,0" VerticalAlignment="Top" Width="1000">
+        <ComboBox x:Name="FiltreCB" HorizontalAlignment="Left" Margin="45,130,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="FiltreCB_SelectionChanged"/>
+        <ListView x:Name="DefautsLV" HorizontalAlignment="Right" Height="200" Margin="0,62,50,0" VerticalAlignment="Top" Width="1000" SelectionChanged="DefautsLV_SelectionChanged">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Photo" Width="100">

@@ -5,6 +5,7 @@
       <xsd:import schemaLocation="http://localhost:53221/ServiceWCFSmartCity.svc?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://localhost:53221/ServiceWCFSmartCity.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import schemaLocation="http://localhost:53221/ServiceWCFSmartCity.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/WindowsCommunicationFoundation" />
+      <xsd:import schemaLocation="http://localhost:53221/ServiceWCFSmartCity.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/System.Data.Linq" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IServiceWCFSmartCity_Connexion_InputMessage">
@@ -13,16 +14,54 @@
   <wsdl:message name="IServiceWCFSmartCity_Connexion_OutputMessage">
     <wsdl:part name="parameters" element="tns:ConnexionResponse" />
   </wsdl:message>
+  <wsdl:message name="IServiceWCFSmartCity_GetAllDefauts_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllDefauts" />
+  </wsdl:message>
+  <wsdl:message name="IServiceWCFSmartCity_GetAllDefauts_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllDefautsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceWCFSmartCity_GetAllInterventionsOrderByDate_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllInterventionsOrderByDate" />
+  </wsdl:message>
+  <wsdl:message name="IServiceWCFSmartCity_GetAllInterventionsOrderByDate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllInterventionsOrderByDateResponse" />
+  </wsdl:message>
   <wsdl:portType name="IServiceWCFSmartCity">
     <wsdl:operation name="Connexion">
       <wsdl:input wsaw:Action="http://tempuri.org/IServiceWCFSmartCity/Connexion" message="tns:IServiceWCFSmartCity_Connexion_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServiceWCFSmartCity/ConnexionResponse" message="tns:IServiceWCFSmartCity_Connexion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllDefauts">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceWCFSmartCity/GetAllDefauts" message="tns:IServiceWCFSmartCity_GetAllDefauts_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceWCFSmartCity/GetAllDefautsResponse" message="tns:IServiceWCFSmartCity_GetAllDefauts_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllInterventionsOrderByDate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceWCFSmartCity/GetAllInterventionsOrderByDate" message="tns:IServiceWCFSmartCity_GetAllInterventionsOrderByDate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceWCFSmartCity/GetAllInterventionsOrderByDateResponse" message="tns:IServiceWCFSmartCity_GetAllInterventionsOrderByDate_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IServiceWCFSmartCity" type="tns:IServiceWCFSmartCity">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="Connexion">
       <soap:operation soapAction="http://tempuri.org/IServiceWCFSmartCity/Connexion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllDefauts">
+      <soap:operation soapAction="http://tempuri.org/IServiceWCFSmartCity/GetAllDefauts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllInterventionsOrderByDate">
+      <soap:operation soapAction="http://tempuri.org/IServiceWCFSmartCity/GetAllInterventionsOrderByDate" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

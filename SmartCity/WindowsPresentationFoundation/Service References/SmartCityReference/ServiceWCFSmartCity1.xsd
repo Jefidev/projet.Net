@@ -16,4 +16,28 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetAllDefauts">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllDefautsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/WindowsCommunicationFoundation" minOccurs="0" name="GetAllDefautsResult" nillable="true" type="q2:ArrayOfDefautWCF" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllInterventionsOrderByDate">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllInterventionsOrderByDateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/WindowsCommunicationFoundation" minOccurs="0" name="GetAllInterventionsOrderByDateResult" nillable="true" type="q3:ArrayOfInterventionWCF" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

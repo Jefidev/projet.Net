@@ -58,7 +58,7 @@
     <Compile Include="MenuChef.xaml.cs">
       <DependentUpon>MenuChef.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Service References\ServiceWCFSmartCityReference\Reference.cs">
+    <Compile Include="Service References\SmartCityReference\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -104,17 +104,26 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
-    <None Include="Service References\ServiceWCFSmartCityReference\ServiceWCFSmartCity.wsdl" />
-    <None Include="Service References\ServiceWCFSmartCityReference\ServiceWCFSmartCity.xsd">
+    <None Include="Service References\SmartCityReference\ServiceWCFSmartCity.wsdl" />
+    <None Include="Service References\SmartCityReference\ServiceWCFSmartCity.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ServiceWCFSmartCityReference\ServiceWCFSmartCity1.xsd">
+    <None Include="Service References\SmartCityReference\ServiceWCFSmartCity1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ServiceWCFSmartCityReference\ServiceWCFSmartCity2.xsd">
+    <None Include="Service References\SmartCityReference\ServiceWCFSmartCity2.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ServiceWCFSmartCityReference\WindowsPresentationFoundation.ServiceWCFSmartCityReference.PersonneWCF.datasource">
+    <None Include="Service References\SmartCityReference\ServiceWCFSmartCity3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SmartCityReference\WindowsPresentationFoundation.SmartCityReference.DefautWCF.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SmartCityReference\WindowsPresentationFoundation.SmartCityReference.InterventionWCF.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SmartCityReference\WindowsPresentationFoundation.SmartCityReference.PersonneWCF.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
   </ItemGroup>
@@ -125,19 +134,19 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Service References\ServiceWCFSmartCityReference\" />
+    <WCFMetadataStorage Include="Service References\SmartCityReference\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\ServiceWCFSmartCityReference\ServiceWCFSmartCity.disco" />
+    <None Include="Service References\SmartCityReference\ServiceWCFSmartCity.disco" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\ServiceWCFSmartCityReference\configuration91.svcinfo" />
+    <None Include="Service References\SmartCityReference\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\ServiceWCFSmartCityReference\configuration.svcinfo" />
+    <None Include="Service References\SmartCityReference\configuration.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\ServiceWCFSmartCityReference\Reference.svcmap">
+    <None Include="Service References\SmartCityReference\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

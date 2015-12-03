@@ -24,9 +24,10 @@
   <Metadata>
     <MetadataFile FileName="ServiceWCFSmartCity.wsdl" MetadataType="Wsdl" ID="174f5bfa-5ce2-4933-89f8-3e4d22ae543f" SourceId="1" SourceUrl="http://localhost:53221/ServiceWCFSmartCity.svc?wsdl" />
     <MetadataFile FileName="ServiceWCFSmartCity.xsd" MetadataType="Schema" ID="c338ccc5-8a8e-43dc-8f95-28c76a0507bb" SourceId="1" SourceUrl="http://localhost:53221/ServiceWCFSmartCity.svc?xsd=xsd2" />
+    <MetadataFile FileName="ServiceWCFSmartCity3.xsd" MetadataType="Schema" ID="98c999ba-cc01-40f9-a8c0-1f8304d74131" SourceId="1" SourceUrl="http://localhost:53221/ServiceWCFSmartCity.svc?xsd=xsd3" />
     <MetadataFile FileName="ServiceWCFSmartCity1.xsd" MetadataType="Schema" ID="d45c69d0-3ac7-4279-8614-3e1c66cac185" SourceId="1" SourceUrl="http://localhost:53221/ServiceWCFSmartCity.svc?xsd=xsd0" />
-    <MetadataFile FileName="ServiceWCFSmartCity.disco" MetadataType="Disco" ID="c3b32d82-9ca8-46d9-a5f4-aea2b48878ad" SourceId="1" SourceUrl="http://localhost:53221/ServiceWCFSmartCity.svc?disco" />
     <MetadataFile FileName="ServiceWCFSmartCity2.xsd" MetadataType="Schema" ID="d5a80cf6-8245-4d8c-85d9-95c4899e060c" SourceId="1" SourceUrl="http://localhost:53221/ServiceWCFSmartCity.svc?xsd=xsd1" />
+    <MetadataFile FileName="ServiceWCFSmartCity.disco" MetadataType="Disco" ID="c3b32d82-9ca8-46d9-a5f4-aea2b48878ad" SourceId="1" SourceUrl="http://localhost:53221/ServiceWCFSmartCity.svc?disco" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

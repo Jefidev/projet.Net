@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,19 +18,23 @@ namespace WindowsPresentationFoundation
 {
     public partial class MenuChef : Window
     {
-        private string CurUser;
+        private SmartCityReference.ServiceWCFSmartCityClient service;
+        private string user;
         private string filtre;
+        private SmartCityReference.DefautWCF def;
+        //public ObservableCollection<SmartCityReference.DefautWCF> ocDef;
 
-        public MenuChef(string m)
+
+        public MenuChef(SmartCityReference.ServiceWCFSmartCityClient s, string m)
         {
             this.WindowState = WindowState.Maximized;
             InitializeComponent();
 
-            CurUser = m;
-
+            service = s;
+            user = m;
+            def = null;
 
             // Initialisation filtre
-
             FiltreCB.Items.Add("TOUS");
             FiltreCB.Items.Add("OUVERT");
             FiltreCB.Items.Add("EN TRAITEMENT");
@@ -39,11 +44,9 @@ namespace WindowsPresentationFoundation
             filtre = "TOUS";
 
             // Initialisation DefautsLV
-
-
+            RefreshDefautsLV();
 
             // Initialisation des détails d'un défaut
-            
             DefautLabel.Visibility = Visibility.Hidden;
             PositionLabel.Visibility = Visibility.Hidden;
             PositionReponseLabel.Visibility = Visibility.Hidden;
@@ -57,11 +60,45 @@ namespace WindowsPresentationFoundation
         private void FiltreCB_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             ComboBoxItem typeItem = (ComboBoxItem)FiltreCB.SelectedItem;
-            filtre = typeItem.Content.ToString();
+            string tmp = typeItem.Content.ToString();
+
+            if (!filtre.Equals(tmp))
+            {
+                filtre = tmp;
+                RefreshDefautsLV();
+            }
         }
 
-        
 
-        // Quand changement de défaut
+        // Rafaichir la DefautsLV selon le nouveau filtre
+        private void RefreshDefautsLV()
+        {
+            // DB => Défaut + dernière intervention de ce défaut
+
+            // Remplir DefautsLV
+
+            /*foreach (var v in List)
+            {
+
+                Test t = new Test
+                {
+                    Image = LoadImage(f.FileName),
+                    Description = "description",
+                    Commentaire = "Commentaire",
+                    DernierStatut = "dernier",
+                    yolo = "oijsdgjh"
+                };
+             
+                DefautsLV.Items.Add();
+            }*/
+        }
+
+
+        // Pour afficher les détails quand changement de défaut
+        private void DefautsLV_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            // DB => Défaut + toutes les interventions de ce défaut (ORDER BY DEFAUT, DATE !!)
+            // Remplir labels + InterventionsLV + photo
+        }        
     }
 }
