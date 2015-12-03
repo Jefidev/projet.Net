@@ -73,25 +73,27 @@ namespace WindowsPresentationFoundation
         // Rafaichir la DefautsLV selon le nouveau filtre
         private void RefreshDefautsLV()
         {
-            List<SmartCityReference.DefautWCF> listDef = service.GetAllDefauts();
+            List<SmartCityReference.DefautWCF> listDef = service.GetAllDefauts().ToList();
 
-            // DB => Défaut + dernière intervention de ce défaut
-
-            // Remplir DefautsLV
+            if(listDef == null)
+                return;
 
             foreach (var d in listDef)
             {
+                SmartCityReference.InterventionWCF i = service.GetInterventionByDefaut(d.IdDefaut);
 
-                /*Test t = new Test
+                if (filtre.Equals("TOUS") || filtre.Equals(i.Etat))
                 {
-                    Image = LoadImage(f.FileName),
-                    Description = "description",
-                    Commentaire = "Commentaire",
-                    DernierStatut = "dernier",
-                    yolo = "oijsdgjh"
-                };*/
-             
-                //DefautsLV.Items.Add();
+                    var tmp = new
+                    {
+                        //Photo = LoadImage(f.FileName),
+                        Etat = i.Etat,
+                        Description = d.Description,
+                        Commentaire = i.Commentaire
+                    };
+
+                    DefautsLV.Items.Add(tmp);
+                }
             }
         }
 
