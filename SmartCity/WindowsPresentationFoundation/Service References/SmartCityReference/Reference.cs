@@ -406,6 +406,12 @@ namespace WindowsPresentationFoundation.SmartCityReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceWCFSmartCity/GetAllInterventionsOrderByDate", ReplyAction="http://tempuri.org/IServiceWCFSmartCity/GetAllInterventionsOrderByDateResponse")]
         System.Threading.Tasks.Task<WindowsPresentationFoundation.SmartCityReference.InterventionWCF[]> GetAllInterventionsOrderByDateAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceWCFSmartCity/GetInterventionByDefaut", ReplyAction="http://tempuri.org/IServiceWCFSmartCity/GetInterventionByDefautResponse")]
+        WindowsPresentationFoundation.SmartCityReference.InterventionWCF GetInterventionByDefaut(int d);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceWCFSmartCity/GetInterventionByDefaut", ReplyAction="http://tempuri.org/IServiceWCFSmartCity/GetInterventionByDefautResponse")]
+        System.Threading.Tasks.Task<WindowsPresentationFoundation.SmartCityReference.InterventionWCF> GetInterventionByDefautAsync(int d);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -457,6 +463,14 @@ namespace WindowsPresentationFoundation.SmartCityReference {
         
         public System.Threading.Tasks.Task<WindowsPresentationFoundation.SmartCityReference.InterventionWCF[]> GetAllInterventionsOrderByDateAsync() {
             return base.Channel.GetAllInterventionsOrderByDateAsync();
+        }
+        
+        public WindowsPresentationFoundation.SmartCityReference.InterventionWCF GetInterventionByDefaut(int d) {
+            return base.Channel.GetInterventionByDefaut(d);
+        }
+        
+        public System.Threading.Tasks.Task<WindowsPresentationFoundation.SmartCityReference.InterventionWCF> GetInterventionByDefautAsync(int d) {
+            return base.Channel.GetInterventionByDefautAsync(d);
         }
     }
 }

@@ -24,6 +24,9 @@ namespace WindowsCommunicationFoundation
         [OperationContract]
         List<InterventionWCF> GetAllInterventionsOrderByDate();
 
+        [OperationContract]
+        InterventionWCF GetInterventionByDefaut(int d);
+
         /*[OperationContract]
         List<PersonneWCF> GetAllPersonnes();
 

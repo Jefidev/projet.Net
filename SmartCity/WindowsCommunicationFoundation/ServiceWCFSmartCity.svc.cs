@@ -38,7 +38,26 @@ namespace WindowsCommunicationFoundation
 
         public List<DefautWCF> GetAllDefauts()
         {
-            return null;
+            List<DefautDTO> listBLL = BLL.SelectAllDefauts();
+
+            if (listBLL == null)
+                return null;
+            else
+            {
+                List<DefautWCF> listWCF = new List<DefautWCF>();
+
+                foreach (DefautDTO d in listBLL)
+                {
+                    DefautWCF dWCF = new DefautWCF();
+                    dWCF.IdDefaut = d.IdDefaut;
+                    dWCF.Photo = d.Photo;
+                    dWCF.Description = d.Description;
+                    dWCF.Position = d.Position;
+                    listWCF.Add(dWCF);
+                }
+
+                return listWCF;
+            }
         }
 
         #endregion
@@ -60,15 +79,35 @@ namespace WindowsCommunicationFoundation
                 {
                     InterventionWCF iWCF = new InterventionWCF();
                     iWCF.IdIntervention = i.IdIntervention;
+                    iWCF.Etat = i.Etat;
                     iWCF.Commentaire = i.Commentaire;
                     iWCF.DateIntervention = i.DateIntervention;
                     iWCF.Defaut = i.Defaut;
-                    iWCF.Etat = i.Etat;
                     iWCF.Personne = i.Personne;
                     listWCF.Add(iWCF);
                 }
 
                 return listWCF;
+            }
+        }
+
+        public InterventionWCF GetInterventionByDefaut(int d)
+        {
+            InterventionDTO i = BLL.SelectInterventionByDefaut(d);
+
+            if (i == null)
+                return null;
+            else
+            {
+                return new InterventionWCF
+                {
+                    IdIntervention = i.IdIntervention,
+                    Etat = i.Etat,
+                    Commentaire = i.Commentaire,
+                    DateIntervention = i.DateIntervention,
+                    Defaut = i.Defaut,
+                    Personne = i.Personne
+                };
             }
         }
 

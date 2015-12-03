@@ -21,7 +21,7 @@ namespace WindowsPresentationFoundation
         private SmartCityReference.ServiceWCFSmartCityClient service;
         private string user;
         private string filtre;
-        private SmartCityReference.DefautWCF def;
+        //private SmartCityReference.DefautWCF def;
         //public ObservableCollection<SmartCityReference.DefautWCF> ocDef;
 
 
@@ -32,7 +32,7 @@ namespace WindowsPresentationFoundation
 
             service = s;
             user = m;
-            def = null;
+            //def = null;
 
             // Initialisation filtre
             FiltreCB.Items.Add("TOUS");
@@ -73,24 +73,26 @@ namespace WindowsPresentationFoundation
         // Rafaichir la DefautsLV selon le nouveau filtre
         private void RefreshDefautsLV()
         {
+            List<SmartCityReference.DefautWCF> listDef = service.GetAllDefauts();
+
             // DB => Défaut + dernière intervention de ce défaut
 
             // Remplir DefautsLV
 
-            /*foreach (var v in List)
+            foreach (var d in listDef)
             {
 
-                Test t = new Test
+                /*Test t = new Test
                 {
                     Image = LoadImage(f.FileName),
                     Description = "description",
                     Commentaire = "Commentaire",
                     DernierStatut = "dernier",
                     yolo = "oijsdgjh"
-                };
+                };*/
              
-                DefautsLV.Items.Add();
-            }*/
+                //DefautsLV.Items.Add();
+            }
         }
 
 

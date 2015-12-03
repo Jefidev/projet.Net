@@ -33,6 +33,18 @@ namespace DataAccessLayer
                 return InstanceDC.Interventions.OrderByDescending(i => i.DateIntervention).ToList();
             }
 
+            public static Intervention SelectInterventionByDefaut(int d)
+            {
+                List<Intervention> list = InstanceDC.Interventions.Where(i => i.Defaut == d).ToList();
+                Intervention max = new Intervention();
+                for (int cpt = 0; cpt < list.Count; cpt++)
+                {
+                    if (DateTime.Compare(max.DateIntervention, list[cpt].DateIntervention) <= 0)
+                        max = list[cpt];
+                }
+                return InstanceDC.Interventions.Where(i => i.IdIntervention == max.IdIntervention && i.Defaut == d).SingleOrDefault();
+            }
+
             public static List<Personne> SelectAllPersonnes()
             {
                 return InstanceDC.Personnes.ToList();

@@ -32,7 +32,7 @@ namespace BusinessLogicLayer
 
         #region Gestion des défauts
 
-        /*public static List<DefautDTO> SelectAllDefauts()
+        public static List<DefautDTO> SelectAllDefauts()
         {
             return DAL.SelectAllDefauts().Select
             (
@@ -44,7 +44,7 @@ namespace BusinessLogicLayer
                     Position = d.Position
                 }
             ).ToList();
-        }*/
+        }
 
         #endregion
 
@@ -90,6 +90,26 @@ namespace BusinessLogicLayer
                 }
 
                 return listBLL;
+            }
+        }
+
+        public static InterventionDTO SelectInterventionByDefaut(int d)
+        {
+            Intervention i = DAL.SelectInterventionByDefaut(d);
+
+            if (i == null)
+                return null;
+            else
+            {
+                return new InterventionDTO
+                {
+                    IdIntervention = i.IdIntervention,
+                    Etat = i.Etat,
+                    Commentaire = i.Commentaire,
+                    DateIntervention = i.DateIntervention,
+                    Defaut = i.Defaut,
+                    Personne = i.Personne
+                };
             }
         }
 
