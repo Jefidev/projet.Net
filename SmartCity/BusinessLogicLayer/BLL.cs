@@ -10,6 +10,8 @@ namespace BusinessLogicLayer
 {
     public static class BLL
     {
+        #region Connexion
+
         public static PersonneDTO Connexion(string m, string pwd)
         {
             Personne p = DAL.SelectPersonneByMail(m);
@@ -29,43 +31,39 @@ namespace BusinessLogicLayer
             }
         }
 
+        #endregion
+
 
         #region Gestion des défauts
 
         public static List<DefautDTO> SelectAllDefauts()
         {
-            return DAL.SelectAllDefauts().Select
-            (
-                d => new DefautDTO
+            List<Defaut> listDAL = DAL.SelectAllDefauts();
+
+            if (listDAL == null)
+                return null;
+            else
+            {
+                List<DefautDTO> listBLL = new List<DefautDTO>();
+
+                foreach (Defaut i in listDAL)
                 {
-                    IdDefaut = d.IdDefaut,
-                    Photo = d.Photo,
-                    Description = d.Description,
-                    Position = d.Position
+                    DefautDTO dDTO = new DefautDTO();
+                    dDTO.IdDefaut = i.IdDefaut;
+                    dDTO.Photo = i.Photo;
+                    dDTO.Description = i.Description;
+                    dDTO.Position = i.Position;
+                    listBLL.Add(dDTO);
                 }
-            ).ToList();
+
+                return listBLL;
+            }
         }
 
         #endregion
 
 
         #region Gestion des interventions
-
-        /*public static List<InterventionDTO> SelectAllInterventions()
-        {
-            return DAL.SelectAllInterventions().Select
-            (
-                i => new InterventionDTO
-                {
-                    IdIntervention = i.IdIntervention,
-                    Etat = i.Etat,
-                    Commentaire = i.Commentaire,
-                    DateIntervention = i.DateIntervention,
-                    Defaut = i.Defaut,
-                    Personne = i.Personne
-                }
-            ).ToList();
-        }*/
 
         public static List<InterventionDTO> SelectAllInterventionsOrderByDate()
         {
@@ -117,38 +115,6 @@ namespace BusinessLogicLayer
 
 
         #region Gestion des Personnes
-
-        /*public static List<PersonneDTO> SelectAllPersonnes()
-        {
-            return DAL.SelectAllPersonnes().Select
-            (
-                p => new PersonneDTO
-                {
-                    Mail = p.Mail,
-                    Password = p.Password,
-                    Nom = p.Nom,
-                    Prenom = p.Prenom,
-                    Type = p.Type
-                }
-            ).ToList();
-        }
-
-        public static PersonneDTO SelectPersonneByMail(string m)
-        {
-            var p = DAL.SelectPersonneByMail(m);
-
-            if (p == null)
-                return null;
-
-            return new PersonneDTO
-            {
-                Mail = p.Mail,
-                Password = p.Password,
-                Nom = p.Nom,
-                Prenom = p.Prenom,
-                Type = p.Type
-            };
-        }*/
 
         #endregion
     }

@@ -56,7 +56,7 @@ namespace DataAccessLayer
             }
         #endregion
 
-
+        /*
         #region INSERT
             public static void AddDefaut(Binary ph, string descr, string po)
             {
@@ -157,5 +157,6 @@ namespace DataAccessLayer
                 InstanceDC.SubmitChanges();
             }
         #endregion
+         */
     }
 }

@@ -14,6 +14,8 @@ namespace WindowsCommunicationFoundation
 {
     public class ServiceWCFSmartCity : IServiceWCFSmartCity
     {
+        #region Connexion
+
         public PersonneWCF Connexion(string m, string pwd)
         {            
             PersonneDTO p = BLL.Connexion(m, pwd);
@@ -32,6 +34,8 @@ namespace WindowsCommunicationFoundation
                 };
             }
         }
+
+        #endregion
 
 
         #region Gestion des défauts
