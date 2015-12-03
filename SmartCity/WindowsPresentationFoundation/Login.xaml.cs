@@ -32,7 +32,7 @@ namespace WindowsPresentationFoundation
                 ResultatLabel.Content = "Connexion ratée !";
             else if (p.Type.Equals("CHEF"))
             {
-                MenuChef menuchef = new MenuChef();
+                MenuChef menuchef = new MenuChef(LoginTB.Text);
                 App.Current.MainWindow = menuchef;
                 this.Close();
                 menuchef.Show();
