@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using BusinessLogicLayer.DTO;
 using DataAccessLayer;
 
@@ -33,7 +32,7 @@ namespace BusinessLogicLayer
 
         #region Gestion des défauts
 
-        public static List<DefautDTO> SelectAllDefauts()
+        /*public static List<DefautDTO> SelectAllDefauts()
         {
             return DAL.SelectAllDefauts().Select
             (
@@ -45,14 +44,14 @@ namespace BusinessLogicLayer
                     Position = d.Position
                 }
             ).ToList();
-        }
+        }*/
 
         #endregion
 
 
         #region Gestion des interventions
 
-        public static List<InterventionDTO> SelectAllInterventions()
+        /*public static List<InterventionDTO> SelectAllInterventions()
         {
             return DAL.SelectAllInterventions().Select
             (
@@ -66,6 +65,32 @@ namespace BusinessLogicLayer
                     Personne = i.Personne
                 }
             ).ToList();
+        }*/
+
+        public static List<InterventionDTO> SelectAllInterventionsOrderByDate()
+        {
+            List<Intervention> listDAL = DAL.SelectAllInterventionsOrderByDate();
+
+            if (listDAL == null)
+                return null;
+            else
+            {
+                List<InterventionDTO> listBLL = new List<InterventionDTO>();
+
+                foreach (Intervention i in listDAL)
+                {
+                    InterventionDTO iDTO = new InterventionDTO();
+                    iDTO.IdIntervention = i.IdIntervention;
+                    iDTO.Commentaire = i.Commentaire;
+                    iDTO.DateIntervention = i.DateIntervention;
+                    iDTO.Defaut = i.Defaut;
+                    iDTO.Etat = i.Etat;
+                    iDTO.Personne = i.Personne;
+                    listBLL.Add(iDTO);
+                }
+
+                return listBLL;
+            }
         }
 
         #endregion
@@ -73,7 +98,7 @@ namespace BusinessLogicLayer
 
         #region Gestion des Personnes
 
-        public static List<PersonneDTO> SelectAllPersonnes()
+        /*public static List<PersonneDTO> SelectAllPersonnes()
         {
             return DAL.SelectAllPersonnes().Select
             (
@@ -103,7 +128,7 @@ namespace BusinessLogicLayer
                 Prenom = p.Prenom,
                 Type = p.Type
             };
-        }
+        }*/
 
         #endregion
     }

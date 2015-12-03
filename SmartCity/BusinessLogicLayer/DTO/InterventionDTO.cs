@@ -18,7 +18,7 @@ namespace BusinessLogicLayer.DTO
 
         public override string ToString()
         {
-            return IdIntervention + " ==> " + "Etat : " + Etat + " -- Date : " + DateIntervention + " -- Commentaire : " + Commentaire;
+            return "(" + DateIntervention + ") " + Etat + " => " + Commentaire;
         }
     }
 }

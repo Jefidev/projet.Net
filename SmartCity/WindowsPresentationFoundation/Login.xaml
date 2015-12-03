@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Connexion" Height="700" Width="1000">
     <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
-        <Label x:Name="TitreLabel" Content="Bienvenue sur Admin@SmartCity" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="24" RenderTransformOrigin="-0.114,0.515" FontWeight="Bold" Foreground="#FF75D141"/>
+        <Label x:Name="TitreLabel" Content="Bienvenue sur Admin@SmartCity" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="24" RenderTransformOrigin="-0.114,0.515" FontWeight="Bold" Foreground="#FF75D141"/>
         <TextBox x:Name="LoginTB" HorizontalAlignment="Left" Height="23" Margin="170,198,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="PasswordTB" HorizontalAlignment="Left" Height="23" Margin="170,255,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <Label x:Name="LoginLabel" Content="Login (mail) :" HorizontalAlignment="Left" Margin="70,195,0,0" VerticalAlignment="Top"/>

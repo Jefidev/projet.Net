@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Data.Linq;
 
 
@@ -27,6 +26,11 @@ namespace DataAccessLayer
             public static List<Intervention> SelectAllInterventions()
             {
                 return InstanceDC.Interventions.ToList();
+            }
+
+            public static List<Intervention> SelectAllInterventionsOrderByDate()
+            {
+                return InstanceDC.Interventions.OrderByDescending(i => i.DateIntervention).ToList();
             }
 
             public static List<Personne> SelectAllPersonnes()

@@ -5,6 +5,10 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
+using BusinessLogicLayer;
+using System.Collections.ObjectModel;
+using System.Data.Linq;
+
 
 namespace WindowsCommunicationFoundation
 {
@@ -14,11 +18,109 @@ namespace WindowsCommunicationFoundation
         [OperationContract]
         PersonneWCF Connexion(string m, string pwd);
 
+        [OperationContract]
+        List<DefautWCF> GetAllDefauts();
+
+        [OperationContract]
+        List<InterventionWCF> GetAllInterventionsOrderByDate();
+
         /*[OperationContract]
         List<PersonneWCF> GetAllPersonnes();
 
         [OperationContract]
         PersonneWCF GetPersonneByMail(string m);*/
+    }
+
+
+    [DataContract]
+    public class DefautWCF
+    {
+        int idDefaut;
+        Binary photo;
+        string description;
+        string position;
+
+        [DataMember]
+        public int IdDefaut
+        {
+            get { return idDefaut; }
+            set { idDefaut = value; }
+        }
+
+        [DataMember]
+        public Binary Photo
+        {
+            get { return photo; }
+            set { photo = value; }
+        }
+
+        [DataMember]
+        public string Description
+        {
+            get { return description; }
+            set { description = value; }
+        }
+
+        [DataMember]
+        public string Position
+        {
+            get { return position; }
+            set { position = value; }
+        }
+    }
+
+
+    [DataContract]
+    public class InterventionWCF
+    {
+        int idIntervention;
+        string etat;
+        string commentaire;
+        DateTime dateIntervention;
+        int defaut;
+        string personne;
+
+        [DataMember]
+        public int IdIntervention
+        {
+            get { return idIntervention; }
+            set { idIntervention = value; }
+        }
+
+        [DataMember]
+        public string Etat
+        {
+            get { return etat; }
+            set { etat = value; }
+        }
+
+        [DataMember]
+        public string Commentaire
+        {
+            get { return commentaire; }
+            set { commentaire = value; }
+        }
+
+        [DataMember]
+        public DateTime DateIntervention
+        {
+            get { return dateIntervention; }
+            set { dateIntervention = value; }
+        }
+
+        [DataMember]
+        public int Defaut
+        {
+            get { return defaut; }
+            set { defaut = value; }
+        }
+
+        [DataMember]
+        public string Personne
+        {
+            get { return personne; }
+            set { personne = value; }
+        }
     }
 
 
@@ -30,7 +132,6 @@ namespace WindowsCommunicationFoundation
         string nom;
         string prenom;
         string type;
-
 
         [DataMember]
         public string Mail

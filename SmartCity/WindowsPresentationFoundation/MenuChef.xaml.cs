@@ -14,13 +14,11 @@ using System.Windows.Shapes;
 
 namespace WindowsPresentationFoundation
 {
-    /// <summary>
-    /// Interaction logic for MenuChef.xaml
-    /// </summary>
     public partial class MenuChef : Window
     {
         public MenuChef()
         {
+            this.WindowState = WindowState.Maximized;
             InitializeComponent();
         }
     }
