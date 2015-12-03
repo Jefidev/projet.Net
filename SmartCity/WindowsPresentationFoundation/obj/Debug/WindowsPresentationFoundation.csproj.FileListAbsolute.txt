@@ -2,6 +2,10 @@ C:\Users\Utilisateur\Desktop\projet.Net\SmartCity\WindowsPresentationFoundation\
 C:\Users\Utilisateur\Desktop\projet.Net\SmartCity\WindowsPresentationFoundation\bin\Debug\WindowsPresentationFoundation.exe
 C:\Users\Utilisateur\Desktop\projet.Net\SmartCity\WindowsPresentationFoundation\bin\Debug\WindowsPresentationFoundation.pdb
 C:\Users\Utilisateur\Desktop\projet.Net\SmartCity\WindowsPresentationFoundation\obj\Debug\WindowsPresentationFoundation.csprojResolveAssemblyReference.cache
+C:\Users\Utilisateur\Desktop\projet.Net\SmartCity\WindowsPresentationFoundation\obj\Debug\Login.baml
+C:\Users\Utilisateur\Desktop\projet.Net\SmartCity\WindowsPresentationFoundation\obj\Debug\MenuChef.baml
+C:\Users\Utilisateur\Desktop\projet.Net\SmartCity\WindowsPresentationFoundation\obj\Debug\Login.g.cs
+C:\Users\Utilisateur\Desktop\projet.Net\SmartCity\WindowsPresentationFoundation\obj\Debug\MenuChef.g.cs
 C:\Users\Utilisateur\Desktop\projet.Net\SmartCity\WindowsPresentationFoundation\obj\Debug\App.g.cs
 C:\Users\Utilisateur\Desktop\projet.Net\SmartCity\WindowsPresentationFoundation\obj\Debug\WindowsPresentationFoundation_MarkupCompile.cache
 C:\Users\Utilisateur\Desktop\projet.Net\SmartCity\WindowsPresentationFoundation\obj\Debug\WindowsPresentationFoundation.g.resources
@@ -9,7 +13,3 @@ C:\Users\Utilisateur\Desktop\projet.Net\SmartCity\WindowsPresentationFoundation\
 C:\Users\Utilisateur\Desktop\projet.Net\SmartCity\WindowsPresentationFoundation\obj\Debug\WindowsPresentationFoundation.csproj.GenerateResource.Cache
 C:\Users\Utilisateur\Desktop\projet.Net\SmartCity\WindowsPresentationFoundation\obj\Debug\WindowsPresentationFoundation.exe
 C:\Users\Utilisateur\Desktop\projet.Net\SmartCity\WindowsPresentationFoundation\obj\Debug\WindowsPresentationFoundation.pdb
-C:\Users\Utilisateur\Desktop\projet.Net\SmartCity\WindowsPresentationFoundation\obj\Debug\Login.baml
-C:\Users\Utilisateur\Desktop\projet.Net\SmartCity\WindowsPresentationFoundation\obj\Debug\Login.g.cs
-C:\Users\Utilisateur\Desktop\projet.Net\SmartCity\WindowsPresentationFoundation\obj\Debug\MenuChef.baml
-C:\Users\Utilisateur\Desktop\projet.Net\SmartCity\WindowsPresentationFoundation\obj\Debug\MenuChef.g.cs

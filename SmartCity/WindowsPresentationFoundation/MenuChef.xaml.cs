@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -35,13 +36,13 @@ namespace WindowsPresentationFoundation
             //def = null;
 
             // Initialisation filtre
+            filtre = "TOUS";
             FiltreCB.Items.Add("TOUS");
             FiltreCB.Items.Add("OUVERT");
             FiltreCB.Items.Add("EN TRAITEMENT");
             FiltreCB.Items.Add("A VALIDER");
             FiltreCB.Items.Add("RESOLU");
             FiltreCB.SelectedIndex = 0;
-            filtre = "TOUS";
 
             // Initialisation DefautsLV
             RefreshDefautsLV();
@@ -59,8 +60,7 @@ namespace WindowsPresentationFoundation
         // Quand changement de filtre
         private void FiltreCB_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            ComboBoxItem typeItem = (ComboBoxItem)FiltreCB.SelectedItem;
-            string tmp = typeItem.Content.ToString();
+            string tmp = (string)FiltreCB.SelectedItem;
 
             if (!filtre.Equals(tmp))
             {
@@ -84,9 +84,16 @@ namespace WindowsPresentationFoundation
 
                 if (filtre.Equals("TOUS") || filtre.Equals(i.Etat))
                 {
+                    BitmapImage bi = new BitmapImage();
+                    bi.BeginInit();
+                    bi.CreateOptions = BitmapCreateOptions.None;
+                    bi.CacheOption = BitmapCacheOption.Default;
+                    bi.StreamSource = new MemoryStream(d.Photo.Bytes);
+                    bi.EndInit();
+
                     var tmp = new
                     {
-                        //Photo = LoadImage(f.FileName),
+                        Photo = bi,
                         Etat = i.Etat,
                         Description = d.Description,
                         Commentaire = i.Commentaire
