@@ -132,6 +132,9 @@ namespace WindowsPresentationFoundation.SmartCityReference {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime DateDefautField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string DescriptionField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -150,6 +153,19 @@ namespace WindowsPresentationFoundation.SmartCityReference {
             }
             set {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime DateDefaut {
+            get {
+                return this.DateDefautField;
+            }
+            set {
+                if ((this.DateDefautField.Equals(value) != true)) {
+                    this.DateDefautField = value;
+                    this.RaisePropertyChanged("DateDefaut");
+                }
             }
         }
         
@@ -401,17 +417,25 @@ namespace WindowsPresentationFoundation.SmartCityReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceWCFSmartCity/GetAllDefauts", ReplyAction="http://tempuri.org/IServiceWCFSmartCity/GetAllDefautsResponse")]
         System.Threading.Tasks.Task<WindowsPresentationFoundation.SmartCityReference.DefautWCF[]> GetAllDefautsAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceWCFSmartCity/GetAllInterventionsOrderByDate", ReplyAction="http://tempuri.org/IServiceWCFSmartCity/GetAllInterventionsOrderByDateResponse")]
-        WindowsPresentationFoundation.SmartCityReference.InterventionWCF[] GetAllInterventionsOrderByDate();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceWCFSmartCity/GetDefautById", ReplyAction="http://tempuri.org/IServiceWCFSmartCity/GetDefautByIdResponse")]
+        WindowsPresentationFoundation.SmartCityReference.DefautWCF GetDefautById(int id);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceWCFSmartCity/GetAllInterventionsOrderByDate", ReplyAction="http://tempuri.org/IServiceWCFSmartCity/GetAllInterventionsOrderByDateResponse")]
-        System.Threading.Tasks.Task<WindowsPresentationFoundation.SmartCityReference.InterventionWCF[]> GetAllInterventionsOrderByDateAsync();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceWCFSmartCity/GetDefautById", ReplyAction="http://tempuri.org/IServiceWCFSmartCity/GetDefautByIdResponse")]
+        System.Threading.Tasks.Task<WindowsPresentationFoundation.SmartCityReference.DefautWCF> GetDefautByIdAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceWCFSmartCity/GetInterventionByDefaut", ReplyAction="http://tempuri.org/IServiceWCFSmartCity/GetInterventionByDefautResponse")]
         WindowsPresentationFoundation.SmartCityReference.InterventionWCF GetInterventionByDefaut(int d);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceWCFSmartCity/GetInterventionByDefaut", ReplyAction="http://tempuri.org/IServiceWCFSmartCity/GetInterventionByDefautResponse")]
         System.Threading.Tasks.Task<WindowsPresentationFoundation.SmartCityReference.InterventionWCF> GetInterventionByDefautAsync(int d);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceWCFSmartCity/GetInterventionsByDefautOrderByDate", ReplyAction="http://tempuri.org/IServiceWCFSmartCity/GetInterventionsByDefautOrderByDateRespon" +
+            "se")]
+        WindowsPresentationFoundation.SmartCityReference.InterventionWCF[] GetInterventionsByDefautOrderByDate(int d);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceWCFSmartCity/GetInterventionsByDefautOrderByDate", ReplyAction="http://tempuri.org/IServiceWCFSmartCity/GetInterventionsByDefautOrderByDateRespon" +
+            "se")]
+        System.Threading.Tasks.Task<WindowsPresentationFoundation.SmartCityReference.InterventionWCF[]> GetInterventionsByDefautOrderByDateAsync(int d);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -457,12 +481,12 @@ namespace WindowsPresentationFoundation.SmartCityReference {
             return base.Channel.GetAllDefautsAsync();
         }
         
-        public WindowsPresentationFoundation.SmartCityReference.InterventionWCF[] GetAllInterventionsOrderByDate() {
-            return base.Channel.GetAllInterventionsOrderByDate();
+        public WindowsPresentationFoundation.SmartCityReference.DefautWCF GetDefautById(int id) {
+            return base.Channel.GetDefautById(id);
         }
         
-        public System.Threading.Tasks.Task<WindowsPresentationFoundation.SmartCityReference.InterventionWCF[]> GetAllInterventionsOrderByDateAsync() {
-            return base.Channel.GetAllInterventionsOrderByDateAsync();
+        public System.Threading.Tasks.Task<WindowsPresentationFoundation.SmartCityReference.DefautWCF> GetDefautByIdAsync(int id) {
+            return base.Channel.GetDefautByIdAsync(id);
         }
         
         public WindowsPresentationFoundation.SmartCityReference.InterventionWCF GetInterventionByDefaut(int d) {
@@ -471,6 +495,14 @@ namespace WindowsPresentationFoundation.SmartCityReference {
         
         public System.Threading.Tasks.Task<WindowsPresentationFoundation.SmartCityReference.InterventionWCF> GetInterventionByDefautAsync(int d) {
             return base.Channel.GetInterventionByDefautAsync(d);
+        }
+        
+        public WindowsPresentationFoundation.SmartCityReference.InterventionWCF[] GetInterventionsByDefautOrderByDate(int d) {
+            return base.Channel.GetInterventionsByDefautOrderByDate(d);
+        }
+        
+        public System.Threading.Tasks.Task<WindowsPresentationFoundation.SmartCityReference.InterventionWCF[]> GetInterventionsByDefautOrderByDateAsync(int d) {
+            return base.Channel.GetInterventionsByDefautOrderByDateAsync(d);
         }
     }
 }

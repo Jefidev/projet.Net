@@ -18,44 +18,37 @@ namespace DataAccessLayer
 
 
         #region SELECT
-            public static List<Defaut> SelectAllDefauts()
-            {
-                return InstanceDC.Defauts.OrderByDescending(d => d.DateDefaut).ToList();
-            }
 
-            public static List<Intervention> SelectAllInterventions()
-            {
-                return InstanceDC.Interventions.ToList();
-            }
+        public static List<Defaut> SelectAllDefauts()
+        {
+            return InstanceDC.Defauts.OrderByDescending(d => d.DateDefaut).ToList();
+        }
+        
+        public static Defaut SelectDefautById(int id)
+        {
+            return InstanceDC.Defauts.Where(d => d.IdDefaut == id).SingleOrDefault();
+        }
 
-            public static List<Intervention> SelectAllInterventionsOrderByDate()
-            {
-                return InstanceDC.Interventions.OrderByDescending(i => i.DateIntervention).ToList();
-            }
+        public static List<Intervention> SelectInterventionByDefautOrderByDate(int d)
+        {
+            return InstanceDC.Interventions.Where(i => i.Defaut == d).OrderByDescending(i => i.DateIntervention).ToList();
+        }
 
-            public static Intervention SelectInterventionByDefaut(int d)
-            {
-                List<Intervention> list = InstanceDC.Interventions.Where(i => i.Defaut == d).ToList();
-                Intervention max = new Intervention();
-                for (int cpt = 0; cpt < list.Count; cpt++)
-                {
-                    if (DateTime.Compare(max.DateIntervention, list[cpt].DateIntervention) <= 0)
-                        max = list[cpt];
-                }
-                return InstanceDC.Interventions.Where(i => i.IdIntervention == max.IdIntervention && i.Defaut == d).SingleOrDefault();
-            }
+        public static Intervention SelectLastInterventionByDefaut(int d)
+        {
+            List<Intervention> list = InstanceDC.Interventions.Where(i => i.Defaut == d).OrderByDescending(i => i.DateIntervention).ToList();
+            return list[0];
+        }
 
-            public static List<Personne> SelectAllPersonnes()
-            {
-                return InstanceDC.Personnes.ToList();
-            }
+        public static Personne SelectPersonneByMail(string m)
+        {
+            return InstanceDC.Personnes.Where(p => p.Mail.Equals(m)).SingleOrDefault();
+        }
 
-            public static Personne SelectPersonneByMail(string m)
-            {
-                return InstanceDC.Personnes.Where(p => p.Mail.Equals(m)).SingleOrDefault();
-            }
         #endregion
 
+
+        /* A REVOIR QUAND ON FERA DES INSERT/UPDATE/DELETE */
         /*
         #region INSERT
             public static void AddDefaut(Binary ph, string descr, string po)

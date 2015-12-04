@@ -61,40 +61,33 @@ namespace BusinessLogicLayer
             }
         }
 
+        public static DefautDTO SelectDefautById(int id)
+        {
+            Defaut d = DAL.SelectDefautById(id);
+
+            if (d == null)
+                return null;
+            else
+            {
+                return new DefautDTO
+                {
+                    IdDefaut = d.IdDefaut,
+                    Photo = d.Photo,
+                    Description = d.Description,
+                    Position = d.Position,
+                    DateDefaut = d.DateDefaut
+                };
+            }
+        }
+
         #endregion
 
 
         #region Gestion des interventions
 
-        public static List<InterventionDTO> SelectAllInterventionsOrderByDate()
+        public static InterventionDTO SelectLastInterventionByDefaut(int d)
         {
-            List<Intervention> listDAL = DAL.SelectAllInterventionsOrderByDate();
-
-            if (listDAL == null)
-                return null;
-            else
-            {
-                List<InterventionDTO> listBLL = new List<InterventionDTO>();
-
-                foreach (Intervention i in listDAL)
-                {
-                    InterventionDTO iDTO = new InterventionDTO();
-                    iDTO.IdIntervention = i.IdIntervention;
-                    iDTO.Commentaire = i.Commentaire;
-                    iDTO.DateIntervention = i.DateIntervention;
-                    iDTO.Defaut = i.Defaut;
-                    iDTO.Etat = i.Etat;
-                    iDTO.Personne = i.Personne;
-                    listBLL.Add(iDTO);
-                }
-
-                return listBLL;
-            }
-        }
-
-        public static InterventionDTO SelectInterventionByDefaut(int d)
-        {
-            Intervention i = DAL.SelectInterventionByDefaut(d);
+            Intervention i = DAL.SelectLastInterventionByDefaut(d);
 
             if (i == null)
                 return null;
@@ -111,11 +104,6 @@ namespace BusinessLogicLayer
                 };
             }
         }
-
-        #endregion
-
-
-        #region Gestion des Personnes
 
         #endregion
     }

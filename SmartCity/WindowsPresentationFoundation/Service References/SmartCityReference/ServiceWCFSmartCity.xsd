@@ -19,6 +19,7 @@
   <xs:element name="ArrayOfDefautWCF" nillable="true" type="tns:ArrayOfDefautWCF" />
   <xs:complexType name="DefautWCF">
     <xs:sequence>
+      <xs:element minOccurs="0" name="DateDefaut" type="xs:dateTime" />
       <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="IdDefaut" type="xs:int" />
       <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/System.Data.Linq" minOccurs="0" name="Photo" nillable="true" type="q1:Binary" />
@@ -26,12 +27,6 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="DefautWCF" nillable="true" type="tns:DefautWCF" />
-  <xs:complexType name="ArrayOfInterventionWCF">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="InterventionWCF" nillable="true" type="tns:InterventionWCF" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfInterventionWCF" nillable="true" type="tns:ArrayOfInterventionWCF" />
   <xs:complexType name="InterventionWCF">
     <xs:sequence>
       <xs:element minOccurs="0" name="Commentaire" nillable="true" type="xs:string" />
@@ -43,4 +38,10 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="InterventionWCF" nillable="true" type="tns:InterventionWCF" />
+  <xs:complexType name="ArrayOfInterventionWCF">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="InterventionWCF" nillable="true" type="tns:InterventionWCF" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfInterventionWCF" nillable="true" type="tns:ArrayOfInterventionWCF" />
 </xs:schema>

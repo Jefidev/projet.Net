@@ -65,6 +65,25 @@ namespace WindowsCommunicationFoundation
             }
         }
 
+        public DefautWCF GetDefautById(int id)
+        {
+            DefautDTO d = BLL.SelectDefautById(id);
+
+            if (d == null)
+                return null;
+            else
+            {
+                return new DefautWCF
+                {
+                    IdDefaut = d.IdDefaut,
+                    Photo = d.Photo,
+                    Description = d.Description,
+                    Position = d.Position,
+                    DateDefaut = d.DateDefaut
+                };
+            }
+        }
+
         #endregion
 
 
@@ -96,9 +115,9 @@ namespace WindowsCommunicationFoundation
             }
         }
 
-        public InterventionWCF GetInterventionByDefaut(int d)
+        public InterventionWCF GetLastInterventionByDefaut(int d)
         {
-            InterventionDTO i = BLL.SelectInterventionByDefaut(d);
+            InterventionDTO i = BLL.SelectLastInterventionByDefaut(d);
 
             if (i == null)
                 return null;
@@ -116,40 +135,26 @@ namespace WindowsCommunicationFoundation
             }
         }
 
-        #endregion
-
-
-        #region Gestion des personnes
-
-        /*public List<PersonneWCF> GetAllPersonnes()
+        public List<InterventionWCF> GetInterventionsByDefautOrderByDate(int d)
         {
-            return BLL.SelectAllPersonnes().Select
-            (
-                p => new PersonneWCF
+            return null;
+            /*List<InterventionDTO> i = BLL.SelectInterventionByDefaut(d);
+
+            if (i == null)
+                return null;
+            else
+            {
+                return new InterventionWCF
                 {
-                    Mail = p.Mail,
-                    Password = p.Password,
-                    Nom = p.Nom,
-                    Prenom = p.Prenom,
-                    Type = p.Type
-                }
-            ).ToList();
+                    IdIntervention = i.IdIntervention,
+                    Etat = i.Etat,
+                    Commentaire = i.Commentaire,
+                    DateIntervention = i.DateIntervention,
+                    Defaut = i.Defaut,
+                    Personne = i.Personne
+                };
+            }*/
         }
-
-        public PersonneWCF GetPersonneByMail(string m)
-        {
-            return BLL.SelectPersonneByMail(m).Select
-            (
-                p => new PersonneWCF
-                {
-                    Mail = p.Mail,
-                    Password = p.Password,
-                    Nom = p.Nom,
-                    Prenom = p.Prenom,
-                    Type = p.Type
-                }
-            ).ToList();
-        }*/
 
         #endregion
     }

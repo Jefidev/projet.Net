@@ -82,7 +82,7 @@ namespace WindowsPresentationFoundation
 
             foreach (var d in listDef)
             {
-                SmartCityReference.InterventionWCF i = service.GetInterventionByDefaut(d.IdDefaut);
+                SmartCityReference.InterventionWCF i = service.GetLastInterventionByDefaut(d.IdDefaut);
 
                 if (filtre.Equals("TOUS") || filtre.Equals(i.Etat))
                 {
@@ -111,8 +111,37 @@ namespace WindowsPresentationFoundation
         // Pour afficher les détails quand changement de défaut
         private void DefautsLV_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            Object item = DefautsLV.SelectedItem;
+            int id = (int)(item.GetType().GetProperty("IdDefaut").GetValue(item, null));
+            // MERDE QUAND ON CHANGE LE FILTRE
+
+            SmartCityReference.DefautWCF def = service.GetDefautById(id);
+
+            if (def == null)
+                return;
+
+            //List<SmartCityReference.InterventionWCF> listInt = service.GetInterventionsByDefautOrderByDate(id).ToList();
+
+
             // DB => Défaut + toutes les interventions de ce défaut (ORDER BY DEFAUT, DATE !!)
-            // Remplir labels + InterventionsLV + photo
+
+
+
+            //Remplissage des labels
+            DefautLabel.Content = "Défaut n° " + def.IdDefaut;
+            PositionReponseLabel.Content = def.Position;
+            DescriptionReponseLabel.Content = def.Description;
+
+            // Remplissage d'InterventionsLV
+
+            // Remplissage photo
+
+            DefautLabel.Visibility = Visibility.Visible;
+            PositionLabel.Visibility = Visibility.Visible;
+            PositionReponseLabel.Visibility = Visibility.Visible;
+            DescriptionLabel.Visibility = Visibility.Visible;
+            DescriptionReponseLabel.Visibility = Visibility.Visible;
+            InterventionsLV.Visibility = Visibility.Visible;
         }        
     }
 }

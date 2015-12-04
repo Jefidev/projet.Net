@@ -22,16 +22,13 @@ namespace WindowsCommunicationFoundation
         List<DefautWCF> GetAllDefauts();
 
         [OperationContract]
-        List<InterventionWCF> GetAllInterventionsOrderByDate();
+        DefautWCF GetDefautById(int id);
 
         [OperationContract]
-        InterventionWCF GetInterventionByDefaut(int d);
-
-        /*[OperationContract]
-        List<PersonneWCF> GetAllPersonnes();
+        InterventionWCF GetLastInterventionByDefaut(int d);
 
         [OperationContract]
-        PersonneWCF GetPersonneByMail(string m);*/
+        List<InterventionWCF> GetInterventionsByDefautOrderByDate(int d);
     }
 
 

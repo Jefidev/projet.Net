@@ -28,15 +28,17 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetAllInterventionsOrderByDate">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetAllInterventionsOrderByDateResponse">
+  <xs:element name="GetDefautById">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/WindowsCommunicationFoundation" minOccurs="0" name="GetAllInterventionsOrderByDateResult" nillable="true" type="q3:ArrayOfInterventionWCF" />
+        <xs:element minOccurs="0" name="id" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDefautByIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/WindowsCommunicationFoundation" minOccurs="0" name="GetDefautByIdResult" nillable="true" type="q3:DefautWCF" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -51,6 +53,20 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/WindowsCommunicationFoundation" minOccurs="0" name="GetInterventionByDefautResult" nillable="true" type="q4:InterventionWCF" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetInterventionsByDefautOrderByDate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="d" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetInterventionsByDefautOrderByDateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/WindowsCommunicationFoundation" minOccurs="0" name="GetInterventionsByDefautOrderByDateResult" nillable="true" type="q5:ArrayOfInterventionWCF" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
