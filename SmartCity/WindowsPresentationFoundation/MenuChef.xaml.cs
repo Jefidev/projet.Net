@@ -73,6 +73,8 @@ namespace WindowsPresentationFoundation
         // Rafaichir la DefautsLV selon le nouveau filtre
         private void RefreshDefautsLV()
         {
+            DefautsLV.Items.Clear();
+
             List<SmartCityReference.DefautWCF> listDef = service.GetAllDefauts().ToList();
 
             if(listDef == null)
