@@ -1,7 +1,7 @@
 BEGIN
-	INSERT INTO DEFAUTS (PHOTO, DESCRIPTION, POSITION) VALUES (NULL, 'Nid de poule à Verviers', '(50.584233;5.896729)');
+	INSERT INTO DEFAUTS (PHOTO, DESCRIPTION, POSITION, DATEDEFAUT) VALUES (NULL, 'Nid de poule à Verviers', '(50.584233;5.896729)', '2015-11-15');
 	UPDATE DEFAUTS SET Photo = (SELECT BulkColumn FROM Openrowset(Bulk 'C:\Users\Utilisateur\Desktop\projet.Net\Photos\1.jpg', Single_Blob) as Picture) WHERE IDDEFAUT = 1;
-	INSERT INTO DEFAUTS (PHOTO, DESCRIPTION, POSITION) VALUES (NULL, 'Racine d''abre déformant le trottoir à Seraing', '(50.612741;5.509344)');
+	INSERT INTO DEFAUTS (PHOTO, DESCRIPTION, POSITION, DATEDEFAUT) VALUES (NULL, 'Racine d''abre déformant le trottoir à Seraing', '(50.612741;5.509344)', '2015-11-20');
 	UPDATE DEFAUTS SET PHOTO = (SELECT BulkColumn FROM Openrowset(Bulk 'C:\Users\Utilisateur\Desktop\projet.Net\Photos\2.jpg', Single_Blob) as Picture) WHERE IDDEFAUT = 2;
 	-- LES CHEMINS POUR LES PHOTOS SONT MIS PAR RAPPORT A MON ORDI, JE NE SAIS PAS OU T'AS PLACE TON CLONE DU REPO GIT
 
