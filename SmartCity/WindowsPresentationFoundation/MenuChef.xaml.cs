@@ -106,6 +106,8 @@ namespace WindowsPresentationFoundation
         // Pour afficher les détails quand changement de défaut
         private void DefautsLV_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            InterventionsLV.Items.Clear();
+
             Object item = DefautsLV.SelectedItem;
 
             if (item == null)
@@ -125,24 +127,33 @@ namespace WindowsPresentationFoundation
             PositionReponseLabel.Content = def.Position;
             DescriptionReponseLabel.Content = def.Description;
 
-
-            // Remplissage d'InterventionsLV
-            var tmp = service.GetInterventionsByDefautOrderByDate(id);
-            if (tmp == null)
-                return;
-
-            List<SmartCityReference.InterventionWCF> listInt = tmp.ToList();
-
-
-
-            
-
             // Remplissage photo
             BitmapImage bi = (BitmapImage)(item.GetType().GetProperty("Photo").GetValue(item, null));
             PhotoI.Source = bi;
 
             ShowLabels();
+
+
+            // Remplissage d'InterventionsLV
+            List<SmartCityReference.InterventionWCF> listInt = service.GetInterventionsByDefautOrderByDate(id).ToList();
+
+            if (listInt == null)
+                return;
+
+            foreach (var i in listInt)
+            {
+                var tmp = new
+                {
+                    Etat = i.Etat,
+                    DateIntervention = i.DateIntervention,
+                    Personne = i.Personne,
+                    Commentaire = i.Commentaire
+                };
+
+                InterventionsLV.Items.Add(tmp);
+            }
         }        
+
 
         private void HideLabels()
         {
@@ -154,6 +165,7 @@ namespace WindowsPresentationFoundation
             InterventionsLV.Visibility = Visibility.Hidden;
             PhotoI.Visibility = Visibility.Hidden;
         }
+
 
         private void ShowLabels()
         {
