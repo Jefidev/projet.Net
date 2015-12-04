@@ -39,6 +39,8 @@
                     </GridView>
                 </ListView.View>
             </ListView>
+            <Button x:Name="AttribuerOuvrierButton" Content="Attribuer un ouvrier" HorizontalAlignment="Left" Margin="1100,320,0,0" VerticalAlignment="Top" Width="115" Click="AttribuerOuvrierButton_Click"/>
+            <Button x:Name="ValiderButton" Content="Valider le défaut" HorizontalAlignment="Left" Margin="1100,320,0,0" VerticalAlignment="Top" Width="100" Click="ValiderButton_Click"/>
         </Grid>
     </Grid>
 </Window>
