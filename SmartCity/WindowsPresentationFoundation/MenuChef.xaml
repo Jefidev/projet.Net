@@ -6,7 +6,7 @@
         <Label x:Name="TitreLabel" Content="Admin@SmartCity : Chef" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="24"  Margin="0,15,0,0" FontWeight="Bold" Foreground="#FF75D141"/>
         <Label x:Name="FiltreLabel" Content="Filtre (état) :" HorizontalAlignment="Left" Margin="70,100,0,0" VerticalAlignment="Top"/>
         <ComboBox x:Name="FiltreCB" HorizontalAlignment="Left" Margin="45,130,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="FiltreCB_SelectionChanged"/>
-        <ListView x:Name="DefautsLV" HorizontalAlignment="Right" Height="200" Margin="0,62,50,0" VerticalAlignment="Top" Width="1000" SelectionChanged="DefautsLV_SelectionChanged">
+        <ListView x:Name="DefautsLV" HorizontalAlignment="Right" Height="200" Margin="0,62,0,0" VerticalAlignment="Top" Width="1100" SelectionChanged="DefautsLV_SelectionChanged">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Photo" Width="100">
@@ -17,8 +17,8 @@
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
                     <GridViewColumn Header="Etat" Width="150" DisplayMemberBinding="{Binding Etat}"/>
-                    <GridViewColumn Header="Description" Width="375" DisplayMemberBinding="{Binding Description}"/>
-                    <GridViewColumn Header="Commentaire" Width="375" DisplayMemberBinding="{Binding Commentaire}"/>
+                    <GridViewColumn Header="Description" Width="425" DisplayMemberBinding="{Binding Description}"/>
+                    <GridViewColumn Header="Commentaire" Width="425" DisplayMemberBinding="{Binding Commentaire}"/>
                 </GridView>
             </ListView.View>
         </ListView>
@@ -28,7 +28,7 @@
             <Label x:Name="PositionReponseLabel" Content="Label" HorizontalAlignment="Left" Margin="130,60,0,0" VerticalAlignment="Top"/>
             <Label x:Name="DescriptionLabel" Content="Description : " HorizontalAlignment="Left" Margin="50,100,0,0" VerticalAlignment="Top"/>
             <Label x:Name="DescriptionReponseLabel" Content="Label" HorizontalAlignment="Left" Margin="130,100,0,0" VerticalAlignment="Top"/>
-            <Image x:Name="PhotoI" HorizontalAlignment="Right" Height="200" VerticalAlignment="Top" Width="200"/>
+            <Image x:Name="PhotoI" HorizontalAlignment="Right" Height="275" VerticalAlignment="Top" Width="275"/>
             <ListView x:Name="InterventionsLV" HorizontalAlignment="Left" Height="285" Margin="0,145,0,0" VerticalAlignment="Top" Width="1000">
                 <ListView.View>
                     <GridView>

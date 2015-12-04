@@ -48,12 +48,7 @@ namespace WindowsPresentationFoundation
             RefreshDefautsLV();
 
             // Initialisation des détails d'un défaut
-            DefautLabel.Visibility = Visibility.Hidden;
-            PositionLabel.Visibility = Visibility.Hidden;
-            PositionReponseLabel.Visibility = Visibility.Hidden;
-            DescriptionLabel.Visibility = Visibility.Hidden;
-            DescriptionReponseLabel.Visibility = Visibility.Hidden;
-            InterventionsLV.Visibility = Visibility.Hidden;
+            HideLabels();
         }
 
 
@@ -112,36 +107,63 @@ namespace WindowsPresentationFoundation
         private void DefautsLV_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Object item = DefautsLV.SelectedItem;
-            int id = (int)(item.GetType().GetProperty("IdDefaut").GetValue(item, null));
-            // MERDE QUAND ON CHANGE LE FILTRE
 
+            if (item == null)
+            {
+                HideLabels();
+                return;
+            }
+
+            int id = (int)(item.GetType().GetProperty("IdDefaut").GetValue(item, null));
             SmartCityReference.DefautWCF def = service.GetDefautById(id);
 
             if (def == null)
                 return;
-
-            //List<SmartCityReference.InterventionWCF> listInt = service.GetInterventionsByDefautOrderByDate(id).ToList();
-
-
-            // DB => Défaut + toutes les interventions de ce défaut (ORDER BY DEFAUT, DATE !!)
-
-
 
             //Remplissage des labels
             DefautLabel.Content = "Défaut n° " + def.IdDefaut;
             PositionReponseLabel.Content = def.Position;
             DescriptionReponseLabel.Content = def.Description;
 
+
             // Remplissage d'InterventionsLV
+            var tmp = service.GetInterventionsByDefautOrderByDate(id);
+            if (tmp == null)
+                return;
+
+            List<SmartCityReference.InterventionWCF> listInt = tmp.ToList();
+
+
+
+            
 
             // Remplissage photo
+            BitmapImage bi = (BitmapImage)(item.GetType().GetProperty("Photo").GetValue(item, null));
+            PhotoI.Source = bi;
 
+            ShowLabels();
+        }        
+
+        private void HideLabels()
+        {
+            DefautLabel.Visibility = Visibility.Hidden;
+            PositionLabel.Visibility = Visibility.Hidden;
+            PositionReponseLabel.Visibility = Visibility.Hidden;
+            DescriptionLabel.Visibility = Visibility.Hidden;
+            DescriptionReponseLabel.Visibility = Visibility.Hidden;
+            InterventionsLV.Visibility = Visibility.Hidden;
+            PhotoI.Visibility = Visibility.Hidden;
+        }
+
+        private void ShowLabels()
+        {
             DefautLabel.Visibility = Visibility.Visible;
             PositionLabel.Visibility = Visibility.Visible;
             PositionReponseLabel.Visibility = Visibility.Visible;
             DescriptionLabel.Visibility = Visibility.Visible;
             DescriptionReponseLabel.Visibility = Visibility.Visible;
             InterventionsLV.Visibility = Visibility.Visible;
-        }        
+            PhotoI.Visibility = Visibility.Visible;
+        }
     }
 }

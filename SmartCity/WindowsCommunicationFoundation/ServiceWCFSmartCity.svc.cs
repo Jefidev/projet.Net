@@ -91,23 +91,29 @@ namespace WindowsCommunicationFoundation
 
         public List<InterventionWCF> GetInterventionsByDefautOrderByDate(int d)
         {
-            return null;
-            /*List<InterventionDTO> i = BLL.SelectInterventionByDefaut(d);
+            List<InterventionDTO> listBLL = BLL.SelectInterventionsByDefautOrderByDate(d);
 
-            if (i == null)
+
+            if (listBLL == null)
                 return null;
             else
             {
-                return new InterventionWCF
+                List<InterventionWCF> listWCF = new List<InterventionWCF>();
+
+                foreach (InterventionDTO i in listBLL)
                 {
-                    IdIntervention = i.IdIntervention,
-                    Etat = i.Etat,
-                    Commentaire = i.Commentaire,
-                    DateIntervention = i.DateIntervention,
-                    Defaut = i.Defaut,
-                    Personne = i.Personne
-                };
-            }*/
+                    InterventionWCF iWCF = new InterventionWCF();
+                    iWCF.IdIntervention = i.IdIntervention;
+                    iWCF.Etat = i.Etat;
+                    iWCF.Commentaire = i.Commentaire;
+                    iWCF.DateIntervention = i.DateIntervention;
+                    iWCF.Defaut = i.Defaut;
+                    iWCF.Personne = i.Personne;
+                    listWCF.Add(iWCF);
+                }
+
+                return listWCF;
+            }
         }
 
         public InterventionWCF GetLastInterventionByDefaut(int d)
