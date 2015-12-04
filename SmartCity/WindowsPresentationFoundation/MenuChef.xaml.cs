@@ -177,5 +177,17 @@ namespace WindowsPresentationFoundation
             InterventionsLV.Visibility = Visibility.Visible;
             PhotoI.Visibility = Visibility.Visible;
         }
+
+
+        private void AttribuerOuvrierButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+
+        private void ValiderButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
