@@ -20,7 +20,7 @@ namespace DataAccessLayer
         #region SELECT
             public static List<Defaut> SelectAllDefauts()
             {
-                return InstanceDC.Defauts.ToList();
+                return InstanceDC.Defauts.OrderByDescending(d => d.DateDefaut).ToList();
             }
 
             public static List<Intervention> SelectAllInterventions()

@@ -46,14 +46,14 @@ namespace BusinessLogicLayer
             {
                 List<DefautDTO> listBLL = new List<DefautDTO>();
 
-                foreach (Defaut i in listDAL)
+                foreach (Defaut d in listDAL)
                 {
                     DefautDTO dDTO = new DefautDTO();
-                    dDTO.IdDefaut = i.IdDefaut;
-                    dDTO.Photo = i.Photo;
-                    dDTO.Description = i.Description;
-                    dDTO.Position = i.Position;
-                    dDTO.DateDefaut = i.DateDefaut;
+                    dDTO.IdDefaut = d.IdDefaut;
+                    dDTO.Photo = d.Photo;
+                    dDTO.Description = d.Description;
+                    dDTO.Position = d.Position;
+                    dDTO.DateDefaut = d.DateDefaut;
                     listBLL.Add(dDTO);
                 }
 
