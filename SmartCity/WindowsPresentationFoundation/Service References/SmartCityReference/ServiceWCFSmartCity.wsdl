@@ -26,17 +26,17 @@
   <wsdl:message name="IServiceWCFSmartCity_GetDefautById_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetDefautByIdResponse" />
   </wsdl:message>
-  <wsdl:message name="IServiceWCFSmartCity_GetInterventionByDefaut_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetInterventionByDefaut" />
-  </wsdl:message>
-  <wsdl:message name="IServiceWCFSmartCity_GetInterventionByDefaut_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetInterventionByDefautResponse" />
-  </wsdl:message>
   <wsdl:message name="IServiceWCFSmartCity_GetInterventionsByDefautOrderByDate_InputMessage">
     <wsdl:part name="parameters" element="tns:GetInterventionsByDefautOrderByDate" />
   </wsdl:message>
   <wsdl:message name="IServiceWCFSmartCity_GetInterventionsByDefautOrderByDate_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetInterventionsByDefautOrderByDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceWCFSmartCity_GetLastInterventionByDefaut_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLastInterventionByDefaut" />
+  </wsdl:message>
+  <wsdl:message name="IServiceWCFSmartCity_GetLastInterventionByDefaut_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLastInterventionByDefautResponse" />
   </wsdl:message>
   <wsdl:portType name="IServiceWCFSmartCity">
     <wsdl:operation name="Connexion">
@@ -51,13 +51,13 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IServiceWCFSmartCity/GetDefautById" message="tns:IServiceWCFSmartCity_GetDefautById_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServiceWCFSmartCity/GetDefautByIdResponse" message="tns:IServiceWCFSmartCity_GetDefautById_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GetInterventionByDefaut">
-      <wsdl:input wsaw:Action="http://tempuri.org/IServiceWCFSmartCity/GetInterventionByDefaut" message="tns:IServiceWCFSmartCity_GetInterventionByDefaut_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IServiceWCFSmartCity/GetInterventionByDefautResponse" message="tns:IServiceWCFSmartCity_GetInterventionByDefaut_OutputMessage" />
-    </wsdl:operation>
     <wsdl:operation name="GetInterventionsByDefautOrderByDate">
       <wsdl:input wsaw:Action="http://tempuri.org/IServiceWCFSmartCity/GetInterventionsByDefautOrderByDate" message="tns:IServiceWCFSmartCity_GetInterventionsByDefautOrderByDate_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServiceWCFSmartCity/GetInterventionsByDefautOrderByDateResponse" message="tns:IServiceWCFSmartCity_GetInterventionsByDefautOrderByDate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLastInterventionByDefaut">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceWCFSmartCity/GetLastInterventionByDefaut" message="tns:IServiceWCFSmartCity_GetLastInterventionByDefaut_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceWCFSmartCity/GetLastInterventionByDefautResponse" message="tns:IServiceWCFSmartCity_GetLastInterventionByDefaut_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IServiceWCFSmartCity" type="tns:IServiceWCFSmartCity">
@@ -89,8 +89,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetInterventionByDefaut">
-      <soap:operation soapAction="http://tempuri.org/IServiceWCFSmartCity/GetInterventionByDefaut" style="document" />
+    <wsdl:operation name="GetInterventionsByDefautOrderByDate">
+      <soap:operation soapAction="http://tempuri.org/IServiceWCFSmartCity/GetInterventionsByDefautOrderByDate" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -98,8 +98,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetInterventionsByDefautOrderByDate">
-      <soap:operation soapAction="http://tempuri.org/IServiceWCFSmartCity/GetInterventionsByDefautOrderByDate" style="document" />
+    <wsdl:operation name="GetLastInterventionByDefaut">
+      <soap:operation soapAction="http://tempuri.org/IServiceWCFSmartCity/GetLastInterventionByDefaut" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

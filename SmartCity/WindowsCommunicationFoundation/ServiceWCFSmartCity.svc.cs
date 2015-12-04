@@ -89,30 +89,25 @@ namespace WindowsCommunicationFoundation
 
         #region Gestion des interventions
 
-        public List<InterventionWCF> GetAllInterventionsOrderByDate()
+        public List<InterventionWCF> GetInterventionsByDefautOrderByDate(int d)
         {
-            List<InterventionDTO> listBLL = BLL.SelectAllInterventionsOrderByDate();
+            return null;
+            /*List<InterventionDTO> i = BLL.SelectInterventionByDefaut(d);
 
-            if (listBLL == null)
+            if (i == null)
                 return null;
             else
             {
-                List<InterventionWCF> listWCF = new List<InterventionWCF>();
-
-                foreach (InterventionDTO i in listBLL)
+                return new InterventionWCF
                 {
-                    InterventionWCF iWCF = new InterventionWCF();
-                    iWCF.IdIntervention = i.IdIntervention;
-                    iWCF.Etat = i.Etat;
-                    iWCF.Commentaire = i.Commentaire;
-                    iWCF.DateIntervention = i.DateIntervention;
-                    iWCF.Defaut = i.Defaut;
-                    iWCF.Personne = i.Personne;
-                    listWCF.Add(iWCF);
-                }
-
-                return listWCF;
-            }
+                    IdIntervention = i.IdIntervention,
+                    Etat = i.Etat,
+                    Commentaire = i.Commentaire,
+                    DateIntervention = i.DateIntervention,
+                    Defaut = i.Defaut,
+                    Personne = i.Personne
+                };
+            }*/
         }
 
         public InterventionWCF GetLastInterventionByDefaut(int d)
@@ -133,27 +128,6 @@ namespace WindowsCommunicationFoundation
                     Personne = i.Personne
                 };
             }
-        }
-
-        public List<InterventionWCF> GetInterventionsByDefautOrderByDate(int d)
-        {
-            return null;
-            /*List<InterventionDTO> i = BLL.SelectInterventionByDefaut(d);
-
-            if (i == null)
-                return null;
-            else
-            {
-                return new InterventionWCF
-                {
-                    IdIntervention = i.IdIntervention,
-                    Etat = i.Etat,
-                    Commentaire = i.Commentaire,
-                    DateIntervention = i.DateIntervention,
-                    Defaut = i.Defaut,
-                    Personne = i.Personne
-                };
-            }*/
         }
 
         #endregion

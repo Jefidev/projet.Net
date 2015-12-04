@@ -85,6 +85,32 @@ namespace BusinessLogicLayer
 
         #region Gestion des interventions
 
+        public static List<InterventionDTO> SelectInterventionsByDefautOrderByDate(int d)
+        {
+            List<Intervention> listDAL = DAL.SelectInterventionsByDefautOrderByDate(d);
+
+            if (listDAL == null)
+                return null;
+            else
+            {
+                List<InterventionDTO> listBLL = new List<InterventionDTO>();
+
+                foreach (Intervention i in listDAL)
+                {
+                    InterventionDTO iDTO = new InterventionDTO();
+                    iDTO.IdIntervention = i.IdIntervention;
+                    iDTO.Etat = i.Etat;
+                    iDTO.Commentaire = i.Commentaire;
+                    iDTO.DateIntervention = i.DateIntervention;
+                    iDTO.Defaut = i.Defaut;
+                    iDTO.Personne = i.Personne;
+                    listBLL.Add(iDTO);
+                }
+
+                return listBLL;
+            }
+        }
+
         public static InterventionDTO SelectLastInterventionByDefaut(int d)
         {
             Intervention i = DAL.SelectLastInterventionByDefaut(d);

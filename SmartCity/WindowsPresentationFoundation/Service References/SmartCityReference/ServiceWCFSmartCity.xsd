@@ -27,6 +27,12 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="DefautWCF" nillable="true" type="tns:DefautWCF" />
+  <xs:complexType name="ArrayOfInterventionWCF">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="InterventionWCF" nillable="true" type="tns:InterventionWCF" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfInterventionWCF" nillable="true" type="tns:ArrayOfInterventionWCF" />
   <xs:complexType name="InterventionWCF">
     <xs:sequence>
       <xs:element minOccurs="0" name="Commentaire" nillable="true" type="xs:string" />
@@ -38,10 +44,4 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="InterventionWCF" nillable="true" type="tns:InterventionWCF" />
-  <xs:complexType name="ArrayOfInterventionWCF">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="InterventionWCF" nillable="true" type="tns:InterventionWCF" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfInterventionWCF" nillable="true" type="tns:ArrayOfInterventionWCF" />
 </xs:schema>

@@ -25,10 +25,10 @@ namespace WindowsCommunicationFoundation
         DefautWCF GetDefautById(int id);
 
         [OperationContract]
-        InterventionWCF GetLastInterventionByDefaut(int d);
+        List<InterventionWCF> GetInterventionsByDefautOrderByDate(int d);
 
         [OperationContract]
-        List<InterventionWCF> GetInterventionsByDefautOrderByDate(int d);
+        InterventionWCF GetLastInterventionByDefaut(int d);
     }
 
 

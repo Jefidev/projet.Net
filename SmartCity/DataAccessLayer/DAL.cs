@@ -29,7 +29,7 @@ namespace DataAccessLayer
             return InstanceDC.Defauts.Where(d => d.IdDefaut == id).SingleOrDefault();
         }
 
-        public static List<Intervention> SelectInterventionByDefautOrderByDate(int d)
+        public static List<Intervention> SelectInterventionsByDefautOrderByDate(int d)
         {
             return InstanceDC.Interventions.Where(i => i.Defaut == d).OrderByDescending(i => i.DateIntervention).ToList();
         }

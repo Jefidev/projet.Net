@@ -423,12 +423,6 @@ namespace WindowsPresentationFoundation.SmartCityReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceWCFSmartCity/GetDefautById", ReplyAction="http://tempuri.org/IServiceWCFSmartCity/GetDefautByIdResponse")]
         System.Threading.Tasks.Task<WindowsPresentationFoundation.SmartCityReference.DefautWCF> GetDefautByIdAsync(int id);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceWCFSmartCity/GetInterventionByDefaut", ReplyAction="http://tempuri.org/IServiceWCFSmartCity/GetInterventionByDefautResponse")]
-        WindowsPresentationFoundation.SmartCityReference.InterventionWCF GetInterventionByDefaut(int d);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceWCFSmartCity/GetInterventionByDefaut", ReplyAction="http://tempuri.org/IServiceWCFSmartCity/GetInterventionByDefautResponse")]
-        System.Threading.Tasks.Task<WindowsPresentationFoundation.SmartCityReference.InterventionWCF> GetInterventionByDefautAsync(int d);
-        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceWCFSmartCity/GetInterventionsByDefautOrderByDate", ReplyAction="http://tempuri.org/IServiceWCFSmartCity/GetInterventionsByDefautOrderByDateRespon" +
             "se")]
         WindowsPresentationFoundation.SmartCityReference.InterventionWCF[] GetInterventionsByDefautOrderByDate(int d);
@@ -436,6 +430,12 @@ namespace WindowsPresentationFoundation.SmartCityReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceWCFSmartCity/GetInterventionsByDefautOrderByDate", ReplyAction="http://tempuri.org/IServiceWCFSmartCity/GetInterventionsByDefautOrderByDateRespon" +
             "se")]
         System.Threading.Tasks.Task<WindowsPresentationFoundation.SmartCityReference.InterventionWCF[]> GetInterventionsByDefautOrderByDateAsync(int d);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceWCFSmartCity/GetLastInterventionByDefaut", ReplyAction="http://tempuri.org/IServiceWCFSmartCity/GetLastInterventionByDefautResponse")]
+        WindowsPresentationFoundation.SmartCityReference.InterventionWCF GetLastInterventionByDefaut(int d);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceWCFSmartCity/GetLastInterventionByDefaut", ReplyAction="http://tempuri.org/IServiceWCFSmartCity/GetLastInterventionByDefautResponse")]
+        System.Threading.Tasks.Task<WindowsPresentationFoundation.SmartCityReference.InterventionWCF> GetLastInterventionByDefautAsync(int d);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -489,20 +489,20 @@ namespace WindowsPresentationFoundation.SmartCityReference {
             return base.Channel.GetDefautByIdAsync(id);
         }
         
-        public WindowsPresentationFoundation.SmartCityReference.InterventionWCF GetInterventionByDefaut(int d) {
-            return base.Channel.GetInterventionByDefaut(d);
-        }
-        
-        public System.Threading.Tasks.Task<WindowsPresentationFoundation.SmartCityReference.InterventionWCF> GetInterventionByDefautAsync(int d) {
-            return base.Channel.GetInterventionByDefautAsync(d);
-        }
-        
         public WindowsPresentationFoundation.SmartCityReference.InterventionWCF[] GetInterventionsByDefautOrderByDate(int d) {
             return base.Channel.GetInterventionsByDefautOrderByDate(d);
         }
         
         public System.Threading.Tasks.Task<WindowsPresentationFoundation.SmartCityReference.InterventionWCF[]> GetInterventionsByDefautOrderByDateAsync(int d) {
             return base.Channel.GetInterventionsByDefautOrderByDateAsync(d);
+        }
+        
+        public WindowsPresentationFoundation.SmartCityReference.InterventionWCF GetLastInterventionByDefaut(int d) {
+            return base.Channel.GetLastInterventionByDefaut(d);
+        }
+        
+        public System.Threading.Tasks.Task<WindowsPresentationFoundation.SmartCityReference.InterventionWCF> GetLastInterventionByDefautAsync(int d) {
+            return base.Channel.GetLastInterventionByDefautAsync(d);
         }
     }
 }
