@@ -110,6 +110,8 @@ namespace DataAccessLayer
 		
 		private string _Position;
 		
+		private System.Nullable<System.DateTime> _DateDefaut;
+		
 		private EntitySet<Intervention> _Interventions;
 		
     #region Extensibility Method Definitions
@@ -124,6 +126,8 @@ namespace DataAccessLayer
     partial void OnDescriptionChanged();
     partial void OnPositionChanging(string value);
     partial void OnPositionChanged();
+    partial void OnDateDefautChanging(System.Nullable<System.DateTime> value);
+    partial void OnDateDefautChanged();
     #endregion
 		
 		public Defaut()
@@ -152,7 +156,7 @@ namespace DataAccessLayer
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Photo", DbType="VarBinary(MAX)", CanBeNull=true, UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Photo", DbType="VarBinary(MAX)", UpdateCheck=UpdateCheck.Never)]
 		public System.Data.Linq.Binary Photo
 		{
 			get
@@ -208,6 +212,26 @@ namespace DataAccessLayer
 					this._Position = value;
 					this.SendPropertyChanged("Position");
 					this.OnPositionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateDefaut", DbType="Date")]
+		public System.Nullable<System.DateTime> DateDefaut
+		{
+			get
+			{
+				return this._DateDefaut;
+			}
+			set
+			{
+				if ((this._DateDefaut != value))
+				{
+					this.OnDateDefautChanging(value);
+					this.SendPropertyChanging();
+					this._DateDefaut = value;
+					this.SendPropertyChanged("DateDefaut");
+					this.OnDateDefautChanged();
 				}
 			}
 		}
@@ -270,9 +294,9 @@ namespace DataAccessLayer
 		
 		private string _Commentaire;
 		
-		private System.DateTime _DateIntervention;
+		private System.Nullable<System.DateTime> _DateIntervention;
 		
-		private int _Defaut;
+		private System.Nullable<int> _Defaut;
 		
 		private string _Personne;
 		
@@ -290,9 +314,9 @@ namespace DataAccessLayer
     partial void OnEtatChanged();
     partial void OnCommentaireChanging(string value);
     partial void OnCommentaireChanged();
-    partial void OnDateInterventionChanging(System.DateTime value);
+    partial void OnDateInterventionChanging(System.Nullable<System.DateTime> value);
     partial void OnDateInterventionChanged();
-    partial void OnDefautChanging(int value);
+    partial void OnDefautChanging(System.Nullable<int> value);
     partial void OnDefautChanged();
     partial void OnPersonneChanging(string value);
     partial void OnPersonneChanged();
@@ -365,8 +389,8 @@ namespace DataAccessLayer
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateIntervention", DbType="Date NOT NULL")]
-		public System.DateTime DateIntervention
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateIntervention", DbType="Date")]
+		public System.Nullable<System.DateTime> DateIntervention
 		{
 			get
 			{
@@ -385,8 +409,8 @@ namespace DataAccessLayer
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Defaut", DbType="Int NOT NULL")]
-		public int Defaut
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Defaut", DbType="Int")]
+		public System.Nullable<int> Defaut
 		{
 			get
 			{
@@ -460,7 +484,7 @@ namespace DataAccessLayer
 					}
 					else
 					{
-						this._Defaut = default(int);
+						this._Defaut = default(Nullable<int>);
 					}
 					this.SendPropertyChanged("Defaut1");
 				}

@@ -14,6 +14,7 @@ namespace BusinessLogicLayer.DTO
         public Binary Photo {get; set; }
         public string Description {get; set; }
         public string Position { get; set; }
+        public DateTime DateDefaut { get; set; }
 
         public override string ToString()
         {

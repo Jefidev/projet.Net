@@ -42,6 +42,7 @@ namespace WindowsCommunicationFoundation
         Binary photo;
         string description;
         string position;
+        DateTime dateDefaut;
 
         [DataMember]
         public int IdDefaut
@@ -69,6 +70,13 @@ namespace WindowsCommunicationFoundation
         {
             get { return position; }
             set { position = value; }
+        }
+
+        [DataMember]
+        public DateTime DateDefaut
+        {
+            get { return dateDefaut; }
+            set { dateDefaut = value; }
         }
     }
 

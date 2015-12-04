@@ -53,6 +53,7 @@ namespace BusinessLogicLayer
                     dDTO.Photo = i.Photo;
                     dDTO.Description = i.Description;
                     dDTO.Position = i.Position;
+                    dDTO.DateDefaut = i.DateDefaut;
                     listBLL.Add(dDTO);
                 }
 

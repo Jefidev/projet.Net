@@ -95,6 +95,7 @@ namespace WindowsPresentationFoundation
 
                     var tmp = new
                     {
+                        IdDefaut = d.IdDefaut,
                         Photo = bi,
                         Etat = i.Etat,
                         Description = d.Description,

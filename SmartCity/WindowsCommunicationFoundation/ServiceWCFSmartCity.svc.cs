@@ -57,6 +57,7 @@ namespace WindowsCommunicationFoundation
                     dWCF.Photo = d.Photo;
                     dWCF.Description = d.Description;
                     dWCF.Position = d.Position;
+                    dWCF.DateDefaut = d.DateDefaut;
                     listWCF.Add(dWCF);
                 }
 
