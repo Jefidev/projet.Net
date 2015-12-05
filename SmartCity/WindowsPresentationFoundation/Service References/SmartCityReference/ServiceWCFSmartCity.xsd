@@ -44,4 +44,10 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="InterventionWCF" nillable="true" type="tns:InterventionWCF" />
+  <xs:complexType name="ArrayOfPersonneWCF">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PersonneWCF" nillable="true" type="tns:PersonneWCF" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPersonneWCF" nillable="true" type="tns:ArrayOfPersonneWCF" />
 </xs:schema>

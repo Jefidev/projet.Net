@@ -436,6 +436,18 @@ namespace WindowsPresentationFoundation.SmartCityReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceWCFSmartCity/GetLastInterventionByDefaut", ReplyAction="http://tempuri.org/IServiceWCFSmartCity/GetLastInterventionByDefautResponse")]
         System.Threading.Tasks.Task<WindowsPresentationFoundation.SmartCityReference.InterventionWCF> GetLastInterventionByDefautAsync(int d);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceWCFSmartCity/AddIntervention", ReplyAction="http://tempuri.org/IServiceWCFSmartCity/AddInterventionResponse")]
+        void AddIntervention(string e, string c, System.DateTime d, int def, string p);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceWCFSmartCity/AddIntervention", ReplyAction="http://tempuri.org/IServiceWCFSmartCity/AddInterventionResponse")]
+        System.Threading.Tasks.Task AddInterventionAsync(string e, string c, System.DateTime d, int def, string p);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceWCFSmartCity/GetAllOuvriers", ReplyAction="http://tempuri.org/IServiceWCFSmartCity/GetAllOuvriersResponse")]
+        WindowsPresentationFoundation.SmartCityReference.PersonneWCF[] GetAllOuvriers();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceWCFSmartCity/GetAllOuvriers", ReplyAction="http://tempuri.org/IServiceWCFSmartCity/GetAllOuvriersResponse")]
+        System.Threading.Tasks.Task<WindowsPresentationFoundation.SmartCityReference.PersonneWCF[]> GetAllOuvriersAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -503,6 +515,22 @@ namespace WindowsPresentationFoundation.SmartCityReference {
         
         public System.Threading.Tasks.Task<WindowsPresentationFoundation.SmartCityReference.InterventionWCF> GetLastInterventionByDefautAsync(int d) {
             return base.Channel.GetLastInterventionByDefautAsync(d);
+        }
+        
+        public void AddIntervention(string e, string c, System.DateTime d, int def, string p) {
+            base.Channel.AddIntervention(e, c, d, def, p);
+        }
+        
+        public System.Threading.Tasks.Task AddInterventionAsync(string e, string c, System.DateTime d, int def, string p) {
+            return base.Channel.AddInterventionAsync(e, c, d, def, p);
+        }
+        
+        public WindowsPresentationFoundation.SmartCityReference.PersonneWCF[] GetAllOuvriers() {
+            return base.Channel.GetAllOuvriers();
+        }
+        
+        public System.Threading.Tasks.Task<WindowsPresentationFoundation.SmartCityReference.PersonneWCF[]> GetAllOuvriersAsync() {
+            return base.Channel.GetAllOuvriersAsync();
         }
     }
 }

@@ -70,4 +70,32 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="AddIntervention">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="e" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="c" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="d" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="def" type="xs:int" />
+        <xs:element minOccurs="0" name="p" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddInterventionResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllOuvriers">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllOuvriersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/WindowsCommunicationFoundation" minOccurs="0" name="GetAllOuvriersResult" nillable="true" type="q6:ArrayOfPersonneWCF" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

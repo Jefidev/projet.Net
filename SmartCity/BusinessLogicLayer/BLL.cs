@@ -131,6 +131,41 @@ namespace BusinessLogicLayer
             }
         }
 
+        public static void AddIntervention(string e, string c, DateTime d, int def, string p)
+        {
+            DAL.AddIntervention(e, c, d, def, p);
+        }
+
+        #endregion
+
+
+        #region Gestion des personnes
+
+        public static List<PersonneDTO> SelectAllOuvriers()
+        {
+            List<Personne> listDAL = DAL.SelectAllOuvriers();
+
+            if (listDAL == null)
+                return null;
+            else
+            {
+                List<PersonneDTO> listBLL = new List<PersonneDTO>();
+
+                foreach (Personne p in listDAL)
+                {
+                    PersonneDTO pDTO = new PersonneDTO();
+                    pDTO.Mail = p.Mail;
+                    pDTO.Password = p.Password;
+                    pDTO.Nom = p.Nom;
+                    pDTO.Prenom = p.Prenom;
+                    pDTO.Type = p.Type;
+                    listBLL.Add(pDTO);
+                }
+
+                return listBLL;
+            }
+        }
+
         #endregion
     }
 }

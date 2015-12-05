@@ -136,6 +136,21 @@ namespace WindowsCommunicationFoundation
             }
         }
 
+        public void AddIntervention(string e, string c, DateTime d, int def, string p)
+        {
+            BLL.AddIntervention(e, c, d, def, p);
+        }
+
+        #endregion
+
+
+        #region Gestion des personnes
+
+        public List<PersonneWCF> GetAllOuvriers()
+        {
+            return null;
+        }
+
         #endregion
     }
 }

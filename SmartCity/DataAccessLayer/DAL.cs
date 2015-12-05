@@ -45,8 +45,33 @@ namespace DataAccessLayer
             return InstanceDC.Personnes.Where(p => p.Mail.Equals(m)).SingleOrDefault();
         }
 
+        public static List<Personne> SelectAllOuvriers()
+        {
+            return InstanceDC.Personnes.Where(p => p.Type.Equals("OUVRIER")).ToList();
+        }
+
         #endregion
 
+
+        #region INSERT
+
+        public static void AddIntervention(string e, string c, DateTime d, int def, string p)
+        {
+            Intervention i = new Intervention
+            {
+                Etat = e,
+                Commentaire = c,
+                DateIntervention = d,
+                Defaut = def,
+                Personne = p
+            };
+
+            InstanceDC.Interventions.InsertOnSubmit(i);
+            InstanceDC.SubmitChanges();
+        }
+
+        #endregion
+        
 
         /* A REVOIR QUAND ON FERA DES INSERT/UPDATE/DELETE */
         /*

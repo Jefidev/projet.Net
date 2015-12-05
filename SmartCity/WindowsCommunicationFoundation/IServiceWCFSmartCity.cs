@@ -29,6 +29,12 @@ namespace WindowsCommunicationFoundation
 
         [OperationContract]
         InterventionWCF GetLastInterventionByDefaut(int d);
+
+        [OperationContract]
+        void AddIntervention(string e, string c, DateTime d, int def, string p);
+
+        [OperationContract]
+        List<PersonneWCF> GetAllOuvriers();
     }
 
 

@@ -39,7 +39,10 @@
                     </GridView>
                 </ListView.View>
             </ListView>
-            <Button x:Name="AttribuerOuvrierButton" Content="Attribuer un ouvrier" HorizontalAlignment="Left" Margin="1100,320,0,0" VerticalAlignment="Top" Width="115" Click="AttribuerOuvrierButton_Click"/>
+            <Label x:Name="NoOuvrierLabel" Content="Pas d'ouvrier disponibles !" HorizontalAlignment="Left" Margin="1080,220,0,0" VerticalAlignment="Top" Foreground="Red" FontWeight="Bold"/>
+            <Label x:Name="OuvriersLabel" Content="Choisir un ouvrier à attribuer :" HorizontalAlignment="Left" Margin="1080,220,0,0" VerticalAlignment="Top"/>
+            <ComboBox x:Name="OuvriersCB" HorizontalAlignment="Left" Margin="1100,250,0,0" VerticalAlignment="Top" Width="120"/>
+            <Button x:Name="AttribuerOuvrierButton" Content="Attribuer un ouvrier" HorizontalAlignment="Left" Margin="1100,320,0,0" VerticalAlignment="Top" Width="120" Click="AttribuerOuvrierButton_Click"/>
             <Button x:Name="ValiderButton" Content="Valider le défaut" HorizontalAlignment="Left" Margin="1100,320,0,0" VerticalAlignment="Top" Width="100" Click="ValiderButton_Click"/>
         </Grid>
     </Grid>

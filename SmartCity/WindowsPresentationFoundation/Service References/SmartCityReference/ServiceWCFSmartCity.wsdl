@@ -38,6 +38,18 @@
   <wsdl:message name="IServiceWCFSmartCity_GetLastInterventionByDefaut_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetLastInterventionByDefautResponse" />
   </wsdl:message>
+  <wsdl:message name="IServiceWCFSmartCity_AddIntervention_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddIntervention" />
+  </wsdl:message>
+  <wsdl:message name="IServiceWCFSmartCity_AddIntervention_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddInterventionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceWCFSmartCity_GetAllOuvriers_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllOuvriers" />
+  </wsdl:message>
+  <wsdl:message name="IServiceWCFSmartCity_GetAllOuvriers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllOuvriersResponse" />
+  </wsdl:message>
   <wsdl:portType name="IServiceWCFSmartCity">
     <wsdl:operation name="Connexion">
       <wsdl:input wsaw:Action="http://tempuri.org/IServiceWCFSmartCity/Connexion" message="tns:IServiceWCFSmartCity_Connexion_InputMessage" />
@@ -58,6 +70,14 @@
     <wsdl:operation name="GetLastInterventionByDefaut">
       <wsdl:input wsaw:Action="http://tempuri.org/IServiceWCFSmartCity/GetLastInterventionByDefaut" message="tns:IServiceWCFSmartCity_GetLastInterventionByDefaut_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServiceWCFSmartCity/GetLastInterventionByDefautResponse" message="tns:IServiceWCFSmartCity_GetLastInterventionByDefaut_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddIntervention">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceWCFSmartCity/AddIntervention" message="tns:IServiceWCFSmartCity_AddIntervention_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceWCFSmartCity/AddInterventionResponse" message="tns:IServiceWCFSmartCity_AddIntervention_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllOuvriers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceWCFSmartCity/GetAllOuvriers" message="tns:IServiceWCFSmartCity_GetAllOuvriers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceWCFSmartCity/GetAllOuvriersResponse" message="tns:IServiceWCFSmartCity_GetAllOuvriers_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IServiceWCFSmartCity" type="tns:IServiceWCFSmartCity">
@@ -100,6 +120,24 @@
     </wsdl:operation>
     <wsdl:operation name="GetLastInterventionByDefaut">
       <soap:operation soapAction="http://tempuri.org/IServiceWCFSmartCity/GetLastInterventionByDefaut" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddIntervention">
+      <soap:operation soapAction="http://tempuri.org/IServiceWCFSmartCity/AddIntervention" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllOuvriers">
+      <soap:operation soapAction="http://tempuri.org/IServiceWCFSmartCity/GetAllOuvriers" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
