@@ -182,9 +182,8 @@ namespace WindowsPresentationFoundation
         
         private void AttribuerOuvrierButton_Click(object sender, RoutedEventArgs e)
         {
+            string tmp = (string)OuvriersCB.SelectedItem;
             string ouvrier = (string)OuvriersCB.SelectedItem;
-            NoOuvrierLabel.Content = user + " -- " + ouvrier;
-            NoOuvrierLabel.Visibility = Visibility.Visible;
             service.AddIntervention("EN TRAITEMENT", "Assignation d'un ouvrier (" + ouvrier + ")", DateTime.Now, curDef, user);
             service.AddIntervention("EN TRAITEMENT", "Assignation d'un ouvrier (par " + user + ")", DateTime.Now, curDef, ouvrier);
             RefreshDefautsLV();
