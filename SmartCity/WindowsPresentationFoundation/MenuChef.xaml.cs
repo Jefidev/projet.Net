@@ -128,7 +128,23 @@ namespace WindowsPresentationFoundation
             // Remplissage photo
             BitmapImage bi = (BitmapImage)(item.GetType().GetProperty("Photo").GetValue(item, null));
             if (bi != null)
+            {
+                if (bi.Height >= bi.Width)
+                {
+                    PhotoI.Height = 275;
+                    PhotoI.Width = (bi.Width/bi.Height)*275;
+                }
+                else if (bi.Width > bi.Height)
+                {
+                    PhotoI.Width = 275;
+                    PhotoI.Height = (bi.Height/bi.Width)*275;
+                }
+
                 PhotoI.Source = bi;
+                PhotoButton.Width = PhotoI.Width;
+                PhotoButton.Height = PhotoI.Height;
+                PhotoButton.Visibility = Visibility.Visible;
+            }
 
             ShowDetails();
 
@@ -201,6 +217,23 @@ namespace WindowsPresentationFoundation
         }
 
 
+        private void PhotoButton_Click(object sender, RoutedEventArgs e)
+        {
+            Object item = DefautsLV.SelectedItem;
+            if (item != null)
+            {
+                BitmapImage bi = (BitmapImage)(item.GetType().GetProperty("Photo").GetValue(item, null));
+
+                if (bi != null)
+                {
+                    ZoomImage zi = new ZoomImage();
+                    zi.Show();
+                    zi.SetImage(bi);
+                }
+            }
+        }
+
+
         private void HideDetails()
         {
             DefautLabel.Visibility = Visibility.Hidden;
@@ -210,6 +243,7 @@ namespace WindowsPresentationFoundation
             DescriptionReponseLabel.Visibility = Visibility.Hidden;
             InterventionsLV.Visibility = Visibility.Hidden;
             PhotoI.Visibility = Visibility.Hidden;
+            PhotoButton.Visibility = Visibility.Hidden;
         }
 
 
@@ -232,22 +266,6 @@ namespace WindowsPresentationFoundation
             OuvriersCB.Visibility = Visibility.Hidden;
             ValiderButton.Visibility = Visibility.Hidden;
             AttribuerOuvrierButton.Visibility = Visibility.Hidden;
-        }
-
-        private void PhotoButton_Click(object sender, RoutedEventArgs e)
-        {
-            Object item = DefautsLV.SelectedItem;
-            if (item != null)
-            {
-                BitmapImage bi = (BitmapImage)(item.GetType().GetProperty("Photo").GetValue(item, null));
-
-                if (bi != null)
-                {
-                    ZoomImage zi = new ZoomImage();
-                    zi.Show();
-                    zi.SetImage(bi);
-                }
-            }
         }
     }
 }

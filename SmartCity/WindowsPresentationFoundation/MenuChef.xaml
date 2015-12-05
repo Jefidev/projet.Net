@@ -28,8 +28,8 @@
             <Label x:Name="PositionReponseLabel" Content="Label" HorizontalAlignment="Left" Margin="130,60,0,0" VerticalAlignment="Top"/>
             <Label x:Name="DescriptionLabel" Content="Description : " HorizontalAlignment="Left" Margin="50,100,0,0" VerticalAlignment="Top"/>
             <Label x:Name="DescriptionReponseLabel" Content="Label" HorizontalAlignment="Left" Margin="130,100,0,0" VerticalAlignment="Top"/>
-            <Button x:Name="PhotoButton" Click="PhotoButton_Click" HorizontalAlignment="Right" Height="275" VerticalAlignment="Top" Width="275">
-                <Image x:Name="PhotoI" HorizontalAlignment="Right" Height="275" VerticalAlignment="Top" Width="275"/>
+            <Button x:Name="PhotoButton" Click="PhotoButton_Click" HorizontalAlignment="Right" VerticalAlignment="Top" Background="{x:Null}" BorderBrush="{x:Null}">
+                <Image x:Name="PhotoI" HorizontalAlignment="Right" VerticalAlignment="Top"/>
             </Button>
             <ListView x:Name="InterventionsLV" HorizontalAlignment="Left" Height="285" Margin="0,145,0,0" VerticalAlignment="Top" Width="1000">
                 <ListView.View>

@@ -1,8 +1,0 @@
-C:\Users\Utilisateur\Desktop\projet.Net\SmartCity\TestDAL\bin\Debug\TestDAL.exe.config
-C:\Users\Utilisateur\Desktop\projet.Net\SmartCity\TestDAL\bin\Debug\TestDAL.exe
-C:\Users\Utilisateur\Desktop\projet.Net\SmartCity\TestDAL\bin\Debug\TestDAL.pdb
-C:\Users\Utilisateur\Desktop\projet.Net\SmartCity\TestDAL\bin\Debug\DataAccessLayer.dll
-C:\Users\Utilisateur\Desktop\projet.Net\SmartCity\TestDAL\bin\Debug\DataAccessLayer.pdb
-C:\Users\Utilisateur\Desktop\projet.Net\SmartCity\TestDAL\obj\Debug\TestDAL.csprojResolveAssemblyReference.cache
-C:\Users\Utilisateur\Desktop\projet.Net\SmartCity\TestDAL\obj\Debug\TestDAL.exe
-C:\Users\Utilisateur\Desktop\projet.Net\SmartCity\TestDAL\obj\Debug\TestDAL.pdb
