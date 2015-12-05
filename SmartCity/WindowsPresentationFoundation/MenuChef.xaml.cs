@@ -42,10 +42,8 @@ namespace WindowsPresentationFoundation
             FiltreCB.Items.Add("RESOLU");
             FiltreCB.SelectedIndex = 0;
 
-            // Initialisation DefautsLV
+            // Initialisation
             RefreshDefautsLV();
-
-            // Initialisation des détails d'un défaut
             HideDetails();
             HideActions();
         }
@@ -69,10 +67,12 @@ namespace WindowsPresentationFoundation
         {
             DefautsLV.Items.Clear();
 
-            List<SmartCityReference.DefautWCF> listDef = service.GetAllDefauts().ToList();
+            var requete = service.GetAllDefauts();
 
-            if(listDef == null)
+            if (requete == null)
                 return;
+
+            List<SmartCityReference.DefautWCF> listDef = requete.ToList();
 
             foreach (var d in listDef)
             {
@@ -127,7 +127,8 @@ namespace WindowsPresentationFoundation
 
             // Remplissage photo
             BitmapImage bi = (BitmapImage)(item.GetType().GetProperty("Photo").GetValue(item, null));
-            PhotoI.Source = bi;
+            if (bi != null)
+                PhotoI.Source = bi;
 
             ShowDetails();
 
@@ -160,10 +161,13 @@ namespace WindowsPresentationFoundation
             }
 
             // Remplissage d'InterventionsLV
-            List<SmartCityReference.InterventionWCF> listInt = service.GetInterventionsByDefautOrderByDate(curDef).ToList();
+            var req = service.GetInterventionsByDefautOrderByDate(curDef);
 
-            if (listInt == null)
+            if (req == null)
                 return;
+
+            List<SmartCityReference.InterventionWCF> listInt = req.ToList();
+
 
             foreach (var i in listInt)
             {
@@ -228,6 +232,22 @@ namespace WindowsPresentationFoundation
             OuvriersCB.Visibility = Visibility.Hidden;
             ValiderButton.Visibility = Visibility.Hidden;
             AttribuerOuvrierButton.Visibility = Visibility.Hidden;
+        }
+
+        private void PhotoButton_Click(object sender, RoutedEventArgs e)
+        {
+            Object item = DefautsLV.SelectedItem;
+            if (item != null)
+            {
+                BitmapImage bi = (BitmapImage)(item.GetType().GetProperty("Photo").GetValue(item, null));
+
+                if (bi != null)
+                {
+                    ZoomImage zi = new ZoomImage();
+                    zi.Show();
+                    zi.SetImage(bi);
+                }
+            }
         }
     }
 }

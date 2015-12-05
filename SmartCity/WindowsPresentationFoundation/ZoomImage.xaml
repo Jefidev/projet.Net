@@ -1,0 +1,8 @@
+﻿<Window x:Class="WindowsPresentationFoundation.ZoomImage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="ZoomImage" Height="700" Width="700">
+    <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Image x:Name="PhotoI" HorizontalAlignment="Left" Height="700" VerticalAlignment="Top" Width="700"/>
+    </Grid>
+</Window>

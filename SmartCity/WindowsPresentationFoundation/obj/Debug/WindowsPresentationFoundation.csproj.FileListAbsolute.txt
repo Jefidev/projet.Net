@@ -13,3 +13,5 @@ C:\Users\Utilisateur\Desktop\projet.Net\SmartCity\WindowsPresentationFoundation\
 C:\Users\Utilisateur\Desktop\projet.Net\SmartCity\WindowsPresentationFoundation\obj\Debug\WindowsPresentationFoundation.csproj.GenerateResource.Cache
 C:\Users\Utilisateur\Desktop\projet.Net\SmartCity\WindowsPresentationFoundation\obj\Debug\WindowsPresentationFoundation.exe
 C:\Users\Utilisateur\Desktop\projet.Net\SmartCity\WindowsPresentationFoundation\obj\Debug\WindowsPresentationFoundation.pdb
+C:\Users\Utilisateur\Desktop\projet.Net\SmartCity\WindowsPresentationFoundation\obj\Debug\ZoomImage.baml
+C:\Users\Utilisateur\Desktop\projet.Net\SmartCity\WindowsPresentationFoundation\obj\Debug\ZoomImage.g.cs

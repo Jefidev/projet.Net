@@ -63,6 +63,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="ZoomImage.xaml.cs">
+      <DependentUpon>ZoomImage.xaml</DependentUpon>
+    </Compile>
     <Page Include="Login.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -76,6 +79,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="MenuChef.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ZoomImage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
