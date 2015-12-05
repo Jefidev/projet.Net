@@ -21,6 +21,7 @@ namespace WindowsPresentationFoundation
         {
             this.WindowState = WindowState.Maximized;
             InitializeComponent();
+            LoginTB.Focus();
         }
 
         private void ConnexionButton_Click(object sender, RoutedEventArgs e)
