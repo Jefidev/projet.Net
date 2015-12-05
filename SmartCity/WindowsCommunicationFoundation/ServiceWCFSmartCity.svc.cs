@@ -93,7 +93,6 @@ namespace WindowsCommunicationFoundation
         {
             List<InterventionDTO> listBLL = BLL.SelectInterventionsByDefautOrderByDate(d);
 
-
             if (listBLL == null)
                 return null;
             else
@@ -148,7 +147,27 @@ namespace WindowsCommunicationFoundation
 
         public List<PersonneWCF> GetAllOuvriers()
         {
-            return null;
+            List<PersonneDTO> listBLL = BLL.SelectAllOuvriers();
+
+            if (listBLL == null)
+                return null;
+            else
+            {
+                List<PersonneWCF> listWCF = new List<PersonneWCF>();
+
+                foreach (PersonneDTO p in listBLL)
+                {
+                    PersonneWCF pWCF = new PersonneWCF();
+                    pWCF.Mail = p.Mail;
+                    pWCF.Password = p.Password;
+                    pWCF.Nom = p.Nom;
+                    pWCF.Prenom = p.Prenom;
+                    pWCF.Type = p.Type;
+                    listWCF.Add(pWCF);
+                }
+
+                return listWCF;
+            }
         }
 
         #endregion

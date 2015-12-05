@@ -135,16 +135,18 @@ namespace WindowsPresentationFoundation
             string lastEtat = (string)(item.GetType().GetProperty("Etat").GetValue(item, null));
             if (lastEtat.Equals("A VALIDER"))
                 ValiderButton.Visibility = Visibility.Visible;
-            /*else if (lastEtat.Equals("OUVERT"))
+            else if (lastEtat.Equals("OUVERT"))
             {
-                List<SmartCityReference.PersonneWCF> list = service.GetAllOuvriers().ToList();
+                var requete = service.GetAllOuvriers();
 
-                if (list == null)
+                if (requete == null)
                 {
                     NoOuvrierLabel.Visibility = Visibility.Visible;
                 }
                 else
                 {
+                    OuvriersCB.Items.Clear();
+                    List<SmartCityReference.PersonneWCF> list = requete.ToList();
                     foreach (var p in list)
                     {
                         OuvriersCB.Items.Add(p.Mail);
@@ -155,7 +157,7 @@ namespace WindowsPresentationFoundation
                     OuvriersCB.Visibility = Visibility.Visible;
                     AttribuerOuvrierButton.Visibility = Visibility.Visible;
                 }
-            }*/
+            }
 
             // Remplissage d'InterventionsLV
             List<SmartCityReference.InterventionWCF> listInt = service.GetInterventionsByDefautOrderByDate(curDef).ToList();
@@ -177,11 +179,14 @@ namespace WindowsPresentationFoundation
             }
         }
 
-
+        
         private void AttribuerOuvrierButton_Click(object sender, RoutedEventArgs e)
         {
-            service.AddIntervention("EN TRAITEMENT", "Assignation d'un ouvrier (" + "ouvrier" + ")", DateTime.Now, curDef, user);
-            service.AddIntervention("EN TRAITEMENT", "Assignation d'un ouvrier (par " + user + ")", DateTime.Now, curDef, "ouvrier");
+            string ouvrier = (string)OuvriersCB.SelectedItem;
+            NoOuvrierLabel.Content = user + " -- " + ouvrier;
+            NoOuvrierLabel.Visibility = Visibility.Visible;
+            service.AddIntervention("EN TRAITEMENT", "Assignation d'un ouvrier (" + ouvrier + ")", DateTime.Now, curDef, user);
+            service.AddIntervention("EN TRAITEMENT", "Assignation d'un ouvrier (par " + user + ")", DateTime.Now, curDef, ouvrier);
             RefreshDefautsLV();
         }
 
