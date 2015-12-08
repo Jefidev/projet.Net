@@ -34,18 +34,18 @@
             <ListView x:Name="InterventionsLV" HorizontalAlignment="Left" Height="285" Margin="0,145,0,0" VerticalAlignment="Top" Width="1000">
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn Header="Etat" Width="150" DisplayMemberBinding="{Binding Etat}"/>
-                        <GridViewColumn Header="Date" Width="150" DisplayMemberBinding="{Binding DateIntervention}"/>
-                        <GridViewColumn Header="Personne" Width="200" DisplayMemberBinding="{Binding Personne}"/>
-                        <GridViewColumn Header="Commentaire" Width="500" DisplayMemberBinding="{Binding Commentaire}"/>
+                        <GridViewColumn Header="Etat" Width="100" DisplayMemberBinding="{Binding Etat}"/>
+                        <GridViewColumn Header="Date" Width="100" DisplayMemberBinding="{Binding DateIntervention}"/>
+                        <GridViewColumn Header="Personne" Width="250" DisplayMemberBinding="{Binding Personne}"/>
+                        <GridViewColumn Header="Commentaire" Width="550" DisplayMemberBinding="{Binding Commentaire}"/>
                     </GridView>
                 </ListView.View>
             </ListView>
             <Label x:Name="NoOuvrierLabel" Content="Pas d'ouvrier disponibles !" HorizontalAlignment="Left" Margin="1080,290,0,0" VerticalAlignment="Top" Foreground="Red" FontWeight="Bold"/>
             <Label x:Name="OuvriersLabel" Content="Choisir un ouvrier à attribuer :" HorizontalAlignment="Left" Margin="1080,290,0,0" VerticalAlignment="Top"/>
             <ComboBox x:Name="OuvriersCB" HorizontalAlignment="Left" Margin="1100,320,0,0" VerticalAlignment="Top" Width="120"/>
-            <Button x:Name="AttribuerOuvrierButton" Content="Attribuer un ouvrier" HorizontalAlignment="Left" Margin="1100,380,0,0" VerticalAlignment="Top" Width="120" Click="AttribuerOuvrierButton_Click"/>
-            <Button x:Name="ValiderButton" Content="Valider le défaut" HorizontalAlignment="Left" Margin="1100,380,0,0" VerticalAlignment="Top" Width="100" Click="ValiderButton_Click"/>
+            <Button x:Name="AttribuerOuvrierButton" Content="Attribuer un ouvrier" HorizontalAlignment="Left" Margin="1100,360,0,0" VerticalAlignment="Top" Width="120" Click="AttribuerOuvrierButton_Click"/>
+            <Button x:Name="ValiderButton" Content="Valider le défaut" HorizontalAlignment="Left" Margin="1110,400,0,0" VerticalAlignment="Top" Width="100" Click="ValiderButton_Click"/>
         </Grid>
     </Grid>
 </Window>

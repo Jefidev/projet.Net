@@ -16,6 +16,7 @@ BEGIN
 
 END;
 
+-- DELETE FROM Interventions WHERE IdIntervention = 29 OR IdIntervention = 30 OR IdIntervention = 31;
 
 -- INSERT INTO DEFAUTS(Col1, Col2, Col3, Photo)
 -- SELECT ValCol1, ValCol2, ValCol3, BulkColumn

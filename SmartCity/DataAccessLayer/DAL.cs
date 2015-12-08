@@ -21,7 +21,7 @@ namespace DataAccessLayer
 
         public static List<Defaut> SelectAllDefauts()
         {
-            return InstanceDC.Defauts.OrderByDescending(d => d.DateDefaut).ToList();
+            return InstanceDC.Defauts.OrderByDescending(d => d.DateDefaut).ThenByDescending(d => d.IdDefaut).ToList();
         }
         
         public static Defaut SelectDefautById(int id)

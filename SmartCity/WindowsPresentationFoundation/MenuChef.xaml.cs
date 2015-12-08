@@ -152,7 +152,7 @@ namespace WindowsPresentationFoundation
             string lastEtat = (string)(item.GetType().GetProperty("Etat").GetValue(item, null));
             if (lastEtat.Equals("A VALIDER"))
                 ValiderButton.Visibility = Visibility.Visible;
-            else if (lastEtat.Equals("OUVERT"))
+            if (lastEtat.Equals("OUVERT") || lastEtat.Equals("A VALIDER"))
             {
                 var requete = service.GetAllOuvriers();
 
@@ -190,7 +190,7 @@ namespace WindowsPresentationFoundation
                 var tmp = new
                 {
                     Etat = i.Etat,
-                    DateIntervention = i.DateIntervention,
+                    DateIntervention = i.DateIntervention.ToString("yyyy-dd-MM"),
                     Personne = i.Personne,
                     Commentaire = i.Commentaire
                 };
