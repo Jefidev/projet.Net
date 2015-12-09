@@ -124,6 +124,160 @@ namespace WindowsPresentationFoundation.SmartCityReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DIJointureWCF", Namespace="http://schemas.datacontract.org/2004/07/WindowsCommunicationFoundation")]
+    [System.SerializableAttribute()]
+    public partial class DIJointureWCF : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CommentaireField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DescriptionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string EtatField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdDefautField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private WindowsPresentationFoundation.SmartCityReference.Binary PhotoField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Commentaire {
+            get {
+                return this.CommentaireField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CommentaireField, value) != true)) {
+                    this.CommentaireField = value;
+                    this.RaisePropertyChanged("Commentaire");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Description {
+            get {
+                return this.DescriptionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DescriptionField, value) != true)) {
+                    this.DescriptionField = value;
+                    this.RaisePropertyChanged("Description");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Etat {
+            get {
+                return this.EtatField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EtatField, value) != true)) {
+                    this.EtatField = value;
+                    this.RaisePropertyChanged("Etat");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int IdDefaut {
+            get {
+                return this.IdDefautField;
+            }
+            set {
+                if ((this.IdDefautField.Equals(value) != true)) {
+                    this.IdDefautField = value;
+                    this.RaisePropertyChanged("IdDefaut");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public WindowsPresentationFoundation.SmartCityReference.Binary Photo {
+            get {
+                return this.PhotoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PhotoField, value) != true)) {
+                    this.PhotoField = value;
+                    this.RaisePropertyChanged("Photo");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Binary", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Linq")]
+    [System.SerializableAttribute()]
+    public partial class Binary : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private byte[] BytesField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public byte[] Bytes {
+            get {
+                return this.BytesField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.BytesField, value) != true)) {
+                    this.BytesField = value;
+                    this.RaisePropertyChanged("Bytes");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="DefautWCF", Namespace="http://schemas.datacontract.org/2004/07/WindowsCommunicationFoundation")]
     [System.SerializableAttribute()]
     public partial class DefautWCF : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -217,51 +371,6 @@ namespace WindowsPresentationFoundation.SmartCityReference {
                 if ((object.ReferenceEquals(this.PositionField, value) != true)) {
                     this.PositionField = value;
                     this.RaisePropertyChanged("Position");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Binary", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Linq")]
-    [System.SerializableAttribute()]
-    public partial class Binary : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private byte[] BytesField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public byte[] Bytes {
-            get {
-                return this.BytesField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.BytesField, value) != true)) {
-                    this.BytesField = value;
-                    this.RaisePropertyChanged("Bytes");
                 }
             }
         }
@@ -411,6 +520,18 @@ namespace WindowsPresentationFoundation.SmartCityReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceWCFSmartCity/Connexion", ReplyAction="http://tempuri.org/IServiceWCFSmartCity/ConnexionResponse")]
         System.Threading.Tasks.Task<WindowsPresentationFoundation.SmartCityReference.PersonneWCF> ConnexionAsync(string m, string pwd);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceWCFSmartCity/GetDefautsInterventions", ReplyAction="http://tempuri.org/IServiceWCFSmartCity/GetDefautsInterventionsResponse")]
+        WindowsPresentationFoundation.SmartCityReference.DIJointureWCF[] GetDefautsInterventions();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceWCFSmartCity/GetDefautsInterventions", ReplyAction="http://tempuri.org/IServiceWCFSmartCity/GetDefautsInterventionsResponse")]
+        System.Threading.Tasks.Task<WindowsPresentationFoundation.SmartCityReference.DIJointureWCF[]> GetDefautsInterventionsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceWCFSmartCity/GetDefautsInterventionsByMail", ReplyAction="http://tempuri.org/IServiceWCFSmartCity/GetDefautsInterventionsByMailResponse")]
+        WindowsPresentationFoundation.SmartCityReference.DIJointureWCF[] GetDefautsInterventionsByMail(string m);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceWCFSmartCity/GetDefautsInterventionsByMail", ReplyAction="http://tempuri.org/IServiceWCFSmartCity/GetDefautsInterventionsByMailResponse")]
+        System.Threading.Tasks.Task<WindowsPresentationFoundation.SmartCityReference.DIJointureWCF[]> GetDefautsInterventionsByMailAsync(string m);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceWCFSmartCity/GetAllDefauts", ReplyAction="http://tempuri.org/IServiceWCFSmartCity/GetAllDefautsResponse")]
         WindowsPresentationFoundation.SmartCityReference.DefautWCF[] GetAllDefauts();
         
@@ -483,6 +604,22 @@ namespace WindowsPresentationFoundation.SmartCityReference {
         
         public System.Threading.Tasks.Task<WindowsPresentationFoundation.SmartCityReference.PersonneWCF> ConnexionAsync(string m, string pwd) {
             return base.Channel.ConnexionAsync(m, pwd);
+        }
+        
+        public WindowsPresentationFoundation.SmartCityReference.DIJointureWCF[] GetDefautsInterventions() {
+            return base.Channel.GetDefautsInterventions();
+        }
+        
+        public System.Threading.Tasks.Task<WindowsPresentationFoundation.SmartCityReference.DIJointureWCF[]> GetDefautsInterventionsAsync() {
+            return base.Channel.GetDefautsInterventionsAsync();
+        }
+        
+        public WindowsPresentationFoundation.SmartCityReference.DIJointureWCF[] GetDefautsInterventionsByMail(string m) {
+            return base.Channel.GetDefautsInterventionsByMail(m);
+        }
+        
+        public System.Threading.Tasks.Task<WindowsPresentationFoundation.SmartCityReference.DIJointureWCF[]> GetDefautsInterventionsByMailAsync(string m) {
+            return base.Channel.GetDefautsInterventionsByMailAsync(m);
         }
         
         public WindowsPresentationFoundation.SmartCityReference.DefautWCF[] GetAllDefauts() {

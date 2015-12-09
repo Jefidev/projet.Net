@@ -6,8 +6,8 @@
       <Column Name="Photo" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="Description" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
       <Column Name="Position" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
-      <Column Name="DateDefaut" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
-      <Association Name="Defaut_Intervention" Member="Interventions" ThisKey="IdDefaut" OtherKey="Defaut" Type="Intervention" />
+      <Column Name="DateDefaut" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Association Name="Defaut_Intervention" Member="Interventions" ThisKey="IdDefaut" OtherKey="IdDefaut" Type="Intervention" />
     </Type>
   </Table>
   <Table Name="dbo.Interventions" Member="Interventions">
@@ -16,10 +16,10 @@
       <Column Name="Etat" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
       <Column Name="Commentaire" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
       <Column Name="DateIntervention" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
-      <Column Name="Defaut" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Personne" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Association Name="Defaut_Intervention" Member="Defaut1" ThisKey="Defaut" OtherKey="IdDefaut" Type="Defaut" IsForeignKey="true" />
-      <Association Name="Personne_Intervention" Member="Personne1" ThisKey="Personne" OtherKey="Mail" Type="Personne" IsForeignKey="true" />
+      <Column Name="IdDefaut" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Mail" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="Defaut_Intervention" Member="Defaut" ThisKey="IdDefaut" OtherKey="IdDefaut" Type="Defaut" IsForeignKey="true" />
+      <Association Name="Personne_Intervention" Member="Personne" ThisKey="Mail" OtherKey="Mail" Type="Personne" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Personnes" Member="Personnes">
@@ -29,7 +29,7 @@
       <Column Name="Nom" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
       <Column Name="Prenom" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
       <Column Name="Type" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
-      <Association Name="Personne_Intervention" Member="Interventions" ThisKey="Mail" OtherKey="Personne" Type="Intervention" />
+      <Association Name="Personne_Intervention" Member="Interventions" ThisKey="Mail" OtherKey="Mail" Type="Intervention" />
     </Type>
   </Table>
 </Database>

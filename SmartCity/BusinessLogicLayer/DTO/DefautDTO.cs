@@ -16,6 +16,8 @@ namespace BusinessLogicLayer.DTO
         public string Position { get; set; }
         public DateTime DateDefaut { get; set; }
 
+        public List<InterventionDTO> Interventions {get; set;}
+
         public override string ToString()
         {
             return IdDefaut + " ==> Position : " + Position + " -- Description : " + Description;

@@ -11,6 +11,22 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="PersonneWCF" nillable="true" type="tns:PersonneWCF" />
+  <xs:complexType name="ArrayOfDIJointureWCF">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DIJointureWCF" nillable="true" type="tns:DIJointureWCF" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDIJointureWCF" nillable="true" type="tns:ArrayOfDIJointureWCF" />
+  <xs:complexType name="DIJointureWCF">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Commentaire" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Etat" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdDefaut" type="xs:int" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/System.Data.Linq" minOccurs="0" name="Photo" nillable="true" type="q1:Binary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DIJointureWCF" nillable="true" type="tns:DIJointureWCF" />
   <xs:complexType name="ArrayOfDefautWCF">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="DefautWCF" nillable="true" type="tns:DefautWCF" />
@@ -22,7 +38,7 @@
       <xs:element minOccurs="0" name="DateDefaut" type="xs:dateTime" />
       <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="IdDefaut" type="xs:int" />
-      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/System.Data.Linq" minOccurs="0" name="Photo" nillable="true" type="q1:Binary" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/System.Data.Linq" minOccurs="0" name="Photo" nillable="true" type="q2:Binary" />
       <xs:element minOccurs="0" name="Position" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>

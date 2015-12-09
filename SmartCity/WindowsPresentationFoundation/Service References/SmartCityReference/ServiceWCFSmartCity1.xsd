@@ -16,6 +16,32 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetDefautsInterventions">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDefautsInterventionsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/WindowsCommunicationFoundation" minOccurs="0" name="GetDefautsInterventionsResult" nillable="true" type="q2:ArrayOfDIJointureWCF" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDefautsInterventionsByMail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="m" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDefautsInterventionsByMailResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/WindowsCommunicationFoundation" minOccurs="0" name="GetDefautsInterventionsByMailResult" nillable="true" type="q3:ArrayOfDIJointureWCF" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="GetAllDefauts">
     <xs:complexType>
       <xs:sequence />
@@ -24,7 +50,7 @@
   <xs:element name="GetAllDefautsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/WindowsCommunicationFoundation" minOccurs="0" name="GetAllDefautsResult" nillable="true" type="q2:ArrayOfDefautWCF" />
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/WindowsCommunicationFoundation" minOccurs="0" name="GetAllDefautsResult" nillable="true" type="q4:ArrayOfDefautWCF" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -38,7 +64,7 @@
   <xs:element name="GetDefautByIdResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/WindowsCommunicationFoundation" minOccurs="0" name="GetDefautByIdResult" nillable="true" type="q3:DefautWCF" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/WindowsCommunicationFoundation" minOccurs="0" name="GetDefautByIdResult" nillable="true" type="q5:DefautWCF" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -52,7 +78,7 @@
   <xs:element name="GetInterventionsByDefautOrderByDateResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/WindowsCommunicationFoundation" minOccurs="0" name="GetInterventionsByDefautOrderByDateResult" nillable="true" type="q4:ArrayOfInterventionWCF" />
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/WindowsCommunicationFoundation" minOccurs="0" name="GetInterventionsByDefautOrderByDateResult" nillable="true" type="q6:ArrayOfInterventionWCF" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -66,7 +92,7 @@
   <xs:element name="GetLastInterventionByDefautResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/WindowsCommunicationFoundation" minOccurs="0" name="GetLastInterventionByDefautResult" nillable="true" type="q5:InterventionWCF" />
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/WindowsCommunicationFoundation" minOccurs="0" name="GetLastInterventionByDefautResult" nillable="true" type="q7:InterventionWCF" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -94,7 +120,7 @@
   <xs:element name="GetAllOuvriersResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/WindowsCommunicationFoundation" minOccurs="0" name="GetAllOuvriersResult" nillable="true" type="q6:ArrayOfPersonneWCF" />
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/WindowsCommunicationFoundation" minOccurs="0" name="GetAllOuvriersResult" nillable="true" type="q8:ArrayOfPersonneWCF" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

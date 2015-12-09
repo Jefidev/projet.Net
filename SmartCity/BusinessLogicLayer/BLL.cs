@@ -34,6 +34,73 @@ namespace BusinessLogicLayer
         #endregion
 
 
+        #region Jointure défauts-interventions
+
+        public static List<DIJointureDTO> SelectDefautsInterventions()
+        {
+            List<Defaut> listDAL = DAL.SelectAllDefauts();
+
+            if (listDAL == null)
+                return null;
+            else
+            {
+                var ilist = listDAL.
+                    Select(d => d.Interventions.OrderByDescending(i => i.DateIntervention).
+                        FirstOrDefault());
+
+                List<DIJointureDTO> listDTO = new List<DIJointureDTO>();
+                foreach (var item in ilist)
+                {
+                    if (item != null)
+                    {
+                        listDTO.Add(new DIJointureDTO
+                        {
+                            IdDefaut = item.IdDefaut,
+                            Photo = item.Defaut.Photo,
+                            Etat = item.Etat,
+                            Description = item.Defaut.Description,
+                            Commentaire = item.Commentaire
+                        });
+                    }
+                }
+                return listDTO;
+            }
+        }
+
+        public static List<DIJointureDTO> SelectDefautsInterventionsByMail(string m)
+        {
+            List<Defaut> listDAL = DAL.SelectAllDefauts();
+
+            if (listDAL == null)
+                return null;
+            else
+            {
+                var ilist = listDAL.
+                    Select(d => d.Interventions.OrderByDescending(i => i.DateIntervention)
+                        .Where(i => i.Personne.Equals(m)).FirstOrDefault());
+
+                List<DIJointureDTO> listDTO = new List<DIJointureDTO>();
+                foreach (var item in ilist)
+                {
+                    if (item != null)
+                    {
+                        listDTO.Add(new DIJointureDTO
+                        {
+                            IdDefaut = item.IdDefaut,
+                            Photo = item.Defaut.Photo,
+                            Etat = item.Etat,
+                            Description = item.Defaut.Description,
+                            Commentaire = item.Commentaire
+                        });
+                    }
+                }
+                return listDTO;
+            }
+        }
+
+        #endregion
+
+
         #region Gestion des défauts
 
         public static List<DefautDTO> SelectAllDefauts()
@@ -102,8 +169,8 @@ namespace BusinessLogicLayer
                     iDTO.Etat = i.Etat;
                     iDTO.Commentaire = i.Commentaire;
                     iDTO.DateIntervention = i.DateIntervention;
-                    iDTO.Defaut = i.Defaut;
-                    iDTO.Personne = i.Personne;
+                    iDTO.Defaut = i.IdDefaut;
+                    iDTO.Personne = i.Mail;
                     listBLL.Add(iDTO);
                 }
 
@@ -125,8 +192,8 @@ namespace BusinessLogicLayer
                     Etat = i.Etat,
                     Commentaire = i.Commentaire,
                     DateIntervention = i.DateIntervention,
-                    Defaut = i.Defaut,
-                    Personne = i.Personne
+                    Defaut = i.IdDefaut,
+                    Personne = i.Mail
                 };
             }
         }

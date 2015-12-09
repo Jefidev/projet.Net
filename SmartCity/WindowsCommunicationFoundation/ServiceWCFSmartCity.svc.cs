@@ -38,6 +38,61 @@ namespace WindowsCommunicationFoundation
         #endregion
 
 
+        #region Jointure défauts-interventions
+
+        public List<DIJointureWCF> GetDefautsInterventions()
+        {
+            List<DIJointureDTO> listBLL = BLL.SelectDefautsInterventions();
+
+            if (listBLL == null)
+                return null;
+            else
+            {
+                List<DIJointureWCF> listWCF = new List<DIJointureWCF>();
+
+                foreach (DIJointureDTO di in listBLL)
+                {
+                    DIJointureWCF diWCF = new DIJointureWCF();
+                    diWCF.IdDefaut = di.IdDefaut;
+                    diWCF.Photo = di.Photo;
+                    diWCF.Etat = di.Etat;
+                    diWCF.Description = di.Description;
+                    diWCF.Commentaire = di.Commentaire;
+                    listWCF.Add(diWCF);
+                }
+
+                return listWCF;
+            }
+        }
+
+        public List<DIJointureWCF> GetDefautsInterventionsByMail(string m)
+        {
+            List<DIJointureDTO> listBLL = BLL.SelectDefautsInterventionsByMail(m);
+
+            if (listBLL == null)
+                return null;
+            else
+            {
+                List<DIJointureWCF> listWCF = new List<DIJointureWCF>();
+
+                foreach (DIJointureDTO di in listBLL)
+                {
+                    DIJointureWCF diWCF = new DIJointureWCF();
+                    diWCF.IdDefaut = di.IdDefaut;
+                    diWCF.Photo = di.Photo;
+                    diWCF.Etat = di.Etat;
+                    diWCF.Description = di.Description;
+                    diWCF.Commentaire = di.Commentaire;
+                    listWCF.Add(diWCF);
+                }
+
+                return listWCF;
+            }
+        }
+
+        #endregion
+
+
         #region Gestion des défauts
 
         public List<DefautWCF> GetAllDefauts()
