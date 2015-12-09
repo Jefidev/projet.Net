@@ -110,7 +110,7 @@ namespace DataAccessLayer
 		
 		private string _Position;
 		
-		private System.Nullable<System.DateTime> _DateDefaut;
+		private System.DateTime _DateDefaut;
 		
 		private EntitySet<Intervention> _Interventions;
 		
@@ -126,7 +126,7 @@ namespace DataAccessLayer
     partial void OnDescriptionChanged();
     partial void OnPositionChanging(string value);
     partial void OnPositionChanged();
-    partial void OnDateDefautChanging(System.Nullable<System.DateTime> value);
+    partial void OnDateDefautChanging(System.DateTime value);
     partial void OnDateDefautChanged();
     #endregion
 		
@@ -216,8 +216,8 @@ namespace DataAccessLayer
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateDefaut", DbType="Date")]
-		public System.Nullable<System.DateTime> DateDefaut
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateDefaut", DbType="Date NOT NULL")]
+		public System.DateTime DateDefaut
 		{
 			get
 			{

@@ -6,7 +6,7 @@
       <Column Name="Photo" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="Description" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
       <Column Name="Position" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
-      <Column Name="DateDefaut" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="DateDefaut" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
       <Association Name="Defaut_Intervention" Member="Interventions" ThisKey="IdDefaut" OtherKey="IdDefaut" Type="Intervention" />
     </Type>
   </Table>

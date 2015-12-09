@@ -77,7 +77,7 @@ namespace BusinessLogicLayer
             {
                 var ilist = listDAL.
                     Select(d => d.Interventions.OrderByDescending(i => i.DateIntervention)
-                        .Where(i => i.Personne.Equals(m)).FirstOrDefault());
+                        .Where(i => (i.Mail != null) && (i.Mail.Equals(m))).FirstOrDefault());
 
                 List<DIJointureDTO> listDTO = new List<DIJointureDTO>();
                 foreach (var item in ilist)
