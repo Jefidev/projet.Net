@@ -88,12 +88,17 @@ namespace WindowsPresentationFoundation
             {
                 if (filtre.Equals("TOUS") || filtre.Equals(di.Etat))
                 {
-                    BitmapImage bi = new BitmapImage();
-                    bi.BeginInit();
-                    bi.CreateOptions = BitmapCreateOptions.None;
-                    bi.CacheOption = BitmapCacheOption.Default;
-                    bi.StreamSource = new MemoryStream(di.Photo.Bytes);
-                    bi.EndInit();
+                    BitmapImage bi = null;
+
+                    if (di.Photo != null)
+                    {
+                        bi = new BitmapImage();
+                        bi.BeginInit();
+                        bi.CreateOptions = BitmapCreateOptions.None;
+                        bi.CacheOption = BitmapCacheOption.Default;
+                        bi.StreamSource = new MemoryStream(di.Photo.Bytes);
+                        bi.EndInit();
+                    }
 
                     var tmp = new
                     {
@@ -107,43 +112,6 @@ namespace WindowsPresentationFoundation
                     DefautsLV.Items.Add(tmp);
                 }
             }
-            
-
-
-            
-
-            /*var requete = service.GetAllDefauts();
-
-            if (requete == null)
-                return;
-
-            List<SmartCityReference.DefautWCF> listDef = requete.ToList();
-
-            foreach (var d in listDef)
-            {
-                SmartCityReference.InterventionWCF i = service.GetLastInterventionByDefaut(d.IdDefaut);
-
-                if (filtre.Equals("TOUS") || filtre.Equals(i.Etat))
-                {
-                    BitmapImage bi = new BitmapImage();
-                    bi.BeginInit();
-                    bi.CreateOptions = BitmapCreateOptions.None;
-                    bi.CacheOption = BitmapCacheOption.Default;
-                    bi.StreamSource = new MemoryStream(d.Photo.Bytes);
-                    bi.EndInit();
-
-                    var tmp = new
-                    {
-                        IdDefaut = d.IdDefaut,
-                        Photo = bi,
-                        Etat = i.Etat,
-                        Description = d.Description,
-                        Commentaire = i.Commentaire
-                    };
-
-                    DefautsLV.Items.Add(tmp);
-                }
-            }*/
         }
 
 

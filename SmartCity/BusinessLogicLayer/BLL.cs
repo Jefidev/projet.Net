@@ -18,17 +18,15 @@ namespace BusinessLogicLayer
 
             if (p == null || !pwd.Equals(p.Password))
                 return null;
-            else
+
+            return new PersonneDTO
             {
-                return new PersonneDTO
-                {
-                    Mail = p.Mail,
-                    Password = p.Password,
-                    Nom = p.Nom,
-                    Prenom = p.Prenom,
-                    Type = p.Type
-                };
-            }
+                Mail = p.Mail,
+                Password = p.Password,
+                Nom = p.Nom,
+                Prenom = p.Prenom,
+                Type = p.Type
+            };
         }
 
         #endregion
@@ -42,29 +40,27 @@ namespace BusinessLogicLayer
 
             if (listDAL == null)
                 return null;
-            else
-            {
-                var ilist = listDAL.
-                    Select(d => d.Interventions.OrderByDescending(i => i.DateIntervention).
-                        FirstOrDefault());
 
-                List<DIJointureDTO> listDTO = new List<DIJointureDTO>();
-                foreach (var item in ilist)
+            var ilist = listDAL.
+                Select(d => d.Interventions.OrderByDescending(i => i.DateIntervention)
+                    .ThenByDescending(i => i.IdIntervention).FirstOrDefault());
+
+            List<DIJointureDTO> listDTO = new List<DIJointureDTO>();
+            foreach (var item in ilist)
+            {
+                if (item != null)
                 {
-                    if (item != null)
+                    listDTO.Add(new DIJointureDTO
                     {
-                        listDTO.Add(new DIJointureDTO
-                        {
-                            IdDefaut = item.IdDefaut,
-                            Photo = item.Defaut.Photo,
-                            Etat = item.Etat,
-                            Description = item.Defaut.Description,
-                            Commentaire = item.Commentaire
-                        });
-                    }
+                        IdDefaut = item.IdDefaut,
+                        Photo = item.Defaut.Photo,
+                        Etat = item.Etat,
+                        Description = item.Defaut.Description,
+                        Commentaire = item.Commentaire
+                    });
                 }
-                return listDTO;
             }
+            return listDTO;
         }
 
         public static List<DIJointureDTO> SelectDefautsInterventionsByMail(string m)
@@ -73,29 +69,29 @@ namespace BusinessLogicLayer
 
             if (listDAL == null)
                 return null;
-            else
-            {
-                var ilist = listDAL.
-                    Select(d => d.Interventions.OrderByDescending(i => i.DateIntervention)
-                        .Where(i => (i.Mail != null) && (i.Mail.Equals(m))).FirstOrDefault());
 
-                List<DIJointureDTO> listDTO = new List<DIJointureDTO>();
-                foreach (var item in ilist)
+            var ilist = listDAL.
+                Select(d => d.Interventions.OrderByDescending(i => i.DateIntervention)
+                    .ThenByDescending(i => i.IdIntervention)
+                    .Where(i => (i.Mail != null) && (i.Mail.Equals(m))).FirstOrDefault());
+
+            List<DIJointureDTO> listDTO = new List<DIJointureDTO>();
+            foreach (var item in ilist)
+            {
+                if (item != null)
                 {
-                    if (item != null)
+                    listDTO.Add(new DIJointureDTO
                     {
-                        listDTO.Add(new DIJointureDTO
-                        {
-                            IdDefaut = item.IdDefaut,
-                            Photo = item.Defaut.Photo,
-                            Etat = item.Etat,
-                            Description = item.Defaut.Description,
-                            Commentaire = item.Commentaire
-                        });
-                    }
+                        IdDefaut = item.IdDefaut,
+                        Photo = item.Defaut.Photo,
+                        Etat = item.Etat,
+                        Description = item.Defaut.Description,
+                        Commentaire = item.Commentaire
+                    });
                 }
-                return listDTO;
             }
+
+            return listDTO;
         }
 
         #endregion
@@ -109,23 +105,21 @@ namespace BusinessLogicLayer
 
             if (listDAL == null)
                 return null;
-            else
+
+            List<DefautDTO> listBLL = new List<DefautDTO>();
+
+            foreach (Defaut d in listDAL)
             {
-                List<DefautDTO> listBLL = new List<DefautDTO>();
-
-                foreach (Defaut d in listDAL)
-                {
-                    DefautDTO dDTO = new DefautDTO();
-                    dDTO.IdDefaut = d.IdDefaut;
-                    dDTO.Photo = d.Photo;
-                    dDTO.Description = d.Description;
-                    dDTO.Position = d.Position;
-                    dDTO.DateDefaut = d.DateDefaut;
-                    listBLL.Add(dDTO);
-                }
-
-                return listBLL;
+                DefautDTO dDTO = new DefautDTO();
+                dDTO.IdDefaut = d.IdDefaut;
+                dDTO.Photo = d.Photo;
+                dDTO.Description = d.Description;
+                dDTO.Position = d.Position;
+                dDTO.DateDefaut = d.DateDefaut;
+                listBLL.Add(dDTO);
             }
+
+            return listBLL;
         }
 
         public static DefautDTO SelectDefautById(int id)
@@ -134,17 +128,15 @@ namespace BusinessLogicLayer
 
             if (d == null)
                 return null;
-            else
+
+            return new DefautDTO
             {
-                return new DefautDTO
-                {
-                    IdDefaut = d.IdDefaut,
-                    Photo = d.Photo,
-                    Description = d.Description,
-                    Position = d.Position,
-                    DateDefaut = d.DateDefaut
-                };
-            }
+                IdDefaut = d.IdDefaut,
+                Photo = d.Photo,
+                Description = d.Description,
+                Position = d.Position,
+                DateDefaut = d.DateDefaut
+            };
         }
 
         #endregion
@@ -158,24 +150,22 @@ namespace BusinessLogicLayer
 
             if (listDAL == null)
                 return null;
-            else
+
+            List<InterventionDTO> listBLL = new List<InterventionDTO>();
+
+            foreach (Intervention i in listDAL)
             {
-                List<InterventionDTO> listBLL = new List<InterventionDTO>();
-
-                foreach (Intervention i in listDAL)
-                {
-                    InterventionDTO iDTO = new InterventionDTO();
-                    iDTO.IdIntervention = i.IdIntervention;
-                    iDTO.Etat = i.Etat;
-                    iDTO.Commentaire = i.Commentaire;
-                    iDTO.DateIntervention = i.DateIntervention;
-                    iDTO.Defaut = i.IdDefaut;
-                    iDTO.Personne = i.Mail;
-                    listBLL.Add(iDTO);
-                }
-
-                return listBLL;
+                InterventionDTO iDTO = new InterventionDTO();
+                iDTO.IdIntervention = i.IdIntervention;
+                iDTO.Etat = i.Etat;
+                iDTO.Commentaire = i.Commentaire;
+                iDTO.DateIntervention = i.DateIntervention;
+                iDTO.Defaut = i.IdDefaut;
+                iDTO.Personne = i.Mail;
+                listBLL.Add(iDTO);
             }
+
+            return listBLL;
         }
 
         public static InterventionDTO SelectLastInterventionByDefaut(int d)
@@ -184,18 +174,16 @@ namespace BusinessLogicLayer
 
             if (i == null)
                 return null;
-            else
+
+            return new InterventionDTO
             {
-                return new InterventionDTO
-                {
-                    IdIntervention = i.IdIntervention,
-                    Etat = i.Etat,
-                    Commentaire = i.Commentaire,
-                    DateIntervention = i.DateIntervention,
-                    Defaut = i.IdDefaut,
-                    Personne = i.Mail
-                };
-            }
+                IdIntervention = i.IdIntervention,
+                Etat = i.Etat,
+                Commentaire = i.Commentaire,
+                DateIntervention = i.DateIntervention,
+                Defaut = i.IdDefaut,
+                Personne = i.Mail
+            };
         }
 
         public static void AddIntervention(string e, string c, DateTime d, int def, string p)
@@ -214,23 +202,21 @@ namespace BusinessLogicLayer
 
             if (listDAL == null)
                 return null;
-            else
+
+            List<PersonneDTO> listBLL = new List<PersonneDTO>();
+
+            foreach (Personne p in listDAL)
             {
-                List<PersonneDTO> listBLL = new List<PersonneDTO>();
-
-                foreach (Personne p in listDAL)
-                {
-                    PersonneDTO pDTO = new PersonneDTO();
-                    pDTO.Mail = p.Mail;
-                    pDTO.Password = p.Password;
-                    pDTO.Nom = p.Nom;
-                    pDTO.Prenom = p.Prenom;
-                    pDTO.Type = p.Type;
-                    listBLL.Add(pDTO);
-                }
-
-                return listBLL;
+                PersonneDTO pDTO = new PersonneDTO();
+                pDTO.Mail = p.Mail;
+                pDTO.Password = p.Password;
+                pDTO.Nom = p.Nom;
+                pDTO.Prenom = p.Prenom;
+                pDTO.Type = p.Type;
+                listBLL.Add(pDTO);
             }
+
+            return listBLL;
         }
 
         #endregion
