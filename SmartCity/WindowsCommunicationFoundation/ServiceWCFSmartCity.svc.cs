@@ -106,8 +106,8 @@ namespace WindowsCommunicationFoundation
                     iWCF.Etat = i.Etat;
                     iWCF.Commentaire = i.Commentaire;
                     iWCF.DateIntervention = i.DateIntervention;
-                    iWCF.Defaut = i.Defaut;
-                    iWCF.Personne = i.Personne;
+                    iWCF.IdDefaut = i.IdDefaut;
+                    iWCF.Mail = i.Mail;
                     listWCF.Add(iWCF);
                 }
 
@@ -129,8 +129,8 @@ namespace WindowsCommunicationFoundation
                     Etat = i.Etat,
                     Commentaire = i.Commentaire,
                     DateIntervention = i.DateIntervention,
-                    Defaut = i.Defaut,
-                    Personne = i.Personne
+                    IdDefaut = i.IdDefaut,
+                    Mail = i.Mail
                 };
             }
         }

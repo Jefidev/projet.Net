@@ -13,8 +13,8 @@ namespace BusinessLogicLayer.DTO
         public string Etat {get; set; }
         public string Commentaire {get; set; }
         public DateTime DateIntervention { get; set; }
-        public int Defaut { get; set; }
-        public string Personne { get; set; }
+        public int IdDefaut { get; set; }
+        public string Mail { get; set; }
 
         public override string ToString()
         {

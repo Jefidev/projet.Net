@@ -20,18 +20,18 @@ namespace WindowsPresentationFoundation
     public partial class MenuChef : Window
     {
         private SmartCityReference.ServiceWCFSmartCityClient service;
-        private string user;
+        private SmartCityReference.PersonneWCF user;
         private string filtre;
         private int curDef;
 
 
-        public MenuChef(SmartCityReference.ServiceWCFSmartCityClient s, string m)
+        public MenuChef(SmartCityReference.ServiceWCFSmartCityClient s, SmartCityReference.PersonneWCF p)
         {
             this.WindowState = WindowState.Maximized;
             InitializeComponent();
 
             service = s;
-            user = m;
+            user = p;
 
             // Initialisation filtre
             filtre = "TOUS";
@@ -78,25 +78,32 @@ namespace WindowsPresentationFoundation
             {
                 SmartCityReference.InterventionWCF i = service.GetLastInterventionByDefaut(d.IdDefaut);
 
-                if (filtre.Equals("TOUS") || filtre.Equals(i.Etat))
+                if (user.Type.Equals("CHEF") || (user.Type.Equals("OUVRIER") && i.Mail != null && i.Mail.Equals(user.Mail)))
                 {
-                    BitmapImage bi = new BitmapImage();
-                    bi.BeginInit();
-                    bi.CreateOptions = BitmapCreateOptions.None;
-                    bi.CacheOption = BitmapCacheOption.Default;
-                    bi.StreamSource = new MemoryStream(d.Photo.Bytes);
-                    bi.EndInit();
-
-                    var tmp = new
+                    if (filtre.Equals("TOUS") || filtre.Equals(i.Etat))
                     {
-                        IdDefaut = d.IdDefaut,
-                        Photo = bi,
-                        Etat = i.Etat,
-                        Description = d.Description,
-                        Commentaire = i.Commentaire
-                    };
+                        BitmapImage bi = null;
+                        if (d.Photo != null)
+                        {
+                            bi = new BitmapImage();
+                            bi.BeginInit();
+                            bi.CreateOptions = BitmapCreateOptions.None;
+                            bi.CacheOption = BitmapCacheOption.Default;
+                            bi.StreamSource = new MemoryStream(d.Photo.Bytes);
+                            bi.EndInit();
+                        }
 
-                    DefautsLV.Items.Add(tmp);
+                        var tmp = new
+                        {
+                            IdDefaut = d.IdDefaut,
+                            Photo = bi,
+                            Etat = i.Etat,
+                            Description = d.Description,
+                            Commentaire = i.Commentaire
+                        };
+
+                        DefautsLV.Items.Add(tmp);
+                    }
                 }
             }
         }
@@ -150,30 +157,38 @@ namespace WindowsPresentationFoundation
 
             // Boutons valider défaut/attribuer un ouvrier
             string lastEtat = (string)(item.GetType().GetProperty("Etat").GetValue(item, null));
-            if (lastEtat.Equals("A VALIDER"))
-                ValiderButton.Visibility = Visibility.Visible;
-            if (lastEtat.Equals("OUVERT") || lastEtat.Equals("A VALIDER"))
+            if (user.Type.Equals("CHEF"))
             {
-                var requete = service.GetAllOuvriers();
+                if (lastEtat.Equals("A VALIDER"))
+                    ValiderButton.Visibility = Visibility.Visible;
+                if (lastEtat.Equals("OUVERT") || lastEtat.Equals("A VALIDER"))
+                {
+                    var requete = service.GetAllOuvriers();
 
-                if (requete == null)
-                {
-                    NoOuvrierLabel.Visibility = Visibility.Visible;
-                }
-                else
-                {
-                    OuvriersCB.Items.Clear();
-                    List<SmartCityReference.PersonneWCF> list = requete.ToList();
-                    foreach (var p in list)
+                    if (requete == null)
                     {
-                        OuvriersCB.Items.Add(p.Mail);
+                        NoOuvrierLabel.Visibility = Visibility.Visible;
                     }
+                    else
+                    {
+                        OuvriersCB.Items.Clear();
+                        List<SmartCityReference.PersonneWCF> list = requete.ToList();
+                        foreach (var p in list)
+                        {
+                            OuvriersCB.Items.Add(p.Mail);
+                        }
 
-                    OuvriersCB.SelectedIndex = 0;
-                    OuvriersLabel.Visibility = Visibility.Visible;
-                    OuvriersCB.Visibility = Visibility.Visible;
-                    AttribuerOuvrierButton.Visibility = Visibility.Visible;
+                        OuvriersCB.SelectedIndex = 0;
+                        OuvriersLabel.Visibility = Visibility.Visible;
+                        OuvriersCB.Visibility = Visibility.Visible;
+                        AttribuerOuvrierButton.Visibility = Visibility.Visible;
+                    }
                 }
+            }
+            else // Ouvrier
+            {
+                if (lastEtat.Equals("EN TRAITEMENT"))
+                    TravailTermineButton.Visibility = Visibility.Visible;
             }
 
             // Remplissage d'InterventionsLV
@@ -190,8 +205,8 @@ namespace WindowsPresentationFoundation
                 var tmp = new
                 {
                     Etat = i.Etat,
-                    DateIntervention = i.DateIntervention.ToString("yyyy-dd-MM"),
-                    Personne = i.Personne,
+                    DateIntervention = i.DateIntervention.ToString("yyyy-MM-dd"),
+                    Mail = i.Mail,
                     Commentaire = i.Commentaire
                 };
 
@@ -204,15 +219,21 @@ namespace WindowsPresentationFoundation
         {
             string tmp = (string)OuvriersCB.SelectedItem;
             string ouvrier = (string)OuvriersCB.SelectedItem;
-            service.AddIntervention("EN TRAITEMENT", "Assignation d'un ouvrier (" + ouvrier + ")", DateTime.Now, curDef, user);
-            service.AddIntervention("EN TRAITEMENT", "Assignation d'un ouvrier (par " + user + ")", DateTime.Now, curDef, ouvrier);
+            service.AddIntervention("EN TRAITEMENT", "Assignation d'un ouvrier (" + ouvrier + ")", DateTime.Now, curDef, user.Mail);
+            service.AddIntervention("EN TRAITEMENT", "Assignation d'un ouvrier (par " + user.Mail + ")", DateTime.Now, curDef, ouvrier);
             RefreshDefautsLV();
         }
 
 
         private void ValiderButton_Click(object sender, RoutedEventArgs e)
         {
-            service.AddIntervention("RESOLU", "Problème résolu et validé", DateTime.Now, curDef, user);
+            service.AddIntervention("RESOLU", "Problème résolu et validé", DateTime.Now, curDef, user.Mail);
+            RefreshDefautsLV();
+        }
+
+        private void TravailTermineButton_Click(object sender, RoutedEventArgs e)
+        {
+            service.AddIntervention("A VALIDER", "Réparations finies, à valider", DateTime.Now, curDef, user.Mail);
             RefreshDefautsLV();
         }
 
@@ -266,6 +287,7 @@ namespace WindowsPresentationFoundation
             OuvriersCB.Visibility = Visibility.Hidden;
             ValiderButton.Visibility = Visibility.Hidden;
             AttribuerOuvrierButton.Visibility = Visibility.Hidden;
+            TravailTermineButton.Visibility = Visibility.Hidden;
         }
     }
 }

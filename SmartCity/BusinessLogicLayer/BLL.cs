@@ -102,8 +102,8 @@ namespace BusinessLogicLayer
                     iDTO.Etat = i.Etat;
                     iDTO.Commentaire = i.Commentaire;
                     iDTO.DateIntervention = i.DateIntervention;
-                    iDTO.Defaut = i.Defaut;
-                    iDTO.Personne = i.Personne;
+                    iDTO.IdDefaut = i.IdDefaut;
+                    iDTO.Mail = i.Mail;
                     listBLL.Add(iDTO);
                 }
 
@@ -125,8 +125,8 @@ namespace BusinessLogicLayer
                     Etat = i.Etat,
                     Commentaire = i.Commentaire,
                     DateIntervention = i.DateIntervention,
-                    Defaut = i.Defaut,
-                    Personne = i.Personne
+                    IdDefaut = i.IdDefaut,
+                    Mail = i.Mail
                 };
             }
         }

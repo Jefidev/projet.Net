@@ -37,10 +37,10 @@
     <xs:sequence>
       <xs:element minOccurs="0" name="Commentaire" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="DateIntervention" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="Defaut" type="xs:int" />
       <xs:element minOccurs="0" name="Etat" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdDefaut" type="xs:int" />
       <xs:element minOccurs="0" name="IdIntervention" type="xs:int" />
-      <xs:element minOccurs="0" name="Personne" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Mail" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="InterventionWCF" nillable="true" type="tns:InterventionWCF" />

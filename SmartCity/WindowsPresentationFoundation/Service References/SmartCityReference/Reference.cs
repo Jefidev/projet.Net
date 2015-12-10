@@ -292,16 +292,16 @@ namespace WindowsPresentationFoundation.SmartCityReference {
         private System.DateTime DateInterventionField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int DefautField;
+        private string EtatField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string EtatField;
+        private int IdDefautField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int IdInterventionField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string PersonneField;
+        private string MailField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -340,19 +340,6 @@ namespace WindowsPresentationFoundation.SmartCityReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Defaut {
-            get {
-                return this.DefautField;
-            }
-            set {
-                if ((this.DefautField.Equals(value) != true)) {
-                    this.DefautField = value;
-                    this.RaisePropertyChanged("Defaut");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
         public string Etat {
             get {
                 return this.EtatField;
@@ -361,6 +348,19 @@ namespace WindowsPresentationFoundation.SmartCityReference {
                 if ((object.ReferenceEquals(this.EtatField, value) != true)) {
                     this.EtatField = value;
                     this.RaisePropertyChanged("Etat");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int IdDefaut {
+            get {
+                return this.IdDefautField;
+            }
+            set {
+                if ((this.IdDefautField.Equals(value) != true)) {
+                    this.IdDefautField = value;
+                    this.RaisePropertyChanged("IdDefaut");
                 }
             }
         }
@@ -379,14 +379,14 @@ namespace WindowsPresentationFoundation.SmartCityReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Personne {
+        public string Mail {
             get {
-                return this.PersonneField;
+                return this.MailField;
             }
             set {
-                if ((object.ReferenceEquals(this.PersonneField, value) != true)) {
-                    this.PersonneField = value;
-                    this.RaisePropertyChanged("Personne");
+                if ((object.ReferenceEquals(this.MailField, value) != true)) {
+                    this.MailField = value;
+                    this.RaisePropertyChanged("Mail");
                 }
             }
         }

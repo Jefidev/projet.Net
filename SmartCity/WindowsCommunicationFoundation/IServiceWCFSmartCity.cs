@@ -91,8 +91,8 @@ namespace WindowsCommunicationFoundation
         string etat;
         string commentaire;
         DateTime dateIntervention;
-        int defaut;
-        string personne;
+        int idDefaut;
+        string mail;
 
         [DataMember]
         public int IdIntervention
@@ -123,17 +123,17 @@ namespace WindowsCommunicationFoundation
         }
 
         [DataMember]
-        public int Defaut
+        public int IdDefaut
         {
-            get { return defaut; }
-            set { defaut = value; }
+            get { return idDefaut; }
+            set { idDefaut = value; }
         }
 
         [DataMember]
-        public string Personne
+        public string Mail
         {
-            get { return personne; }
-            set { personne = value; }
+            get { return mail; }
+            set { mail = value; }
         }
     }
 
