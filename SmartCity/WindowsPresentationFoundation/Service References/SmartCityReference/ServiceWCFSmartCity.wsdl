@@ -14,18 +14,6 @@
   <wsdl:message name="IServiceWCFSmartCity_Connexion_OutputMessage">
     <wsdl:part name="parameters" element="tns:ConnexionResponse" />
   </wsdl:message>
-  <wsdl:message name="IServiceWCFSmartCity_GetDefautsInterventions_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetDefautsInterventions" />
-  </wsdl:message>
-  <wsdl:message name="IServiceWCFSmartCity_GetDefautsInterventions_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetDefautsInterventionsResponse" />
-  </wsdl:message>
-  <wsdl:message name="IServiceWCFSmartCity_GetDefautsInterventionsByMail_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetDefautsInterventionsByMail" />
-  </wsdl:message>
-  <wsdl:message name="IServiceWCFSmartCity_GetDefautsInterventionsByMail_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetDefautsInterventionsByMailResponse" />
-  </wsdl:message>
   <wsdl:message name="IServiceWCFSmartCity_GetAllDefauts_InputMessage">
     <wsdl:part name="parameters" element="tns:GetAllDefauts" />
   </wsdl:message>
@@ -67,14 +55,6 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IServiceWCFSmartCity/Connexion" message="tns:IServiceWCFSmartCity_Connexion_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServiceWCFSmartCity/ConnexionResponse" message="tns:IServiceWCFSmartCity_Connexion_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GetDefautsInterventions">
-      <wsdl:input wsaw:Action="http://tempuri.org/IServiceWCFSmartCity/GetDefautsInterventions" message="tns:IServiceWCFSmartCity_GetDefautsInterventions_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IServiceWCFSmartCity/GetDefautsInterventionsResponse" message="tns:IServiceWCFSmartCity_GetDefautsInterventions_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GetDefautsInterventionsByMail">
-      <wsdl:input wsaw:Action="http://tempuri.org/IServiceWCFSmartCity/GetDefautsInterventionsByMail" message="tns:IServiceWCFSmartCity_GetDefautsInterventionsByMail_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IServiceWCFSmartCity/GetDefautsInterventionsByMailResponse" message="tns:IServiceWCFSmartCity_GetDefautsInterventionsByMail_OutputMessage" />
-    </wsdl:operation>
     <wsdl:operation name="GetAllDefauts">
       <wsdl:input wsaw:Action="http://tempuri.org/IServiceWCFSmartCity/GetAllDefauts" message="tns:IServiceWCFSmartCity_GetAllDefauts_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServiceWCFSmartCity/GetAllDefautsResponse" message="tns:IServiceWCFSmartCity_GetAllDefauts_OutputMessage" />
@@ -104,24 +84,6 @@
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="Connexion">
       <soap:operation soapAction="http://tempuri.org/IServiceWCFSmartCity/Connexion" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetDefautsInterventions">
-      <soap:operation soapAction="http://tempuri.org/IServiceWCFSmartCity/GetDefautsInterventions" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetDefautsInterventionsByMail">
-      <soap:operation soapAction="http://tempuri.org/IServiceWCFSmartCity/GetDefautsInterventionsByMail" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

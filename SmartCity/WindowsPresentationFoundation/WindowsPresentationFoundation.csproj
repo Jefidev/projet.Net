@@ -127,9 +127,6 @@
     <None Include="Service References\SmartCityReference\WindowsPresentationFoundation.SmartCityReference.DefautWCF.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\SmartCityReference\WindowsPresentationFoundation.SmartCityReference.DIJointureWCF.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
     <None Include="Service References\SmartCityReference\WindowsPresentationFoundation.SmartCityReference.InterventionWCF.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>

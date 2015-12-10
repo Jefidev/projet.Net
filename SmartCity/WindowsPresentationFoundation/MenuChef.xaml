@@ -1,9 +1,9 @@
 ﻿<Window x:Class="WindowsPresentationFoundation.MenuChef"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Admin@SmartCity" Height="750" Width="1300">
+        Title="Menu (Chefs)" Height="750" Width="1300">
     <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Width="1300" Height="750">
-        <Label x:Name="TitreLabel" Content="Admin@SmartCity" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="24"  Margin="0,15,0,0" FontWeight="Bold" Foreground="#FF75D141"/>
+        <Label x:Name="TitreLabel" Content="Admin@SmartCity : Chef" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="24"  Margin="0,15,0,0" FontWeight="Bold" Foreground="#FF75D141"/>
         <Label x:Name="FiltreLabel" Content="Filtre (état) :" HorizontalAlignment="Left" Margin="70,100,0,0" VerticalAlignment="Top"/>
         <ComboBox x:Name="FiltreCB" HorizontalAlignment="Left" Margin="45,130,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="FiltreCB_SelectionChanged"/>
         <ListView x:Name="DefautsLV" HorizontalAlignment="Right" Height="200" Margin="0,62,0,0" VerticalAlignment="Top" Width="1100" SelectionChanged="DefautsLV_SelectionChanged">
@@ -46,7 +46,6 @@
             <ComboBox x:Name="OuvriersCB" HorizontalAlignment="Left" Margin="1100,320,0,0" VerticalAlignment="Top" Width="120"/>
             <Button x:Name="AttribuerOuvrierButton" Content="Attribuer un ouvrier" HorizontalAlignment="Left" Margin="1100,360,0,0" VerticalAlignment="Top" Width="120" Click="AttribuerOuvrierButton_Click"/>
             <Button x:Name="ValiderButton" Content="Valider le défaut" HorizontalAlignment="Left" Margin="1110,400,0,0" VerticalAlignment="Top" Width="100" Click="ValiderButton_Click"/>
-            <Button x:Name="TravailTermineButton" Content="Travail terminé" HorizontalAlignment="Left" Margin="1110,400,0,0" VerticalAlignment="Top" Width="100" Click="TravailTermineButton_Click"/>
         </Grid>
     </Grid>
 </Window>

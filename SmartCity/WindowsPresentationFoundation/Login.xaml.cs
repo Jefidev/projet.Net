@@ -31,13 +31,15 @@ namespace WindowsPresentationFoundation
 
             if (p == null)
                 ResultatLabel.Content = "Connexion ratée !";
-            else
+            else if (p.Type.Equals("CHEF"))
             {
-                MenuChef menuchef = new MenuChef(service, p);
+                MenuChef menuchef = new MenuChef(service, LoginTB.Text);
                 App.Current.MainWindow = menuchef;
                 this.Close();
                 menuchef.Show();
             }
+            else if (p.Type.Equals("OUVRIER"))
+                ResultatLabel.Content = "OUVRIER";
 
             ResultatLabel.Visibility = Visibility.Visible;
             PasswordTB.Text = "";

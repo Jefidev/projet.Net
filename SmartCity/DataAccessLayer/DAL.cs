@@ -31,12 +31,12 @@ namespace DataAccessLayer
 
         public static List<Intervention> SelectInterventionsByDefautOrderByDate(int d)
         {
-            return InstanceDC.Interventions.Where(i => i.IdDefaut == d).OrderByDescending(i => i.DateIntervention).ThenByDescending(i => i.IdIntervention).ToList();
+            return InstanceDC.Interventions.Where(i => i.Defaut == d).OrderByDescending(i => i.DateIntervention).ThenByDescending(i => i.IdIntervention).ToList();
         }
 
         public static Intervention SelectLastInterventionByDefaut(int d)
         {
-            List<Intervention> list = InstanceDC.Interventions.Where(i => i.IdDefaut == d).OrderByDescending(i => i.DateIntervention).ThenByDescending(i => i.IdIntervention).ToList();
+            List<Intervention> list = InstanceDC.Interventions.Where(i => i.Defaut == d).OrderByDescending(i => i.DateIntervention).ThenByDescending(i => i.IdIntervention).ToList();
             return list[0];
         }
 
@@ -62,8 +62,8 @@ namespace DataAccessLayer
                 Etat = e,
                 Commentaire = c,
                 DateIntervention = d,
-                IdDefaut = def,
-                Mail = p
+                Defaut = def,
+                Personne = p
             };
 
             InstanceDC.Interventions.InsertOnSubmit(i);

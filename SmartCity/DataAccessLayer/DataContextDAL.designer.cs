@@ -236,7 +236,7 @@ namespace DataAccessLayer
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Defaut_Intervention", Storage="_Interventions", ThisKey="IdDefaut", OtherKey="IdDefaut")]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Defaut_Intervention", Storage="_Interventions", ThisKey="IdDefaut", OtherKey="Defaut")]
 		public EntitySet<Intervention> Interventions
 		{
 			get
@@ -272,13 +272,13 @@ namespace DataAccessLayer
 		private void attach_Interventions(Intervention entity)
 		{
 			this.SendPropertyChanging();
-			entity.Defaut = this;
+			entity.Defaut1 = this;
 		}
 		
 		private void detach_Interventions(Intervention entity)
 		{
 			this.SendPropertyChanging();
-			entity.Defaut = null;
+			entity.Defaut1 = null;
 		}
 	}
 	
@@ -296,13 +296,13 @@ namespace DataAccessLayer
 		
 		private System.DateTime _DateIntervention;
 		
-		private int _IdDefaut;
+		private int _Defaut;
 		
-		private string _Mail;
+		private string _Personne;
 		
-		private EntityRef<Defaut> _Defaut;
+		private EntityRef<Defaut> _Defaut1;
 		
-		private EntityRef<Personne> _Personne;
+		private EntityRef<Personne> _Personne1;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -316,16 +316,16 @@ namespace DataAccessLayer
     partial void OnCommentaireChanged();
     partial void OnDateInterventionChanging(System.DateTime value);
     partial void OnDateInterventionChanged();
-    partial void OnIdDefautChanging(int value);
-    partial void OnIdDefautChanged();
-    partial void OnMailChanging(string value);
-    partial void OnMailChanged();
+    partial void OnDefautChanging(int value);
+    partial void OnDefautChanged();
+    partial void OnPersonneChanging(string value);
+    partial void OnPersonneChanged();
     #endregion
 		
 		public Intervention()
 		{
-			this._Defaut = default(EntityRef<Defaut>);
-			this._Personne = default(EntityRef<Personne>);
+			this._Defaut1 = default(EntityRef<Defaut>);
+			this._Personne1 = default(EntityRef<Personne>);
 			OnCreated();
 		}
 		
@@ -409,118 +409,118 @@ namespace DataAccessLayer
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdDefaut", DbType="Int NOT NULL")]
-		public int IdDefaut
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Defaut", DbType="Int NOT NULL")]
+		public int Defaut
 		{
 			get
 			{
-				return this._IdDefaut;
+				return this._Defaut;
 			}
 			set
 			{
-				if ((this._IdDefaut != value))
+				if ((this._Defaut != value))
 				{
-					if (this._Defaut.HasLoadedOrAssignedValue)
+					if (this._Defaut1.HasLoadedOrAssignedValue)
 					{
 						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
 					}
-					this.OnIdDefautChanging(value);
+					this.OnDefautChanging(value);
 					this.SendPropertyChanging();
-					this._IdDefaut = value;
-					this.SendPropertyChanged("IdDefaut");
-					this.OnIdDefautChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Mail", DbType="VarChar(50)")]
-		public string Mail
-		{
-			get
-			{
-				return this._Mail;
-			}
-			set
-			{
-				if ((this._Mail != value))
-				{
-					if (this._Personne.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnMailChanging(value);
-					this.SendPropertyChanging();
-					this._Mail = value;
-					this.SendPropertyChanged("Mail");
-					this.OnMailChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Defaut_Intervention", Storage="_Defaut", ThisKey="IdDefaut", OtherKey="IdDefaut", IsForeignKey=true)]
-		public Defaut Defaut
-		{
-			get
-			{
-				return this._Defaut.Entity;
-			}
-			set
-			{
-				Defaut previousValue = this._Defaut.Entity;
-				if (((previousValue != value) 
-							|| (this._Defaut.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Defaut.Entity = null;
-						previousValue.Interventions.Remove(this);
-					}
-					this._Defaut.Entity = value;
-					if ((value != null))
-					{
-						value.Interventions.Add(this);
-						this._IdDefaut = value.IdDefaut;
-					}
-					else
-					{
-						this._IdDefaut = default(int);
-					}
+					this._Defaut = value;
 					this.SendPropertyChanged("Defaut");
+					this.OnDefautChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Personne_Intervention", Storage="_Personne", ThisKey="Mail", OtherKey="Mail", IsForeignKey=true)]
-		public Personne Personne
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Personne", DbType="VarChar(50)")]
+		public string Personne
 		{
 			get
 			{
-				return this._Personne.Entity;
+				return this._Personne;
 			}
 			set
 			{
-				Personne previousValue = this._Personne.Entity;
+				if ((this._Personne != value))
+				{
+					if (this._Personne1.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnPersonneChanging(value);
+					this.SendPropertyChanging();
+					this._Personne = value;
+					this.SendPropertyChanged("Personne");
+					this.OnPersonneChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Defaut_Intervention", Storage="_Defaut1", ThisKey="Defaut", OtherKey="IdDefaut", IsForeignKey=true)]
+		public Defaut Defaut1
+		{
+			get
+			{
+				return this._Defaut1.Entity;
+			}
+			set
+			{
+				Defaut previousValue = this._Defaut1.Entity;
 				if (((previousValue != value) 
-							|| (this._Personne.HasLoadedOrAssignedValue == false)))
+							|| (this._Defaut1.HasLoadedOrAssignedValue == false)))
 				{
 					this.SendPropertyChanging();
 					if ((previousValue != null))
 					{
-						this._Personne.Entity = null;
+						this._Defaut1.Entity = null;
 						previousValue.Interventions.Remove(this);
 					}
-					this._Personne.Entity = value;
+					this._Defaut1.Entity = value;
 					if ((value != null))
 					{
 						value.Interventions.Add(this);
-						this._Mail = value.Mail;
+						this._Defaut = value.IdDefaut;
 					}
 					else
 					{
-						this._Mail = default(string);
+						this._Defaut = default(int);
 					}
-					this.SendPropertyChanged("Personne");
+					this.SendPropertyChanged("Defaut1");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Personne_Intervention", Storage="_Personne1", ThisKey="Personne", OtherKey="Mail", IsForeignKey=true)]
+		public Personne Personne1
+		{
+			get
+			{
+				return this._Personne1.Entity;
+			}
+			set
+			{
+				Personne previousValue = this._Personne1.Entity;
+				if (((previousValue != value) 
+							|| (this._Personne1.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Personne1.Entity = null;
+						previousValue.Interventions.Remove(this);
+					}
+					this._Personne1.Entity = value;
+					if ((value != null))
+					{
+						value.Interventions.Add(this);
+						this._Personne = value.Mail;
+					}
+					else
+					{
+						this._Personne = default(string);
+					}
+					this.SendPropertyChanged("Personne1");
 				}
 			}
 		}
@@ -686,7 +686,7 @@ namespace DataAccessLayer
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Personne_Intervention", Storage="_Interventions", ThisKey="Mail", OtherKey="Mail")]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Personne_Intervention", Storage="_Interventions", ThisKey="Mail", OtherKey="Personne")]
 		public EntitySet<Intervention> Interventions
 		{
 			get
@@ -722,13 +722,13 @@ namespace DataAccessLayer
 		private void attach_Interventions(Intervention entity)
 		{
 			this.SendPropertyChanging();
-			entity.Personne = this;
+			entity.Personne1 = this;
 		}
 		
 		private void detach_Interventions(Intervention entity)
 		{
 			this.SendPropertyChanging();
-			entity.Personne = null;
+			entity.Personne1 = null;
 		}
 	}
 }

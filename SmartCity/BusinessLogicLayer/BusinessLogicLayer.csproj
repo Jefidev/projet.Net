@@ -41,7 +41,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DTO\DefautDTO.cs" />
-    <Compile Include="DTO\DIJointureDTO.cs" />
     <Compile Include="DTO\InterventionDTO.cs" />
     <Compile Include="DTO\PersonneDTO.cs" />
     <Compile Include="BLL.cs" />

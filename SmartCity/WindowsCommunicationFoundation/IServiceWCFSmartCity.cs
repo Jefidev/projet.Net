@@ -19,12 +19,6 @@ namespace WindowsCommunicationFoundation
         PersonneWCF Connexion(string m, string pwd);
 
         [OperationContract]
-        List<DIJointureWCF> GetDefautsInterventions();
-
-        [OperationContract]
-        List<DIJointureWCF> GetDefautsInterventionsByMail(string m);
-
-        [OperationContract]
         List<DefautWCF> GetAllDefauts();
 
         [OperationContract]
@@ -41,52 +35,6 @@ namespace WindowsCommunicationFoundation
 
         [OperationContract]
         List<PersonneWCF> GetAllOuvriers();
-    }
-
-
-    [DataContract]
-    public class DIJointureWCF
-    {
-        public int idDefaut { get; set; }
-        public Binary photo { get; set; }
-        public String etat { get; set; }
-        public String description { get; set; }
-        public String commentaire { get; set; }
-
-        [DataMember]
-        public int IdDefaut
-        {
-            get { return idDefaut; }
-            set { idDefaut = value; }
-        }
-
-        [DataMember]
-        public Binary Photo
-        {
-            get { return photo; }
-            set { photo = value; }
-        }
-
-        [DataMember]
-        public string Etat
-        {
-            get { return etat; }
-            set { etat = value; }
-        }
-
-        [DataMember]
-        public string Description
-        {
-            get { return description; }
-            set { description = value; }
-        }
-
-        [DataMember]
-        public string Commentaire
-        {
-            get { return commentaire; }
-            set { commentaire = value; }
-        }
     }
 
 
