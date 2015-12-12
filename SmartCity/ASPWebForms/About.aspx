@@ -1,34 +1,23 @@
-﻿<%@ Page Title="About" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="About.aspx.cs" Inherits="ASPWebForms.About" %>
+﻿<%@ Page Title="A propos" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="About.aspx.cs" Inherits="ASPWebForms.About" %>
 
 <asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
     <hgroup class="title">
-        <h1><%: Title %>.</h1>
-        <h2>Your app description page.</h2>
+        <h1><%: Title %>.<br /></h1>
+        <h2>La sollution collaborative de gestion de l'espace public et des bâtiments</h2>
     </hgroup>
 
     <article>
         <p>        
-            Use this area to provide additional information.
+            SmartCity est une solution composée de différente applications :
         </p>
-
         <p>        
-            Use this area to provide additional information.
+            - SmartCity : application mobile disponible sur et Google Play.
         </p>
-
         <p>        
-            Use this area to provide additional information.
+            - Admin@SmartCity : application mobile disponible sur et Google Play.
+        </p>
+        <p>        
+            - Family@SmartCity : application mobile disponible sur et Google Play.
         </p>
     </article>
-
-    <aside>
-        <h3>Aside Title</h3>
-        <p>        
-            Use this area to provide additional information.
-        </p>
-        <ul>
-            <li><a runat="server" href="~/">Home</a></li>
-            <li><a runat="server" href="~/About">About</a></li>
-            <li><a runat="server" href="~/Contact">Contact</a></li>
-        </ul>
-    </aside>
 </asp:Content>

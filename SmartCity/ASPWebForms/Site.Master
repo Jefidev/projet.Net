@@ -48,9 +48,8 @@
             <div class="float-right">
                 <nav>
                     <ul id="menu">
-                        <li><a runat="server" href="~/">Home</a></li>
-                        <li><a runat="server" href="~/About">About</a></li>
-                        <li><a runat="server" href="~/Defauts">Défauts</a></li>
+                        <li><a runat="server" href="~/Defauts">Accueil</a></li>
+                        <li><a runat="server" href="~/About">A propos</a></li>
                         <li><a runat="server" href="~/Contact">Contact</a></li>
                     </ul>
                 </nav>
