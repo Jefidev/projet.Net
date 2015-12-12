@@ -1,6 +1,9 @@
 ﻿<%@ Page Title="Defauts" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Defauts.aspx.cs" Inherits="ASPWebForms.Defauts" %>
 
-<asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
+<asp:Content  runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
+    <hgroup class="title">
+        <h1><%: Title %>.</h1>
+    </hgroup>
         <section class="featured">
         <div class="content-wrapper">
             <hgroup class="title">
