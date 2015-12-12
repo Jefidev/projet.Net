@@ -31,3 +31,7 @@ C:\Users\Utilisateur\Desktop\projet.Net\SmartCity\ASPWebForms\bin\Microsoft.AspN
 C:\Users\Utilisateur\Desktop\projet.Net\SmartCity\ASPWebForms\obj\Debug\ASPWebForms.csprojResolveAssemblyReference.cache
 C:\Users\Utilisateur\Desktop\projet.Net\SmartCity\ASPWebForms\obj\Debug\ASPWebForms.dll
 C:\Users\Utilisateur\Desktop\projet.Net\SmartCity\ASPWebForms\obj\Debug\ASPWebForms.pdb
+C:\Users\Utilisateur\Desktop\projet.Net\SmartCity\ASPWebForms\bin\BusinessLogicLayer.dll
+C:\Users\Utilisateur\Desktop\projet.Net\SmartCity\ASPWebForms\bin\DataAccessLayer.dll
+C:\Users\Utilisateur\Desktop\projet.Net\SmartCity\ASPWebForms\bin\BusinessLogicLayer.pdb
+C:\Users\Utilisateur\Desktop\projet.Net\SmartCity\ASPWebForms\bin\DataAccessLayer.pdb
