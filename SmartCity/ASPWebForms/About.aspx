@@ -7,17 +7,17 @@
     </hgroup>
 
     <article>
-        <p>        
+        <h3>
             SmartCity est une solution composée de différente applications :
+        </h3>
+        <p>        
+            - SmartCity : application mobile disponible sur le Windows Store et Google Play permettant aux citoyens de signaler un défaut qu'ils ont repéré.
         </p>
         <p>        
-            - SmartCity : application mobile disponible sur et Google Play.
+            - Admin@SmartCity : application dédiée à l'administration communale pour gérer les défauts signalés par les citoyens.
         </p>
         <p>        
-            - Admin@SmartCity : application mobile disponible sur et Google Play.
-        </p>
-        <p>        
-            - Family@SmartCity : application mobile disponible sur et Google Play.
+            - Family@SmartCity : Site web permettant aux citoyens de découvrir les défauts et de suivre l'avancement de ceux-ci.
         </p>
     </article>
 </asp:Content>

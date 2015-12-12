@@ -17,7 +17,7 @@ using System.Windows.Shapes;
 
 namespace WindowsPresentationFoundation
 {
-    public partial class MenuChef : Window
+    public partial class Menu : Window
     {
         private SmartCityReference.ServiceWCFSmartCityClient service;
         private SmartCityReference.PersonneWCF user;
@@ -25,7 +25,7 @@ namespace WindowsPresentationFoundation
         private int curDef;
 
 
-        public MenuChef(SmartCityReference.ServiceWCFSmartCityClient s, SmartCityReference.PersonneWCF p)
+        public Menu(SmartCityReference.ServiceWCFSmartCityClient s, SmartCityReference.PersonneWCF p)
         {
             this.WindowState = WindowState.Maximized;
             InitializeComponent();
