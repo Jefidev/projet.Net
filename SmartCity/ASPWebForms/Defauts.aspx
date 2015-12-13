@@ -4,4 +4,8 @@
     <hgroup class="title">
         <h1><%: Title %>.</h1>
     </hgroup>
+    <asp:Label ID="FiltreLabel" runat="server" Text="Filtre :"></asp:Label>
+    <asp:ListView ID="DefautsLV" runat="server" DataSourceID="ObjectDataSource">
+    </asp:ListView>
+    <asp:ObjectDataSource ID="ObjectDataSource" runat="server"></asp:ObjectDataSource>
 </asp:Content>
