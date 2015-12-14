@@ -7,5 +7,5 @@
     <asp:Label ID="FiltreLabel" runat="server" Text="Filtre :"></asp:Label>
     <asp:ListView ID="DefautsLV" runat="server" DataSourceID="ObjectDataSource">
     </asp:ListView>
-    <asp:ObjectDataSource ID="ObjectDataSource" runat="server"></asp:ObjectDataSource>
+    <asp:ObjectDataSource ID="ObjectDataSource" runat="server" OnSelecting="ObjectDataSource_Selecting"></asp:ObjectDataSource>
 </asp:Content>
