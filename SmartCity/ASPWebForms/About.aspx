@@ -8,7 +8,7 @@
 
     <article>
         <h3>
-            SmartCity est une solution composée de différente applications :
+            SmartCity est une solution composée de différentes applications :
         </h3>
         <p>        
             - SmartCity : application mobile disponible sur le Windows Store et Google Play permettant aux citoyens de signaler un défaut qu'ils ont repéré.
