@@ -14,18 +14,18 @@
 
     <div id="map"></div>
     <script type="text/javascript">
-    //var map;
-    function initMap() {
-        var map = new google.maps.Map(document.getElementById('map'), {
-            center: { lat: 50.612741, lng: 5.509344 },
-            zoom: 15
-        });
-        var marker = new google.maps.Marker({
-            position: { lat: 50.612741, lng: 5.509344 },
-            map: map,
-            title: 'Hello'
-        });
-    }
+        function initMap() {
+            var coordCenter = new google.maps.LatLng(50.6108382,5.509964599999989);
+            var map = new google.maps.Map(document.getElementById('map'), {
+                center: coordCenter,
+                zoom: 15
+            });
+            var marker = new google.maps.Marker({
+                position: coordCenter,
+                map: map,
+                title: 'Hello'
+            });
+        }
     </script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC6pROpF7tfR4Ur9XrCqa5BQHxmAVSTmQ8&callback=initMap"></script>
 </asp:Content>
