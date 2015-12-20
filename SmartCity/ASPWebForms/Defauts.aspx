@@ -20,7 +20,24 @@
                 center: coordCenter,
                 zoom: 12
             });
-            var marker = new google.maps.Marker({
+
+            <% List<BusinessLogicLayer.DTO.DefautDTO> list = BusinessLogicLayer.BLL.SelectAllDefauts();
+               if (list != null)
+               {
+                   foreach (BusinessLogicLayer.DTO.DefautDTO d in list)
+                   {
+                       string[] parts = d.Position.Split(','); 
+                       float lat = float.Parse(parts[0]);
+                       float lng = float.Parse(parts[1]);%>
+                        var marker = new google.maps.Marker({
+                            position: { lat: float(<%=lat%>), lng: float(<%=lng%>) },
+                            map: map,
+                            title: 'Guillemins'
+                        });
+                   <% }
+               } %>
+            
+            /*var marker = new google.maps.Marker({
                 position: coordCenter,
                 map: map,
                 title: 'Seraing'
@@ -29,7 +46,7 @@
                 position: { lat: 50.6245012, lng: 5.566662199999996 },
                 map: map,
                 title: 'Guillemins'
-            });
+            });*/
         }
     </script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC6pROpF7tfR4Ur9XrCqa5BQHxmAVSTmQ8&callback=initMap"></script>

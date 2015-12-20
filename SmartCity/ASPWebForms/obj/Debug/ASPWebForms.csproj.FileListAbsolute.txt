@@ -3,6 +3,7 @@ C:\Users\Utilisateur\Desktop\projet.Net\SmartCity\ASPWebForms\bin\ASPWebForms.pd
 C:\Users\Utilisateur\Desktop\projet.Net\SmartCity\ASPWebForms\bin\Antlr3.Runtime.dll
 C:\Users\Utilisateur\Desktop\projet.Net\SmartCity\ASPWebForms\bin\AspNet.ScriptManager.jQuery.dll
 C:\Users\Utilisateur\Desktop\projet.Net\SmartCity\ASPWebForms\bin\AspNet.ScriptManager.jQuery.UI.Combined.dll
+C:\Users\Utilisateur\Desktop\projet.Net\SmartCity\ASPWebForms\bin\BusinessLogicLayer.dll
 C:\Users\Utilisateur\Desktop\projet.Net\SmartCity\ASPWebForms\bin\DotNetOpenAuth.AspNet.dll
 C:\Users\Utilisateur\Desktop\projet.Net\SmartCity\ASPWebForms\bin\DotNetOpenAuth.Core.dll
 C:\Users\Utilisateur\Desktop\projet.Net\SmartCity\ASPWebForms\bin\DotNetOpenAuth.OAuth.Consumer.dll
@@ -19,6 +20,8 @@ C:\Users\Utilisateur\Desktop\projet.Net\SmartCity\ASPWebForms\bin\Microsoft.Web.
 C:\Users\Utilisateur\Desktop\projet.Net\SmartCity\ASPWebForms\bin\System.Web.Optimization.dll
 C:\Users\Utilisateur\Desktop\projet.Net\SmartCity\ASPWebForms\bin\System.Web.Providers.dll
 C:\Users\Utilisateur\Desktop\projet.Net\SmartCity\ASPWebForms\bin\WebGrease.dll
+C:\Users\Utilisateur\Desktop\projet.Net\SmartCity\ASPWebForms\bin\DataAccessLayer.dll
+C:\Users\Utilisateur\Desktop\projet.Net\SmartCity\ASPWebForms\bin\BusinessLogicLayer.pdb
 C:\Users\Utilisateur\Desktop\projet.Net\SmartCity\ASPWebForms\bin\EntityFramework.xml
 C:\Users\Utilisateur\Desktop\projet.Net\SmartCity\ASPWebForms\bin\DotNetOpenAuth.Core.xml
 C:\Users\Utilisateur\Desktop\projet.Net\SmartCity\ASPWebForms\bin\DotNetOpenAuth.OAuth.xml
@@ -28,10 +31,7 @@ C:\Users\Utilisateur\Desktop\projet.Net\SmartCity\ASPWebForms\bin\DotNetOpenAuth
 C:\Users\Utilisateur\Desktop\projet.Net\SmartCity\ASPWebForms\bin\DotNetOpenAuth.AspNet.xml
 C:\Users\Utilisateur\Desktop\projet.Net\SmartCity\ASPWebForms\bin\Microsoft.AspNet.Membership.OpenAuth.xml
 C:\Users\Utilisateur\Desktop\projet.Net\SmartCity\ASPWebForms\bin\Microsoft.AspNet.FriendlyUrls.xml
+C:\Users\Utilisateur\Desktop\projet.Net\SmartCity\ASPWebForms\bin\DataAccessLayer.pdb
 C:\Users\Utilisateur\Desktop\projet.Net\SmartCity\ASPWebForms\obj\Debug\ASPWebForms.csprojResolveAssemblyReference.cache
 C:\Users\Utilisateur\Desktop\projet.Net\SmartCity\ASPWebForms\obj\Debug\ASPWebForms.dll
 C:\Users\Utilisateur\Desktop\projet.Net\SmartCity\ASPWebForms\obj\Debug\ASPWebForms.pdb
-C:\Users\Utilisateur\Desktop\projet.Net\SmartCity\ASPWebForms\bin\BusinessLogicLayer.dll
-C:\Users\Utilisateur\Desktop\projet.Net\SmartCity\ASPWebForms\bin\DataAccessLayer.dll
-C:\Users\Utilisateur\Desktop\projet.Net\SmartCity\ASPWebForms\bin\BusinessLogicLayer.pdb
-C:\Users\Utilisateur\Desktop\projet.Net\SmartCity\ASPWebForms\bin\DataAccessLayer.pdb
