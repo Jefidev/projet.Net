@@ -14,11 +14,16 @@
 
     <div id="map"></div>
     <script type="text/javascript">
-    var map;
+    //var map;
     function initMap() {
-        map = new google.maps.Map(document.getElementById('map'), {
+        var map = new google.maps.Map(document.getElementById('map'), {
             center: { lat: 50.612741, lng: 5.509344 },
             zoom: 15
+        });
+        var marker = new google.maps.Marker({
+            position: { lat: 50.612741, lng: 5.509344 },
+            map: map,
+            title: 'Hello'
         });
     }
     </script>
