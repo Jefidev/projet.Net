@@ -18,12 +18,17 @@
             var coordCenter = new google.maps.LatLng(50.6108382,5.509964599999989);
             var map = new google.maps.Map(document.getElementById('map'), {
                 center: coordCenter,
-                zoom: 15
+                zoom: 12
             });
             var marker = new google.maps.Marker({
                 position: coordCenter,
                 map: map,
-                title: 'Hello'
+                title: 'Seraing'
+            });
+            var marker = new google.maps.Marker({
+                position: { lat: 50.6245012, lng: 5.566662199999996 },
+                map: map,
+                title: 'Guillemins'
             });
         }
     </script>
