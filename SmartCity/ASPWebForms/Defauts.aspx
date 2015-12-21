@@ -29,7 +29,7 @@
 
             foreach (BusinessLogicLayer.DTO.DefautDTO d in list)
             { %>
-                var contentString = '<p>Coucou</p>';
+                var contentString = '<p>Coucou ' + <%=d.IdDefaut%> + '</p>';
 
                 // Pop-up d'info
                 var infowindow = new google.maps.InfoWindow({
@@ -42,8 +42,7 @@
                 string lng = parts[1];%>
                 var marker = new google.maps.Marker({
                     position: { lat: parseFloat(<%=lat%>), lng: parseFloat(<%=lng%>) },
-                    map: map,
-                    title: 'Defaut ' + String(<%=d.IdDefaut%>)
+                    map: map
                 });
 
                 // Event click
