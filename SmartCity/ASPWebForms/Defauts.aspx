@@ -31,7 +31,7 @@
                        string lat = parts[0];
                        string lng = parts[1];%>
                        var marker = new google.maps.Marker({
-                            position: { lat: <%=lat%>, lng: <%=lng%> },
+                            position: { lat: parseFloat(<%=lat%>), lng: parseFloat(<%=lng%>) },
                             map: map,
                             title: 'Guillemins'
                         });
