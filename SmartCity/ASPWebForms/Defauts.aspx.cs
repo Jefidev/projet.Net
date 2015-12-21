@@ -12,6 +12,18 @@ namespace ASPWebForms
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            List<BusinessLogicLayer.DTO.DefautDTO> list = BusinessLogicLayer.BLL.SelectAllDefauts();
+
+            if (list == null)
+                return;
+
+            foreach (BusinessLogicLayer.DTO.DefautDTO d in list)
+            {
+            }
+        }
+
+        public void GetDefauts()
+        {
 
         }
     }

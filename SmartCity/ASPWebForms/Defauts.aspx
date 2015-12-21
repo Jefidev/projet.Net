@@ -25,14 +25,15 @@
             <% List<BusinessLogicLayer.DTO.DefautDTO> list = BusinessLogicLayer.BLL.SelectAllDefauts();
                
             if (list == null)
-                return;
+                return;%>
 
+            var contentString, infowindow, marker;<%
             foreach (BusinessLogicLayer.DTO.DefautDTO d in list)
             { %>
-                var contentString = '<p>Coucou ' + <%=d.IdDefaut%> + '</p>';
+                contentString = '<p>Coucou ' + <%=d.IdDefaut%> + '</p>';
 
                 // Pop-up d'info
-                var infowindow = new google.maps.InfoWindow({
+                infowindow = new google.maps.InfoWindow({
                     content: contentString
                 });
                 
@@ -40,7 +41,7 @@
                 <% string[] parts = d.Position.Split(',');
                 string lat = parts[0];
                 string lng = parts[1];%>
-                var marker = new google.maps.Marker({
+                marker = new google.maps.Marker({
                     position: { lat: parseFloat(<%=lat%>), lng: parseFloat(<%=lng%>) },
                     map: map
                 });
