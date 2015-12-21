@@ -27,9 +27,11 @@
                {
                    foreach (BusinessLogicLayer.DTO.DefautDTO d in list)
                    {
-                       string[] parts = d.Position.Split(',');%>
+                       string[] parts = d.Position.Split(',');
+                       string lat = parts[0];
+                       string lng = parts[1];%>
                        var marker = new google.maps.Marker({
-                            position: { lat: <%=parts[0]%>, lng: <%=parts[1]%> },
+                            position: { lat: <%=lat%>, lng: <%=lng%> },
                             map: map,
                             title: 'Guillemins'
                         });
