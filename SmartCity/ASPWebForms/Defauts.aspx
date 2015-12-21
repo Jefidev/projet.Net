@@ -27,11 +27,9 @@
                {
                    foreach (BusinessLogicLayer.DTO.DefautDTO d in list)
                    {
-                       string[] parts = d.Position.Split(','); 
-                       float lat = float.Parse(parts[0]);
-                       float lng = float.Parse(parts[1]);%>
+                       string[] parts = d.Position.Split(',');%>
                        var marker = new google.maps.Marker({
-                            position: { lat: float(<%=lat%>), lng: float(<%=lng%>) },
+                            position: { lat: <%=parts[0]%>, lng: <%=parts[1]%> },
                             map: map,
                             title: 'Guillemins'
                         });
@@ -52,7 +50,7 @@
 
 
             /* Info Windows */
-            var contentString = '<div id="content">' +
+            /*var contentString = '<div id="content">' +
                 '<div id="siteNotice">' +
                 '</div>' +
                 '<h1 id="firstHeading" class="firstHeading">Uluru</h1>' +
@@ -82,7 +80,7 @@
             });
             marker.addListener('click', function () {
                 infowindow.open(map, marker);
-            });
+            });*/
         }
     </script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC6pROpF7tfR4Ur9XrCqa5BQHxmAVSTmQ8&callback=initMap"></script>
