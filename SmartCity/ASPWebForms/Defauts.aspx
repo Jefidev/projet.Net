@@ -22,35 +22,42 @@
                 zoom: 12
             });
 
-            <% List<BusinessLogicLayer.DTO.DefautDTO> list = BusinessLogicLayer.BLL.SelectAllDefauts();
-               
-            if (list == null)
-                return;%>
+            if (!contentArray)
+                return null;
 
-            var contentString, infowindow, marker;<%
-            foreach (BusinessLogicLayer.DTO.DefautDTO d in list)
-            { %>
-                contentString = '<p>Coucou ' + <%=d.IdDefaut%> + '</p>';
+            var contentString, infowindow, marker;
+            contentString = [];
+            infowindow = [];
+            marker = [];
+            var tailleTab = contentArray.length;
+
+            for(var i = 0; i < tailleTab; i++)
+            {
+                var parts = contentArray[i].split("#");
+
+                contentString[i] = '<p>Coucou ' + parts[0] + '</p>';
 
                 // Pop-up d'info
-                infowindow = new google.maps.InfoWindow({
-                    content: contentString
+                infowindow[i] = new google.maps.InfoWindow({
+                    content: contentString[i]
                 });
                 
                 // Marqueur
-                <% string[] parts = d.Position.Split(',');
-                string lat = parts[0];
-                string lng = parts[1];%>
-                marker = new google.maps.Marker({
-                    position: { lat: parseFloat(<%=lat%>), lng: parseFloat(<%=lng%>) },
+                marker[i] = new google.maps.Marker({
+                    position: { lat: parseFloat(parts[1]), lng: parseFloat(parts[2]) },
                     map: map
                 });
 
+                alert(contentString[i].toString());
+                
+
                 // Event click
-                marker.addListener('click', function () {
-                    infowindow.open(map, marker);
+                marker[i].addListener('click', function () {
+                    alert("Avant " + i);
+                    infowindow[i].open(map, marker[i]);
+                    alert("Après " + i);
                 });
-            <% } %>
+           }
         }
     </script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC6pROpF7tfR4Ur9XrCqa5BQHxmAVSTmQ8&callback=initMap"></script>
