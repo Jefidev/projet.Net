@@ -31,9 +31,11 @@ namespace ASPWebForms
                 string lat = parts[0];
                 string lng = parts[1];
                 string id = d.IdDefaut.ToString();
+                string descr = HttpUtility.JavaScriptStringEncode(d.Description);
+                // liste des interventions
                 Binary photo = d.Photo;
 
-                tab = "contentArray.push('" + lat + "#" + lng + "#" + id;
+                tab = "contentArray.push('" + lat + "#" + lng + "#" + id + "#" + descr;
 
                 if (photo != null)
                     tab += "#" + Convert.ToBase64String(photo.ToArray());

@@ -47,6 +47,7 @@
                 5 : éventuelle photo du défaut
                 */
 
+                alert(parts[3]); continue;
                 if (parts[3] == null) { alert("Pas d'image " + parts[2]); continue; }
                 else { alert(parts[2] + "                        " + parts[3]); }
 
