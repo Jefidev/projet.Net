@@ -27,34 +27,28 @@
 
             var contentString, infowindow, marker;
             contentString = [];
-            infowindow = [];
             marker = [];
-            var tailleTab = contentArray.length;
 
-            for(var i = 0; i < tailleTab; i++)
+            for (var i = 0; i < contentArray.length; i++)
             {
                 var parts = contentArray[i].split("#");
 
                 contentString[i] = '<p>Coucou ' + parts[0] + '</p>';
-
-                // Pop-up d'info
-                infowindow[i] = new google.maps.InfoWindow({
-                    content: contentString[i]
-                });
                 
                 // Marqueur
                 marker[i] = new google.maps.Marker({
                     position: { lat: parseFloat(parts[1]), lng: parseFloat(parts[2]) },
-                    map: map
+                    map: map,
+                    titreDefaut: contentString[i]
                 });               
 
                 // Event click
-                marker[i].addListener('click', function () {
-                    alert("Avant " + i);
-                    infowindow[i].open(map, marker[i]);
-                    alert("Après " + i);
+                google.maps.event.addListener(marker[i], 'click', function () {
+                    infowindow = new google.maps.InfoWindow();
+                    infowindow.setContent('<h3>' + this.titreDefaut + '</h3>');
+                    infowindow.open(map, this);
                 });
-           }
+            }
         }
     </script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC6pROpF7tfR4Ur9XrCqa5BQHxmAVSTmQ8&callback=initMap"></script>
