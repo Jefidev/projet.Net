@@ -4,6 +4,12 @@
     <style type="text/css">
         html, body { height: 100%; margin: 0; padding: 0; }
         #map { height: 60vh; width : 100%; }
+        .photo {
+            width: auto;
+            height: auto;
+            max-width: 200px;
+            max-height: 200px;
+        }
     </style>
 </asp:Content>
 
@@ -32,20 +38,31 @@
             for (var i = 0; i < contentArray.length; i++)
             {
                 var parts = contentArray[i].split("#");
+                /*
+                0 : latitude
+                1 : longitude
+                2 : id défaut
+                3 : 
+                4 : 
+                5 : 
+                */
 
-                contentString[i] = '<p>Coucou ' + parts[0] + '</p>';
+                if (parts[3] == null) { alert("Pas d'image " + parts[2]); continue; }
+                else { alert(parts[2] + "                        " + parts[3]); }
+
+                contentString[i] = '<img class="photo" src="data:image/jpg;base64,' + parts[3] + ' alt="Photo du défaut" />';
                 
                 // Marqueur
                 marker[i] = new google.maps.Marker({
-                    position: { lat: parseFloat(parts[1]), lng: parseFloat(parts[2]) },
+                    position: { lat: parseFloat(parts[0]), lng: parseFloat(parts[1]) },
                     map: map,
-                    titreDefaut: contentString[i]
+                    content: contentString[i]
                 });               
 
                 // Event click
                 google.maps.event.addListener(marker[i], 'click', function () {
                     infowindow = new google.maps.InfoWindow();
-                    infowindow.setContent('<h3>' + this.titreDefaut + '</h3>');
+                    infowindow.setContent(this.content);
                     infowindow.open(map, this);
                 });
             }

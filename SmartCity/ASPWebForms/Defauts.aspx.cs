@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using BusinessLogicLayer;
 using System.Text;
+using System.Data.Linq;
 
 namespace ASPWebForms
 {
@@ -24,13 +25,20 @@ namespace ASPWebForms
 
             foreach (BusinessLogicLayer.DTO.DefautDTO d in list)
             {
-                string[] parts = d.Position.Split(',');
+                string tab;
 
-                string id = d.IdDefaut.ToString();
+                string[] parts = d.Position.Split(',');
                 string lat = parts[0];
                 string lng = parts[1];
+                string id = d.IdDefaut.ToString();
+                Binary photo = d.Photo;
 
-                sb.Append("contentArray.push('" + id + "#" + lat + "#" + lng + "');");
+                tab = "contentArray.push('" + lat + "#" + lng + "#" + id;
+
+                if (photo != null)
+                    tab += "#" + Convert.ToBase64String(photo.ToArray());
+                
+                sb.Append(tab + "');");
             }
 
             sb.Append("</script>");
