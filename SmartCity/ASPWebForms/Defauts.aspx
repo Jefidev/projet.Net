@@ -42,9 +42,9 @@
                 0 : latitude
                 1 : longitude
                 2 : id défaut
-                3 : 
-                4 : 
-                5 : 
+                3 : description
+                4 : liste des interventions (séparées par |)
+                5 : éventuelle photo du défaut
                 */
 
                 if (parts[3] == null) { alert("Pas d'image " + parts[2]); continue; }
