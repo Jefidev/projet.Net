@@ -19,9 +19,3 @@ BEGIN
 	INSERT INTO INTERVENTIONS (ETAT, COMMENTAIRE, DATEINTERVENTION, IDDEFAUT, MAIL) VALUES('EN TRAITEMENT', 'Assignation d''un ouvrier (par oce@gmail.com)', '2015-11-17', 3, 'je@gmail.com');
 
 END;
-
--- DELETE FROM Interventions WHERE IdIntervention = 29 OR IdIntervention = 30 OR IdIntervention = 31;
-
--- INSERT INTO DEFAUTS(Col1, Col2, Col3, Photo)
--- SELECT ValCol1, ValCol2, ValCol3, BulkColumn
--- FROM Openrowset(Bulk 'C:\Users\Utilisateur\Desktop\projet.Net\Photos\1.jpg', Single_Blob) as Picture

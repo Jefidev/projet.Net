@@ -46,10 +46,7 @@
                 marker[i] = new google.maps.Marker({
                     position: { lat: parseFloat(parts[1]), lng: parseFloat(parts[2]) },
                     map: map
-                });
-
-                alert(contentString[i].toString());
-                
+                });               
 
                 // Event click
                 marker[i].addListener('click', function () {
