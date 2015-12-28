@@ -15,7 +15,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ASPWebForms", "ASPWebForms\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartCityAndroid", "SmartCityAndroid\SmartCityAndroid.csproj", "{8B825789-0F33-4E4D-B6F1-E29CBF1CC927}"
 EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "SmartCityShared", "SmartCityShared\SmartCityShared.shproj", "{67200BC3-0A32-4F7B-A63E-479DEF808EB0}"
+EndProject
 Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		SmartCityShared\SmartCityShared.projitems*{67200bc3-0a32-4f7b-a63e-479def808eb0}*SharedItemsImports = 13
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU

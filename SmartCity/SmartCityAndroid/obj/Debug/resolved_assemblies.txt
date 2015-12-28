@@ -1,9 +1,11 @@
 C:\Users\John\Documents\projet.Net\SmartCity\SmartCityAndroid\obj\Debug\assemblies\SmartCityAndroid.dll
+C:\Users\John\Documents\projet.Net\SmartCity\SmartCityAndroid\obj\Debug\assemblies\Microsoft.CSharp.dll
 C:\Users\John\Documents\projet.Net\SmartCity\SmartCityAndroid\obj\Debug\assemblies\Mono.Android.dll
 C:\Users\John\Documents\projet.Net\SmartCity\SmartCityAndroid\obj\Debug\assemblies\mscorlib.dll
 C:\Users\John\Documents\projet.Net\SmartCity\SmartCityAndroid\obj\Debug\assemblies\System.Core.dll
 C:\Users\John\Documents\projet.Net\SmartCity\SmartCityAndroid\obj\Debug\assemblies\System.dll
 C:\Users\John\Documents\projet.Net\SmartCity\SmartCityAndroid\obj\Debug\assemblies\System.Xml.dll
 C:\Users\John\Documents\projet.Net\SmartCity\SmartCityAndroid\obj\Debug\assemblies\System.Xml.Linq.dll
+C:\Users\John\Documents\projet.Net\SmartCity\SmartCityAndroid\obj\Debug\assemblies\Mono.CSharp.dll
 C:\Users\John\Documents\projet.Net\SmartCity\SmartCityAndroid\obj\Debug\assemblies\System.Runtime.Serialization.dll
 C:\Users\John\Documents\projet.Net\SmartCity\SmartCityAndroid\obj\Debug\assemblies\System.ServiceModel.Internals.dll

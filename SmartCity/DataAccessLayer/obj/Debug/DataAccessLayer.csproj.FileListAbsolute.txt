@@ -8,3 +8,4 @@ C:\Users\John\Documents\projet.Net\SmartCity\DataAccessLayer\bin\Debug\DataAcces
 C:\Users\John\Documents\projet.Net\SmartCity\DataAccessLayer\bin\Debug\DataAccessLayer.pdb
 C:\Users\John\Documents\projet.Net\SmartCity\DataAccessLayer\obj\Debug\DataAccessLayer.dll
 C:\Users\John\Documents\projet.Net\SmartCity\DataAccessLayer\obj\Debug\DataAccessLayer.pdb
+C:\Users\John\Documents\projet.Net\SmartCity\DataAccessLayer\obj\Debug\DataAccessLayer.csprojResolveAssemblyReference.cache
