@@ -46,24 +46,35 @@
                 5 : éventuelle photo du défaut
                 */
 
-                console.log(parts[3] + " ------- " + parts[5]);
+                console.log(parts[3] + " -- " + parts[5]);
+                //construction du contenu des markers
                 
-                if (parts[5] != null)
-                    contentString = '<img class="photo" src="data:image/jpg;base64,' + parts[5] + ' alt="Photo du défaut" />';
+    
+                if (parts[5] !== undefined)
+                    contentString = '<img class="photo" alt="Photo du défaut" src="data:image/jpg;base64,' + parts[5] + '"/>';
                 else
-                    contentString = null;
+                    contentString = '';
+
+                contentString = contentString + ' <h2>' + parts[3] + '</h2> <h3>Interventions : </h3><ul>';
+                
+                var intervention = parts[4].split("|");
+
+                for (var parc = 0; parc < intervention.length -1; parc++)
+                    contentString = contentString + '<li>' + intervention[parc] + '</li>';
+
+                contentString = contentString + '</ul>';
                 
                 // Marqueur
                 marker[i] = new google.maps.Marker({
                     position: { lat: parseFloat(parts[0]), lng: parseFloat(parts[1]) },
                     map: map,
-                    image: contentString
+                    content: contentString
                 });               
 
                 // Event click
                 google.maps.event.addListener(marker[i], 'click', function () {
                     infowindow = new google.maps.InfoWindow();
-                    infowindow.setContent(this.image);
+                    infowindow.setContent(this.content);
                     infowindow.open(map, this);
                 });
             }

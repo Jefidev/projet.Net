@@ -32,10 +32,21 @@ namespace ASPWebForms
                 string lng = parts[1];
                 string id = d.IdDefaut.ToString();
                 string descr = HttpUtility.JavaScriptStringEncode(d.Description);
-                // liste des interventions
+
+                //Recuperation des defauts
+                string interventions = "";
+                List<BusinessLogicLayer.DTO.InterventionDTO> listInterventions = BusinessLogicLayer.BLL.SelectInterventionsByDefautOrderByDate(d.IdDefaut);
+
+                foreach (BusinessLogicLayer.DTO.InterventionDTO item in listInterventions)
+                {
+                    interventions += item + "|";
+                }
+                interventions = HttpUtility.JavaScriptStringEncode(interventions);
+
+
                 Binary photo = d.Photo;
 
-                tab = "contentArray.push('" + lat + "#" + lng + "#" + id + "#" + descr;
+                tab = "contentArray.push('" + lat + "#" + lng + "#" + id + "#" + descr + "#" + interventions;
 
                 if (photo != null)
                     tab += "#" + Convert.ToBase64String(photo.ToArray());

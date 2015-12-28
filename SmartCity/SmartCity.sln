@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccessLayer", "DataAccessLayer\DataAccessLayer.csproj", "{7782F6C8-D1D1-4D93-850A-9FD76DCC572C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessLogicLayer", "BusinessLogicLayer\BusinessLogicLayer.csproj", "{0C873C63-A547-427F-B6BD-CA2C8B4679FE}"
@@ -10,6 +12,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsCommunicationFoundation", "WindowsCommunicationFoundation\WindowsCommunicationFoundation.csproj", "{0D1CE35A-9BA7-44C5-B3ED-7BBA93EA84B6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ASPWebForms", "ASPWebForms\ASPWebForms.csproj", "{210B865C-8109-488C-A21C-291043A82FB0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartCityAndroid", "SmartCityAndroid\SmartCityAndroid.csproj", "{8B825789-0F33-4E4D-B6F1-E29CBF1CC927}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,6 +41,12 @@ Global
 		{210B865C-8109-488C-A21C-291043A82FB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{210B865C-8109-488C-A21C-291043A82FB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{210B865C-8109-488C-A21C-291043A82FB0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B825789-0F33-4E4D-B6F1-E29CBF1CC927}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B825789-0F33-4E4D-B6F1-E29CBF1CC927}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B825789-0F33-4E4D-B6F1-E29CBF1CC927}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{8B825789-0F33-4E4D-B6F1-E29CBF1CC927}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B825789-0F33-4E4D-B6F1-E29CBF1CC927}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B825789-0F33-4E4D-B6F1-E29CBF1CC927}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

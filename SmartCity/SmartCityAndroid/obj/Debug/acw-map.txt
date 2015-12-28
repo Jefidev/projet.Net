@@ -1,0 +1,4 @@
+SmartCityAndroid.MainActivity, SmartCityAndroid;md5b170f7c442407118352c4142ca7539a8.MainActivity
+SmartCityAndroid.MainActivity, SmartCityAndroid, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md5b170f7c442407118352c4142ca7539a8.MainActivity
+SmartCityAndroid.MainActivity;md5b170f7c442407118352c4142ca7539a8.MainActivity
+smartcityandroid.MainActivity;md5b170f7c442407118352c4142ca7539a8.MainActivity
