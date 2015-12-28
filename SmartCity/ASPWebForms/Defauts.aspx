@@ -29,10 +29,9 @@
             });
 
             if (!contentArray)
-                return null;
+                return;
 
             var contentString, infowindow, marker;
-            contentString = [];
             marker = [];
 
             for (var i = 0; i < contentArray.length; i++)
@@ -47,11 +46,12 @@
                 5 : éventuelle photo du défaut
                 */
 
+                console.log(parts[3] + " ------- " + parts[5]);
                 
-                if (parts[3] == null) { alert("Pas d'image " + parts[2]); continue; }
-                else { alert(parts[2] + "                        " + parts[3]); }
-
-                contentString = '<img class="photo" src="data:image/jpg;base64,' + parts[5] + ' alt="Photo du défaut" />';
+                if (parts[5] != null)
+                    contentString = '<img class="photo" src="data:image/jpg;base64,' + parts[5] + ' alt="Photo du défaut" />';
+                else
+                    contentString = null;
                 
                 // Marqueur
                 marker[i] = new google.maps.Marker({
