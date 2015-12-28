@@ -7,3 +7,13 @@ C:\Users\Utilisateur\Desktop\projet.Net\SmartCity\WindowsCommunicationFoundation
 C:\Users\Utilisateur\Desktop\projet.Net\SmartCity\WindowsCommunicationFoundation\obj\Debug\WindowsCommunicationFoundation.csprojResolveAssemblyReference.cache
 C:\Users\Utilisateur\Desktop\projet.Net\SmartCity\WindowsCommunicationFoundation\obj\Debug\WindowsCommunicationFoundation.dll
 C:\Users\Utilisateur\Desktop\projet.Net\SmartCity\WindowsCommunicationFoundation\obj\Debug\WindowsCommunicationFoundation.pdb
+C:\Users\John\Documents\projet.Net\SmartCity\WindowsCommunicationFoundation\bin\WindowsCommunicationFoundation.dll.config
+C:\Users\John\Documents\projet.Net\SmartCity\WindowsCommunicationFoundation\bin\WindowsCommunicationFoundation.dll
+C:\Users\John\Documents\projet.Net\SmartCity\WindowsCommunicationFoundation\bin\WindowsCommunicationFoundation.pdb
+C:\Users\John\Documents\projet.Net\SmartCity\WindowsCommunicationFoundation\bin\BusinessLogicLayer.dll
+C:\Users\John\Documents\projet.Net\SmartCity\WindowsCommunicationFoundation\bin\DataAccessLayer.dll
+C:\Users\John\Documents\projet.Net\SmartCity\WindowsCommunicationFoundation\bin\BusinessLogicLayer.pdb
+C:\Users\John\Documents\projet.Net\SmartCity\WindowsCommunicationFoundation\bin\DataAccessLayer.pdb
+C:\Users\John\Documents\projet.Net\SmartCity\WindowsCommunicationFoundation\obj\Debug\WindowsCommunicationFoundation.csprojResolveAssemblyReference.cache
+C:\Users\John\Documents\projet.Net\SmartCity\WindowsCommunicationFoundation\obj\Debug\WindowsCommunicationFoundation.dll
+C:\Users\John\Documents\projet.Net\SmartCity\WindowsCommunicationFoundation\obj\Debug\WindowsCommunicationFoundation.pdb

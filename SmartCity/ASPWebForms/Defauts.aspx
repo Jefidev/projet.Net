@@ -47,23 +47,23 @@
                 5 : éventuelle photo du défaut
                 */
 
-                alert(parts[3]); continue;
+                
                 if (parts[3] == null) { alert("Pas d'image " + parts[2]); continue; }
                 else { alert(parts[2] + "                        " + parts[3]); }
 
-                contentString[i] = '<img class="photo" src="data:image/jpg;base64,' + parts[3] + ' alt="Photo du défaut" />';
+                contentString = '<img class="photo" src="data:image/jpg;base64,' + parts[5] + ' alt="Photo du défaut" />';
                 
                 // Marqueur
                 marker[i] = new google.maps.Marker({
                     position: { lat: parseFloat(parts[0]), lng: parseFloat(parts[1]) },
                     map: map,
-                    content: contentString[i]
+                    image: contentString
                 });               
 
                 // Event click
                 google.maps.event.addListener(marker[i], 'click', function () {
                     infowindow = new google.maps.InfoWindow();
-                    infowindow.setContent(this.content);
+                    infowindow.setContent(this.image);
                     infowindow.open(map, this);
                 });
             }

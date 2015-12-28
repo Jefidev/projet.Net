@@ -3,3 +3,8 @@ C:\Users\Utilisateur\Desktop\projet.Net\SmartCity\DataAccessLayer\bin\Debug\Data
 C:\Users\Utilisateur\Desktop\projet.Net\SmartCity\DataAccessLayer\bin\Debug\DataAccessLayer.pdb
 C:\Users\Utilisateur\Desktop\projet.Net\SmartCity\DataAccessLayer\obj\Debug\DataAccessLayer.dll
 C:\Users\Utilisateur\Desktop\projet.Net\SmartCity\DataAccessLayer\obj\Debug\DataAccessLayer.pdb
+C:\Users\John\Documents\projet.Net\SmartCity\DataAccessLayer\bin\Debug\DataAccessLayer.dll.config
+C:\Users\John\Documents\projet.Net\SmartCity\DataAccessLayer\bin\Debug\DataAccessLayer.dll
+C:\Users\John\Documents\projet.Net\SmartCity\DataAccessLayer\bin\Debug\DataAccessLayer.pdb
+C:\Users\John\Documents\projet.Net\SmartCity\DataAccessLayer\obj\Debug\DataAccessLayer.dll
+C:\Users\John\Documents\projet.Net\SmartCity\DataAccessLayer\obj\Debug\DataAccessLayer.pdb
