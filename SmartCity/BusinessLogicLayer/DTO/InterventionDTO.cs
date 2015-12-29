@@ -18,7 +18,7 @@ namespace BusinessLogicLayer.DTO
 
         public override string ToString()
         {
-            return "(" + DateIntervention + ") " + Etat + " => " + Commentaire + " / " + Mail;
+            return "(" + DateIntervention.ToString("yyyy-MM-dd") + ") " + Etat + " => " + Commentaire + " / " + Mail;
         }
     }
 }
