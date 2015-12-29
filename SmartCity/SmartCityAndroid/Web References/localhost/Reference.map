@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DiscoveryClientResultsFile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Results>
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.ContractReference" url="http://localhost:53221/ServiceWCFSmartCity.svc?wsdl" filename="ServiceWCFSmartCity.wsdl" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://localhost:53221/ServiceWCFSmartCity.svc?xsd=xsd2" filename="ServiceWCFSmartCity.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://localhost:53221/ServiceWCFSmartCity.svc?xsd=xsd3" filename="ServiceWCFSmartCity0.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://localhost:53221/ServiceWCFSmartCity.svc?xsd=xsd0" filename="ServiceWCFSmartCity1.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://localhost:53221/ServiceWCFSmartCity.svc?xsd=xsd1" filename="ServiceWCFSmartCity2.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.DiscoveryDocumentReference" url="http://localhost:53221/ServiceWCFSmartCity.svc?disco" filename="ServiceWCFSmartCity.disco" />
+  </Results>
+</DiscoveryClientResultsFile>

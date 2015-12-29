@@ -1,11 +1,6 @@
-﻿using System;
-using Android.App;
-using Android.Content;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
+﻿using Android.App;
 using Android.OS;
-
+using SmartCityShared;
 namespace SmartCityAndroid
 {
     [Activity(Label = "SmartCityAndroid", MainLauncher = true, Icon = "@drawable/icon")]
@@ -22,9 +17,9 @@ namespace SmartCityAndroid
 
             // Get our button from the layout resource,
             // and attach an event to it
-            Button button = FindViewById<Button>(Resource.Id.MyButton);
+            //Button button = FindViewById<Button>(Resource.Id.MyButton);
 
-            button.Click += delegate { button.Text = string.Format("{0} clicks!", count++); };
+            //button.Click += delegate { button.Text = string.Format("{0} clicks!", count++); };
         }
     }
 }
