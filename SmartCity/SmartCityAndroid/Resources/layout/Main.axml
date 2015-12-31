@@ -20,6 +20,14 @@
         p1:id="@+id/DescriptionLabel"
         p1:layout_marginTop="35.0dp"
         p1:layout_marginLeft="10dp" />
+    <TextView
+        p1:text="Signaler un défaut"
+        p1:textAppearance="?android:attr/textAppearanceLarge"
+        p1:layout_width="wrap_content"
+        p1:layout_height="wrap_content"
+        p1:id="@+id/Compteur"
+        p1:layout_marginTop="150.0dp"
+        p1:layout_marginLeft="100dp" />
     <EditText
         p1:layout_width="match_parent"
         p1:layout_height="wrap_content"
@@ -32,7 +40,7 @@
         p1:layout_width="match_parent"
         p1:layout_height="wrap_content"
         p1:id="@+id/sendButton"
-        p1:layout_marginTop="300.0dp"
+        p1:layout_marginTop="350dp"
         p1:layout_marginLeft="20.0dp"
         p1:layout_marginRight="20.0dp"
         p1:text="Envoyer" />

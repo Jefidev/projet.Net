@@ -56,7 +56,7 @@
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Web References\SmartCityWebService\Reference.cs">
+    <Compile Include="Web References\WebServiceSmartCity\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
@@ -66,30 +66,30 @@
     <None Include="GettingStarted.Xamarin" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
-    <None Include="Web References\SmartCityWebService\DefautWCF.datasource">
+    <None Include="Web References\WebServiceSmartCity\DefautWCF.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>
-    <None Include="Web References\SmartCityWebService\InterventionWCF.datasource">
+    <None Include="Web References\WebServiceSmartCity\InterventionWCF.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>
-    <None Include="Web References\SmartCityWebService\PersonneWCF.datasource">
+    <None Include="Web References\WebServiceSmartCity\PersonneWCF.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>
-    <None Include="Web References\SmartCityWebService\Reference.map">
+    <None Include="Web References\WebServiceSmartCity\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-    <None Include="Web References\SmartCityWebService\ServiceWCFSmartCity.wsdl" />
-    <None Include="Web References\SmartCityWebService\ServiceWCFSmartCity.xsd">
+    <None Include="Web References\WebServiceSmartCity\ServiceWCFSmartCity.wsdl" />
+    <None Include="Web References\WebServiceSmartCity\ServiceWCFSmartCity.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Web References\SmartCityWebService\ServiceWCFSmartCity0.xsd">
+    <None Include="Web References\WebServiceSmartCity\ServiceWCFSmartCity0.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Web References\SmartCityWebService\ServiceWCFSmartCity1.xsd">
+    <None Include="Web References\WebServiceSmartCity\ServiceWCFSmartCity1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Web References\SmartCityWebService\ServiceWCFSmartCity2.xsd">
+    <None Include="Web References\WebServiceSmartCity\ServiceWCFSmartCity2.xsd">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
@@ -109,10 +109,10 @@
     <WebReferences Include="Web References\" />
   </ItemGroup>
   <ItemGroup>
-    <WebReferenceUrl Include="http://localhost:53221/ServiceWCFSmartCity.svc">
+    <WebReferenceUrl Include="http://192.168.1.17:53221/ServiceWCFSmartCity.svc">
       <UrlBehavior>Dynamic</UrlBehavior>
-      <RelPath>Web References\SmartCityWebService\</RelPath>
-      <UpdateFromURL>http://localhost:53221/ServiceWCFSmartCity.svc</UpdateFromURL>
+      <RelPath>Web References\WebServiceSmartCity\</RelPath>
+      <UpdateFromURL>http://192.168.1.17:53221/ServiceWCFSmartCity.svc</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>
@@ -124,7 +124,7 @@
     </WebReferenceUrl>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Web References\SmartCityWebService\ServiceWCFSmartCity.disco" />
+    <None Include="Web References\WebServiceSmartCity\ServiceWCFSmartCity.disco" />
   </ItemGroup>
   <Import Project="..\SmartCityShared\SmartCityShared.projitems" Label="Shared" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />

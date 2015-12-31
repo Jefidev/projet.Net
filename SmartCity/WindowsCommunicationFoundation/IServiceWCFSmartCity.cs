@@ -35,6 +35,9 @@ namespace WindowsCommunicationFoundation
 
         [OperationContract]
         List<PersonneWCF> GetAllOuvriers();
+
+        [OperationContract]
+        string sayHello();
     }
 
 

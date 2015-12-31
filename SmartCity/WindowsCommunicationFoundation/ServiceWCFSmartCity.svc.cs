@@ -171,5 +171,10 @@ namespace WindowsCommunicationFoundation
         }
 
         #endregion
+
+        public string sayHello()
+        {
+            return  "Hello World";
+        }
     }
 }

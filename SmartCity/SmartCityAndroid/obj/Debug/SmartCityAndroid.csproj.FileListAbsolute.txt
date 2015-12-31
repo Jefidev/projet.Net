@@ -2,7 +2,6 @@ C:\Users\John\Documents\projet.Net\SmartCity\SmartCityAndroid\bin\Debug\SmartCit
 C:\Users\John\Documents\projet.Net\SmartCity\SmartCityAndroid\bin\Debug\SmartCityAndroid.pdb
 C:\Users\John\Documents\projet.Net\SmartCity\SmartCityAndroid\bin\Debug\SmartCityAndroid.SmartCityAndroid.apk
 C:\Users\John\Documents\projet.Net\SmartCity\SmartCityAndroid\bin\Debug\SmartCityAndroid.SmartCityAndroid-Signed.apk
-C:\Users\John\Documents\projet.Net\SmartCity\SmartCityAndroid\obj\Debug\SmartCityAndroid.csprojResolveAssemblyReference.cache
 C:\Users\John\Documents\projet.Net\SmartCity\SmartCityAndroid\obj\Debug\res\drawable\monoandroidsplash.png
 C:\Users\John\Documents\projet.Net\SmartCity\SmartCityAndroid\obj\Debug\res\values\styles.xml
 C:\Users\John\Documents\projet.Net\SmartCity\SmartCityAndroid\obj\Debug\SmartCityAndroid.dll
@@ -13,5 +12,6 @@ C:\Users\John\Documents\projet.Net\SmartCity\SmartCityAndroid\obj\Debug\res\valu
 C:\Users\John\Documents\projet.Net\SmartCity\SmartCityAndroid\obj\Debug\res\drawable\icon.png
 C:\Users\John\Documents\projet.Net\SmartCity\SmartCityAndroid\obj\Debug\R.cs.flag
 C:\Users\John\Documents\projet.Net\SmartCity\SmartCityAndroid\obj\Debug\uploadflags.txt
+C:\Users\John\Documents\projet.Net\SmartCity\SmartCityAndroid\obj\Debug\SmartCityAndroid.csprojResolveAssemblyReference.cache
 C:\Users\John\Documents\projet.Net\SmartCity\SmartCityAndroid\obj\Debug\SmartCityAndroid.dll.mdb
 C:\Users\John\Documents\projet.Net\SmartCity\SmartCityAndroid\bin\Debug\SmartCityAndroid.dll.mdb

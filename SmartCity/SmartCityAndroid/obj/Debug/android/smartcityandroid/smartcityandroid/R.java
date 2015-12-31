@@ -15,11 +15,12 @@ public final class R {
         public static final int monoandroidsplash=0x7f020001;
     }
     public static final class id {
+        public static final int Compteur=0x7f060003;
         public static final int DescriptionLabel=0x7f060002;
-        public static final int DescriptionTF=0x7f060003;
+        public static final int DescriptionTF=0x7f060004;
         public static final int Titre=0x7f060001;
         public static final int relativeLayout1=0x7f060000;
-        public static final int sendButton=0x7f060004;
+        public static final int sendButton=0x7f060005;
     }
     public static final class layout {
         public static final int main=0x7f030000;

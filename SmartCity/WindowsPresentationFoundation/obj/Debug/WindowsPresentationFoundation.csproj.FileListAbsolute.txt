@@ -31,4 +31,3 @@ C:\Users\John\Documents\projet.Net\SmartCity\WindowsPresentationFoundation\obj\D
 C:\Users\John\Documents\projet.Net\SmartCity\WindowsPresentationFoundation\obj\Debug\WindowsPresentationFoundation.g.resources
 C:\Users\John\Documents\projet.Net\SmartCity\WindowsPresentationFoundation\obj\Debug\WindowsPresentationFoundation.Properties.Resources.resources
 C:\Users\John\Documents\projet.Net\SmartCity\WindowsPresentationFoundation\obj\Debug\WindowsPresentationFoundation.csproj.GenerateResource.Cache
-C:\Users\John\Documents\projet.Net\SmartCity\WindowsPresentationFoundation\obj\Debug\WindowsPresentationFoundation.csprojResolveAssemblyReference.cache
