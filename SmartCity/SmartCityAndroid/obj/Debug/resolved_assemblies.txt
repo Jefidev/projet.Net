@@ -6,13 +6,15 @@ C:\Users\John\Documents\projet.Net\SmartCity\SmartCityAndroid\obj\Debug\assembli
 C:\Users\John\Documents\projet.Net\SmartCity\SmartCityAndroid\obj\Debug\assemblies\System.Data.dll
 C:\Users\John\Documents\projet.Net\SmartCity\SmartCityAndroid\obj\Debug\assemblies\System.dll
 C:\Users\John\Documents\projet.Net\SmartCity\SmartCityAndroid\obj\Debug\assemblies\System.EnterpriseServices.dll
+C:\Users\John\Documents\projet.Net\SmartCity\SmartCityAndroid\obj\Debug\assemblies\System.Runtime.Serialization.dll
+C:\Users\John\Documents\projet.Net\SmartCity\SmartCityAndroid\obj\Debug\assemblies\System.ServiceModel.dll
+C:\Users\John\Documents\projet.Net\SmartCity\SmartCityAndroid\obj\Debug\assemblies\System.ServiceModel.Web.dll
 C:\Users\John\Documents\projet.Net\SmartCity\SmartCityAndroid\obj\Debug\assemblies\System.Web.Services.dll
 C:\Users\John\Documents\projet.Net\SmartCity\SmartCityAndroid\obj\Debug\assemblies\System.Xml.dll
 C:\Users\John\Documents\projet.Net\SmartCity\SmartCityAndroid\obj\Debug\assemblies\System.Xml.Linq.dll
 C:\Users\John\Documents\projet.Net\SmartCity\SmartCityAndroid\obj\Debug\assemblies\Mono.CSharp.dll
-C:\Users\John\Documents\projet.Net\SmartCity\SmartCityAndroid\obj\Debug\assemblies\System.Runtime.Serialization.dll
-C:\Users\John\Documents\projet.Net\SmartCity\SmartCityAndroid\obj\Debug\assemblies\System.ServiceModel.Internals.dll
 C:\Users\John\Documents\projet.Net\SmartCity\SmartCityAndroid\obj\Debug\assemblies\System.Numerics.dll
 C:\Users\John\Documents\projet.Net\SmartCity\SmartCityAndroid\obj\Debug\assemblies\System.Transactions.dll
 C:\Users\John\Documents\projet.Net\SmartCity\SmartCityAndroid\obj\Debug\assemblies\Mono.Data.Tds.dll
 C:\Users\John\Documents\projet.Net\SmartCity\SmartCityAndroid\obj\Debug\assemblies\Mono.Security.dll
+C:\Users\John\Documents\projet.Net\SmartCity\SmartCityAndroid\obj\Debug\assemblies\System.ServiceModel.Internals.dll
