@@ -4,6 +4,10 @@
   <uses-sdk android:minSdkVersion="16" />
   <uses-permission android:name="android.permission.INTERNET" />
   <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+  <uses-permission android:name="android.permission.CAMERA" />
+  <uses-feature android:name="android.hardware.camera" />
+  <uses-feature android:name="android.hardware.camera.autofocus" />
+  <uses-feature android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
   <application android:label="SmartCityAndroid" android:name="mono.android.app.Application" android:allowBackup="true" android:icon="@drawable/icon" android:debuggable="true">
     <activity android:icon="@drawable/icon" android:label="SmartCityAndroid" android:name="md5b170f7c442407118352c4142ca7539a8.MainActivity" />
     <provider android:name="mono.MonoRuntimeProvider" android:exported="false" android:initOrder="2147483647" android:authorities="SmartCityAndroid.SmartCityAndroid.mono.MonoRuntimeProvider.__mono_init__" />

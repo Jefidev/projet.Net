@@ -12,35 +12,71 @@
         p1:layout_height="wrap_content"
         p1:id="@+id/Titre"
         p1:layout_marginLeft="100dp" />
+    <Button
+        p1:layout_width="match_parent"
+        p1:layout_height="wrap_content"
+        p1:id="@+id/photoButton"
+        p1:layout_marginTop="35dp"
+        p1:layout_marginLeft="20.0dp"
+        p1:layout_marginRight="20.0dp"
+        p1:text="Prendre une photo" />
     <TextView
         p1:text="Description : "
         p1:textAppearance="?android:attr/textAppearanceMedium"
         p1:layout_width="wrap_content"
         p1:layout_height="wrap_content"
         p1:id="@+id/DescriptionLabel"
-        p1:layout_marginTop="35.0dp"
+        p1:layout_marginTop="100dp"
         p1:layout_marginLeft="10dp" />
-    <TextView
-        p1:text="Signaler un défaut"
-        p1:textAppearance="?android:attr/textAppearanceLarge"
-        p1:layout_width="wrap_content"
-        p1:layout_height="wrap_content"
-        p1:id="@+id/Compteur"
-        p1:layout_marginTop="150.0dp"
-        p1:layout_marginLeft="100dp" />
     <EditText
         p1:layout_width="match_parent"
         p1:layout_height="wrap_content"
         p1:id="@+id/DescriptionTF"
         p1:singleLine="true"
-        p1:layout_marginTop="55.0dp"
+        p1:layout_marginTop="120.0dp"
         p1:layout_marginLeft="20.0dp"
         p1:layout_marginRight="20.0dp" />
+    <TextView
+        p1:text="Commentaire : "
+        p1:textAppearance="?android:attr/textAppearanceMedium"
+        p1:layout_width="wrap_content"
+        p1:layout_height="wrap_content"
+        p1:id="@+id/CommentaireLabel"
+        p1:layout_marginTop="180dp"
+        p1:layout_marginLeft="10dp" />
+    <EditText
+        p1:layout_width="match_parent"
+        p1:layout_height="100dp"
+        p1:id="@+id/CommentaireTF"
+        p1:singleLine="true"
+        p1:layout_marginTop="220.0dp"
+        p1:layout_marginLeft="20.0dp"
+        p1:layout_marginRight="20.0dp"
+        p1:inputType="textMultiLine"
+        p1:background="#ffffff"
+        p1:textColor="#000000" />
+    <TextView
+        p1:text="E-mail : "
+        p1:textAppearance="?android:attr/textAppearanceMedium"
+        p1:layout_width="wrap_content"
+        p1:layout_height="wrap_content"
+        p1:id="@+id/mailLabel"
+        p1:layout_marginTop="350dp"
+        p1:layout_marginLeft="10dp" />
+    <EditText
+        p1:layout_width="match_parent"
+        p1:layout_height="wrap_content"
+        p1:id="@+id/mailTF"
+        p1:singleLine="true"
+        p1:layout_marginTop="370.0dp"
+        p1:layout_marginLeft="20.0dp"
+        p1:layout_marginRight="20.0dp"
+        inputType="textEmailAddress" />
     <Button
         p1:layout_width="match_parent"
         p1:layout_height="wrap_content"
         p1:id="@+id/sendButton"
-        p1:layout_marginTop="350dp"
+        p1:layout_marginTop="500dp"
         p1:layout_marginLeft="20.0dp"
         p1:layout_marginRight="20.0dp"
         p1:text="Envoyer" />
