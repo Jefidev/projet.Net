@@ -16,6 +16,7 @@ using System.Linq;
 using Android.Runtime;
 using SmartCityAndroid;
 
+
 namespace SmartCityAndroid
 {
     [Activity(Label = "SmartCityAndroid", MainLauncher = true, Icon = "@drawable/icon")]
@@ -49,7 +50,9 @@ namespace SmartCityAndroid
             InitialisationService();
 
             Button sendButton = FindViewById<Button>(Resource.Id.sendButton);
-            sendButton.Click += delegate { _client.sayHelloAsync(); };
+            sendButton.Click += delegate { sendInfo(); };
+
+            _client.OuvrirDefautCompleted += _client_OuvrirDefautCompleted;
 
             //Si y'a un appareil photo
             if(IsThereAnAppToTakePictures())
@@ -66,7 +69,15 @@ namespace SmartCityAndroid
         }
 
 
-        private void hello(object sender, sayHelloCompletedEventArgs e)
+        private void sendInfo ()
+        {
+
+            //TO DO verification des infos
+            _client.OuvrirDefautAsync(null, "test", "test", "test@test.be", "testificate");
+        }
+
+
+        private void _client_OuvrirDefautCompleted(object sender, System.ComponentModel.AsyncCompletedEventArgs e)
         {
             Button button = FindViewById<Button>(Resource.Id.sendButton);
 
@@ -75,14 +86,10 @@ namespace SmartCityAndroid
                 button.Text = e.Error.Message;
                 return;
             }
-            else if(e.Cancelled)
+            else if (e.Cancelled)
             {
                 button.Text = e.Cancelled.ToString();
                 return;
-            }
-            else
-            {
-                button.Text = e.Result;
             }
         }
 
@@ -109,7 +116,6 @@ namespace SmartCityAndroid
             BasicHttpBinding binding = createbasicHTTP();
 
             _client = new ServiceWCFSmartCityClient(binding, endpoint);
-            _client.sayHelloCompleted += hello;
         }
 
         #endregion
