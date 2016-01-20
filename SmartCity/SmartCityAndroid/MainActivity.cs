@@ -29,8 +29,6 @@ namespace SmartCityAndroid
         public ServiceWCFSmartCityClient _client;
 
         //Variables pour l'appareil photo
-        public static File _file;
-        public static File _dir;
         public static Bitmap curImage;
 
         //Variables de recuperation de coordonnees
@@ -82,8 +80,6 @@ namespace SmartCityAndroid
             //Si y'a un appareil photo
             if (IsThereAnAppToTakePictures())
             {
-                CreateDirectoryForPictures();
-
                 Button pictureButton = FindViewById<Button>(Resource.Id.photoButton);
                 pictureButton.Click += takePicture;
             }
@@ -155,22 +151,8 @@ namespace SmartCityAndroid
             }
 
             Intent intent = new Intent(MediaStore.ActionImageCapture);
-            _file = new File(_dir, String.Format("myPhoto_{0}.jpg", Guid.NewGuid()));
-            intent.PutExtra(MediaStore.ExtraOutput, Uri.FromFile(_file));
             StartActivityForResult(intent, 0);
 
-        }
-
-
-        private void CreateDirectoryForPictures()
-        {
-            _dir = new File(
-                Environment.GetExternalStoragePublicDirectory(
-                    Environment.DirectoryPictures), "defautPicture");
-            if (!_dir.Exists())
-            {
-                _dir.Mkdirs();
-            }
         }
 
         private bool IsThereAnAppToTakePictures()
@@ -183,28 +165,9 @@ namespace SmartCityAndroid
 
         protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
         {
-            base.OnActivityResult(requestCode, resultCode, data);
+            Bundle b = data.Extras;
+            curImage = (Bitmap)b.Get("data");
 
-            // Make it available in the gallery
-
-            Intent mediaScanIntent = new Intent(Intent.ActionMediaScannerScanFile);
-            Uri contentUri = Uri.FromFile(_file);
-            mediaScanIntent.SetData(contentUri);
-            SendBroadcast(mediaScanIntent);
-
-            // Display in ImageView. We will resize the bitmap to fit the display.
-            // Loading the full sized image will consume to much memory
-            // and cause the application to crash.
-
-            Bitmap bitmap = _file.Path.LoadAndResizeBitmap(200, 200);
-            if (bitmap != null)
-            {
-                curImage = bitmap;
-                bitmap = null;
-            }
-
-            // Dispose of the Java side bitmap.
-            GC.Collect();
         }
 
         #endregion
