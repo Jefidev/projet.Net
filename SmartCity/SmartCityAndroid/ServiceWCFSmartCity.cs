@@ -348,7 +348,7 @@ public interface IServiceWCFSmartCity
     WindowsCommunicationFoundation.PersonneWCF[] EndGetAllOuvriers(System.IAsyncResult result);
     
     [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IServiceWCFSmartCity/OuvrirDefaut", ReplyAction="http://tempuri.org/IServiceWCFSmartCity/OuvrirDefautResponse")]
-    System.IAsyncResult BeginOuvrirDefaut(byte[] photo, string descr, string pos, string mail, string com, System.AsyncCallback callback, object asyncState);
+    System.IAsyncResult BeginOuvrirDefaut(System.Data.Linq.Binary photo, string descr, string pos, string mail, string com, System.AsyncCallback callback, object asyncState);
     
     void EndOuvrirDefaut(System.IAsyncResult result);
     
@@ -1075,7 +1075,7 @@ public partial class ServiceWCFSmartCityClient : System.ServiceModel.ClientBase<
     }
     
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    System.IAsyncResult IServiceWCFSmartCity.BeginOuvrirDefaut(byte[] photo, string descr, string pos, string mail, string com, System.AsyncCallback callback, object asyncState)
+    System.IAsyncResult IServiceWCFSmartCity.BeginOuvrirDefaut(System.Data.Linq.Binary photo, string descr, string pos, string mail, string com, System.AsyncCallback callback, object asyncState)
     {
         return base.Channel.BeginOuvrirDefaut(photo, descr, pos, mail, com, callback, asyncState);
     }
@@ -1088,7 +1088,7 @@ public partial class ServiceWCFSmartCityClient : System.ServiceModel.ClientBase<
     
     private System.IAsyncResult OnBeginOuvrirDefaut(object[] inValues, System.AsyncCallback callback, object asyncState)
     {
-        byte[] photo = ((byte[])(inValues[0]));
+        System.Data.Linq.Binary photo = ((System.Data.Linq.Binary)(inValues[0]));
         string descr = ((string)(inValues[1]));
         string pos = ((string)(inValues[2]));
         string mail = ((string)(inValues[3]));
@@ -1111,12 +1111,12 @@ public partial class ServiceWCFSmartCityClient : System.ServiceModel.ClientBase<
         }
     }
     
-    public void OuvrirDefautAsync(byte[] photo, string descr, string pos, string mail, string com)
+    public void OuvrirDefautAsync(System.Data.Linq.Binary photo, string descr, string pos, string mail, string com)
     {
         this.OuvrirDefautAsync(photo, descr, pos, mail, com, null);
     }
     
-    public void OuvrirDefautAsync(byte[] photo, string descr, string pos, string mail, string com, object userState)
+    public void OuvrirDefautAsync(System.Data.Linq.Binary photo, string descr, string pos, string mail, string com, object userState)
     {
         if ((this.onBeginOuvrirDefautDelegate == null))
         {
@@ -1397,7 +1397,7 @@ public partial class ServiceWCFSmartCityClient : System.ServiceModel.ClientBase<
             return _result;
         }
         
-        public System.IAsyncResult BeginOuvrirDefaut(byte[] photo, string descr, string pos, string mail, string com, System.AsyncCallback callback, object asyncState)
+        public System.IAsyncResult BeginOuvrirDefaut(System.Data.Linq.Binary photo, string descr, string pos, string mail, string com, System.AsyncCallback callback, object asyncState)
         {
             object[] _args = new object[5];
             _args[0] = photo;

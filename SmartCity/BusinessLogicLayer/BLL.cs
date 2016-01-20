@@ -81,10 +81,9 @@ namespace BusinessLogicLayer
         }
 
 
-        public static void OuvrirDefaut(byte[] photo, string descr, string pos, string mail, string com)
+        public static void OuvrirDefaut(Binary photo, string descr, string pos, string mail, string com)
         {
-            Binary b = photo;
-            int idDefaut = DAL.AddDefaut(b, descr, pos, DateTime.Now);
+            int idDefaut = DAL.AddDefaut(photo, descr, pos, DateTime.Now);
 
             if(DAL.SelectPersonneByMail(mail) == null)
                 DAL.AddPersonne(mail, null, null, null, "CITOYEN");

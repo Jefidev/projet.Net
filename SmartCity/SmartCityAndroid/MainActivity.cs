@@ -30,7 +30,7 @@ namespace SmartCityAndroid
         public ServiceWCFSmartCityClient _client;
 
         //Variables pour l'appareil photo
-        public static byte[] curImage;
+        public Binary curImage;
 
         //Variables de recuperation de coordonnees
         public string coordonnes;
@@ -75,7 +75,7 @@ namespace SmartCityAndroid
 
                 _client.OuvrirDefautAsync(curImage, description.Text, coordonnes, mail.Text, commentaire.Text);
 
-                Toast.MakeText(this, "Le défaut a bien été envoyé", ToastLength.Long).Show();
+                Toast.MakeText(this, "Le défaut a bien été envoyé ", ToastLength.Long).Show();
 
                 commentaire.Text = "";
                 description.Text = "";
@@ -100,7 +100,17 @@ namespace SmartCityAndroid
 
         private void _client_OuvrirDefautCompleted(object sender, System.ComponentModel.AsyncCompletedEventArgs e)
         {
+            TextView tv = FindViewById<TextView>(Resource.Id.Titre);
             
+
+            if(e.Error != null)
+            {
+                tv.Text = e.Error.Message;
+            }
+            if(e.Cancelled)
+            {
+                tv.Text = "cancelled";
+            }
         }
 
         #region initialisation service
@@ -164,11 +174,19 @@ namespace SmartCityAndroid
         {
             Bundle b = data.Extras;
             Bitmap i  = (Bitmap)b.Get("data");
+            
+            if (i != null)
+            {
+                System.IO.MemoryStream bos = new System.IO.MemoryStream();
+                i.Compress(Bitmap.CompressFormat.Png, 0, bos);
 
-            System.IO.MemoryStream bos = new System.IO.MemoryStream();
-            i.Compress(Bitmap.CompressFormat.Png, 0, bos);
-
-            curImage = bos.ToArray();
+                curImage = new Binary();
+                curImage.Bytes = bos.ToArray();
+            }
+            else
+            {
+                Toast.MakeText(this, "erreur de photo", ToastLength.Long).Show();
+            }
         }
 
         #endregion
