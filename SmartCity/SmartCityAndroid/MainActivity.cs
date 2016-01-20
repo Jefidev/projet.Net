@@ -11,6 +11,7 @@ using Android.Content.PM;
 using Java.IO;
 using Android.Graphics;
 using Uri = Android.Net.Uri;
+using Environment = Android.OS.Environment;
 using Android.Locations;
 using System.Linq;
 using Android.Runtime;
@@ -73,7 +74,7 @@ namespace SmartCityAndroid
                     return;
                 }
 
-                _client.OuvrirDefautAsync(null, "test", "test", "test@test.be", "testificate");
+                _client.OuvrirDefautAsync(null, description.Text, coordonnes, mail.Text, commentaire.Text);
             };
 
             _client.OuvrirDefautCompleted += _client_OuvrirDefautCompleted;
@@ -160,6 +161,18 @@ namespace SmartCityAndroid
 
         }
 
+
+        private void CreateDirectoryForPictures()
+        {
+            _dir = new File(
+                Environment.GetExternalStoragePublicDirectory(
+                    Environment.DirectoryPictures), "defautPicture");
+            if (!_dir.Exists())
+            {
+                _dir.Mkdirs();
+            }
+        }
+
         private bool IsThereAnAppToTakePictures()
         {
             Intent intent = new Intent(MediaStore.ActionImageCapture);
@@ -168,38 +181,32 @@ namespace SmartCityAndroid
             return availableActivities != null && availableActivities.Count > 0;
         }
 
-        private void CreateDirectoryForPictures()
-        {
-            _dir = new File(
-                Android.OS.Environment.GetExternalStoragePublicDirectory(
-                    Android.OS.Environment.DirectoryPictures), "CameraAppDemo");
-
-            if (!_dir.Exists())
-            {
-                _dir.Mkdirs();
-            }
-        }
-
-
         protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
         {
             base.OnActivityResult(requestCode, resultCode, data);
 
-            // Met l'image dans la galerie
+            // Make it available in the gallery
+
             Intent mediaScanIntent = new Intent(Intent.ActionMediaScannerScanFile);
             Uri contentUri = Uri.FromFile(_file);
             mediaScanIntent.SetData(contentUri);
             SendBroadcast(mediaScanIntent);
 
-            //On prend l'image dans une variable membre
-            BitmapFactory.Options options = new BitmapFactory.Options { InJustDecodeBounds = true };
-            curImage = _file.Path.LoadAndResizeBitmap(50, 50);
+            // Display in ImageView. We will resize the bitmap to fit the display.
+            // Loading the full sized image will consume to much memory
+            // and cause the application to crash.
 
-            if (curImage == null)
-                Toast.MakeText(this,"null", ToastLength.Long).Show();
-            else
-                Toast.MakeText(this, "ok", ToastLength.Long).Show();
+            Bitmap bitmap = _file.Path.LoadAndResizeBitmap(200, 200);
+            if (bitmap != null)
+            {
+                curImage = bitmap;
+                bitmap = null;
+            }
+
+            // Dispose of the Java side bitmap.
+            GC.Collect();
         }
+
         #endregion
 
         #region recuperation coordonnes
