@@ -19,21 +19,25 @@ namespace SmartCityAndroid
 {
     [Activity(Label = "SmartCityAndroid", MainLauncher = true, Icon = "@drawable/icon")]
 
-    public class MainActivity : Activity, ILocationListener
+    public class MainActivity : Activity , ILocationListener
     {
-        
+        //variables d'acces aux services
         public static readonly EndpointAddress endpoint = new EndpointAddress("http://192.168.1.7:53222/ServiceWCFSmartCity.svc");
         public ServiceWCFSmartCityClient _client;
 
+        //Variables pour l'appareil photo
         public static File _file;
         public static File _dir;
         public static Bitmap curImage;
 
+        //Variables de recuperation de coordonnees
         public string coordonnes;
-        Location currentLocation;
+        public Location currentLocation;
+        public LocationManager locationManager;
+        public string locationProvider;
 
-        LocationManager locationManager;
-        string locationProvider;
+        //Affichage ecran
+        public TextView essais;
 
         protected override void OnCreate(Bundle bundle)
         {
@@ -52,6 +56,8 @@ namespace SmartCityAndroid
                 Button pictureButton = FindViewById<Button>(Resource.Id.photoButton);
                 pictureButton.Click += takPicture;
             }
+
+            essais = FindViewById<TextView>(Resource.Id.Titre);
 
             InitializeLocationManager();
         }
@@ -109,7 +115,18 @@ namespace SmartCityAndroid
 
         private void takPicture(object sender, EventArgs eventArgs)
         {
+            //Dans la foulee on va sauvegarder la position actuelle
 
+            if (currentLocation != null)
+            {
+                coordonnes = string.Format("{0:f6},{1:f6}", currentLocation.Latitude, currentLocation.Longitude);
+            }
+            //Si le GPS n'a pas encore été réveillé
+            else
+            {
+                Toast.MakeText(this, "Le GPS n'est pas encore actif. Réessayé dans 1 minute", ToastLength.Long).Show();
+                return;
+            }
 
             Intent intent = new Intent(MediaStore.ActionImageCapture);
             _file = new File(_dir, String.Format("myPhoto_{0}.jpg", Guid.NewGuid()));
@@ -152,11 +169,10 @@ namespace SmartCityAndroid
 
             //On prend l'image dans une variable membre
             curImage = BitmapFactory.DecodeFile(_file.Path);
-
         }
 
         #endregion
-
+        
         #region recuperation coordonnes
 
         void InitializeLocationManager()
@@ -178,27 +194,31 @@ namespace SmartCityAndroid
             }
         }
 
+        //On bind le GPS quand l'application revient sur le devant de la scene
+        protected override void OnResume()
+        {
+            base.OnResume();
+            locationManager.RequestLocationUpdates(locationProvider, 0, 0, this);
+        }
+
+        //On unbind le GPS quand l'applic se met en pause
+        protected override void OnPause()
+        {
+            base.OnPause();
+            locationManager.RemoveUpdates(this);
+        }
+
         //Methode de l'interface listener de la position
         public void OnLocationChanged(Location location)
         {
-            throw new NotImplementedException();
+            currentLocation = location;
         }
 
-        public void OnProviderDisabled(string provider)
-        {
-            throw new NotImplementedException();
-        }
+        public void OnProviderDisabled(string provider) {}
 
-        public void OnProviderEnabled(string provider)
-        {
-            throw new NotImplementedException();
-        }
+        public void OnProviderEnabled(string provider) {}
 
-        public void OnStatusChanged(string provider, [GeneratedEnum] Availability status, Bundle extras)
-        {
-            throw new NotImplementedException();
-        }
-
+        public void OnStatusChanged(string provider, [GeneratedEnum] Availability status, Bundle extras) {}
 
         #endregion
     }
