@@ -16,7 +16,8 @@ using Android.Locations;
 using System.Linq;
 using Android.Runtime;
 using SmartCityAndroid;
-
+using System.Data.Linq;
+using Android.Media;
 
 namespace SmartCityAndroid
 {
@@ -29,7 +30,7 @@ namespace SmartCityAndroid
         public ServiceWCFSmartCityClient _client;
 
         //Variables pour l'appareil photo
-        public static Bitmap curImage;
+        public static byte[] curImage;
 
         //Variables de recuperation de coordonnees
         public string coordonnes;
@@ -72,7 +73,16 @@ namespace SmartCityAndroid
                     return;
                 }
 
-                _client.OuvrirDefautAsync(null, description.Text, coordonnes, mail.Text, commentaire.Text);
+                _client.OuvrirDefautAsync(curImage, description.Text, coordonnes, mail.Text, commentaire.Text);
+
+                Toast.MakeText(this, "Le défaut a bien été envoyé", ToastLength.Long).Show();
+
+                commentaire.Text = "";
+                description.Text = "";
+                mail.Text = "";
+
+                curImage = null;
+                coordonnes = null;
             };
 
             _client.OuvrirDefautCompleted += _client_OuvrirDefautCompleted;
@@ -90,20 +100,7 @@ namespace SmartCityAndroid
 
         private void _client_OuvrirDefautCompleted(object sender, System.ComponentModel.AsyncCompletedEventArgs e)
         {
-            Button button = FindViewById<Button>(Resource.Id.sendButton);
-
-            if (e.Error != null)
-            {
-                Toast.MakeText(this, e.Error.Message, ToastLength.Long).Show();
-                return;
-            }
-            else if (e.Cancelled)
-            {
-                Toast.MakeText(this, e.Cancelled.ToString(), ToastLength.Long).Show();
-                return;
-            }
-
-            Toast.MakeText(this, "Le défaut a bien été envoyé", ToastLength.Long).Show();
+            
         }
 
         #region initialisation service
@@ -166,8 +163,12 @@ namespace SmartCityAndroid
         protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
         {
             Bundle b = data.Extras;
-            curImage = (Bitmap)b.Get("data");
+            Bitmap i  = (Bitmap)b.Get("data");
 
+            System.IO.MemoryStream bos = new System.IO.MemoryStream();
+            i.Compress(Bitmap.CompressFormat.Png, 0, bos);
+
+            curImage = bos.ToArray();
         }
 
         #endregion
