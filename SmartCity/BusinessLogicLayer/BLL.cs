@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using BusinessLogicLayer.DTO;
 using DataAccessLayer;
-
+using System.Data.Linq;
 
 namespace BusinessLogicLayer
 {
@@ -78,6 +78,17 @@ namespace BusinessLogicLayer
                     DateDefaut = d.DateDefaut
                 };
             }
+        }
+
+
+        public static void OuvrirDefaut(Binary photo, string descr, string pos, string mail, string com)
+        {
+            int idDefaut = DAL.AddDefaut(photo, descr, pos);
+
+            if(mail != null)
+                DAL.AddPersonne(mail, null, null, null, "CITOYEN");
+
+            DAL.AddIntervention("OUVERT", com, DateTime.Now, idDefaut, mail);
         }
 
         #endregion
@@ -166,6 +177,17 @@ namespace BusinessLogicLayer
             }
         }
 
+        public static void AddPersonne(string m, string pwd, string n, string pr, string t)
+        {
+            DAL.AddPersonne(m, pwd, n, pr, t);
+        }
+
         #endregion
+
+        #region Ajout
+
+
+        #endregion
+
     }
 }

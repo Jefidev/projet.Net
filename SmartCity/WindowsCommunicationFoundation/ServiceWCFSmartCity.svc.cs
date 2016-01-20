@@ -172,6 +172,11 @@ namespace WindowsCommunicationFoundation
 
         #endregion
 
+        public void OuvrirDefaut(Binary photo, string descr, string pos, string mail, string com)
+        {
+            BLL.OuvrirDefaut(photo, descr, pos, mail, com);
+        }
+
         public string sayHello()
         {
             return  "Hello World";

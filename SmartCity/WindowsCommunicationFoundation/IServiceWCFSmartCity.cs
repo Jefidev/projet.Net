@@ -37,6 +37,9 @@ namespace WindowsCommunicationFoundation
         List<PersonneWCF> GetAllOuvriers();
 
         [OperationContract]
+        void OuvrirDefaut(Binary photo, string descr, string pos, string mail, string com);
+
+        [OperationContract]
         string sayHello();
     }
 

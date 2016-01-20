@@ -347,6 +347,11 @@ public interface IServiceWCFSmartCity
     
     WindowsCommunicationFoundation.PersonneWCF[] EndGetAllOuvriers(System.IAsyncResult result);
     
+    [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IServiceWCFSmartCity/OuvrirDefaut", ReplyAction="http://tempuri.org/IServiceWCFSmartCity/OuvrirDefautResponse")]
+    System.IAsyncResult BeginOuvrirDefaut(System.Data.Linq.Binary photo, string descr, string pos, string mail, string com, System.AsyncCallback callback, object asyncState);
+    
+    void EndOuvrirDefaut(System.IAsyncResult result);
+    
     [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IServiceWCFSmartCity/sayHello", ReplyAction="http://tempuri.org/IServiceWCFSmartCity/sayHelloResponse")]
     System.IAsyncResult BeginsayHello(System.AsyncCallback callback, object asyncState);
     
@@ -566,6 +571,12 @@ public partial class ServiceWCFSmartCityClient : System.ServiceModel.ClientBase<
     
     private System.Threading.SendOrPostCallback onGetAllOuvriersCompletedDelegate;
     
+    private BeginOperationDelegate onBeginOuvrirDefautDelegate;
+    
+    private EndOperationDelegate onEndOuvrirDefautDelegate;
+    
+    private System.Threading.SendOrPostCallback onOuvrirDefautCompletedDelegate;
+    
     private BeginOperationDelegate onBeginsayHelloDelegate;
     
     private EndOperationDelegate onEndsayHelloDelegate;
@@ -650,6 +661,8 @@ public partial class ServiceWCFSmartCityClient : System.ServiceModel.ClientBase<
     public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> AddInterventionCompleted;
     
     public event System.EventHandler<GetAllOuvriersCompletedEventArgs> GetAllOuvriersCompleted;
+    
+    public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> OuvrirDefautCompleted;
     
     public event System.EventHandler<sayHelloCompletedEventArgs> sayHelloCompleted;
     
@@ -1062,6 +1075,70 @@ public partial class ServiceWCFSmartCityClient : System.ServiceModel.ClientBase<
     }
     
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    System.IAsyncResult IServiceWCFSmartCity.BeginOuvrirDefaut(System.Data.Linq.Binary photo, string descr, string pos, string mail, string com, System.AsyncCallback callback, object asyncState)
+    {
+        return base.Channel.BeginOuvrirDefaut(photo, descr, pos, mail, com, callback, asyncState);
+    }
+    
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    void IServiceWCFSmartCity.EndOuvrirDefaut(System.IAsyncResult result)
+    {
+        base.Channel.EndOuvrirDefaut(result);
+    }
+    
+    private System.IAsyncResult OnBeginOuvrirDefaut(object[] inValues, System.AsyncCallback callback, object asyncState)
+    {
+        System.Data.Linq.Binary photo = ((System.Data.Linq.Binary)(inValues[0]));
+        string descr = ((string)(inValues[1]));
+        string pos = ((string)(inValues[2]));
+        string mail = ((string)(inValues[3]));
+        string com = ((string)(inValues[4]));
+        return ((IServiceWCFSmartCity)(this)).BeginOuvrirDefaut(photo, descr, pos, mail, com, callback, asyncState);
+    }
+    
+    private object[] OnEndOuvrirDefaut(System.IAsyncResult result)
+    {
+        ((IServiceWCFSmartCity)(this)).EndOuvrirDefaut(result);
+        return null;
+    }
+    
+    private void OnOuvrirDefautCompleted(object state)
+    {
+        if ((this.OuvrirDefautCompleted != null))
+        {
+            InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+            this.OuvrirDefautCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(e.Error, e.Cancelled, e.UserState));
+        }
+    }
+    
+    public void OuvrirDefautAsync(System.Data.Linq.Binary photo, string descr, string pos, string mail, string com)
+    {
+        this.OuvrirDefautAsync(photo, descr, pos, mail, com, null);
+    }
+    
+    public void OuvrirDefautAsync(System.Data.Linq.Binary photo, string descr, string pos, string mail, string com, object userState)
+    {
+        if ((this.onBeginOuvrirDefautDelegate == null))
+        {
+            this.onBeginOuvrirDefautDelegate = new BeginOperationDelegate(this.OnBeginOuvrirDefaut);
+        }
+        if ((this.onEndOuvrirDefautDelegate == null))
+        {
+            this.onEndOuvrirDefautDelegate = new EndOperationDelegate(this.OnEndOuvrirDefaut);
+        }
+        if ((this.onOuvrirDefautCompletedDelegate == null))
+        {
+            this.onOuvrirDefautCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnOuvrirDefautCompleted);
+        }
+        base.InvokeAsync(this.onBeginOuvrirDefautDelegate, new object[] {
+                    photo,
+                    descr,
+                    pos,
+                    mail,
+                    com}, this.onEndOuvrirDefautDelegate, this.onOuvrirDefautCompletedDelegate, userState);
+    }
+    
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     System.IAsyncResult IServiceWCFSmartCity.BeginsayHello(System.AsyncCallback callback, object asyncState)
     {
         return base.Channel.BeginsayHello(callback, asyncState);
@@ -1318,6 +1395,24 @@ public partial class ServiceWCFSmartCityClient : System.ServiceModel.ClientBase<
             object[] _args = new object[0];
             WindowsCommunicationFoundation.PersonneWCF[] _result = ((WindowsCommunicationFoundation.PersonneWCF[])(base.EndInvoke("GetAllOuvriers", _args, result)));
             return _result;
+        }
+        
+        public System.IAsyncResult BeginOuvrirDefaut(System.Data.Linq.Binary photo, string descr, string pos, string mail, string com, System.AsyncCallback callback, object asyncState)
+        {
+            object[] _args = new object[5];
+            _args[0] = photo;
+            _args[1] = descr;
+            _args[2] = pos;
+            _args[3] = mail;
+            _args[4] = com;
+            System.IAsyncResult _result = base.BeginInvoke("OuvrirDefaut", _args, callback, asyncState);
+            return _result;
+        }
+        
+        public void EndOuvrirDefaut(System.IAsyncResult result)
+        {
+            object[] _args = new object[0];
+            base.EndInvoke("OuvrirDefaut", _args, result);
         }
         
         public System.IAsyncResult BeginsayHello(System.AsyncCallback callback, object asyncState)
