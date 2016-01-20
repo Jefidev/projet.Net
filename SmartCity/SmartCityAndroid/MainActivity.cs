@@ -30,7 +30,7 @@ namespace SmartCityAndroid
         public ServiceWCFSmartCityClient _client;
 
         //Variables pour l'appareil photo
-        public Binary curImage;
+        public byte[] curImage;
 
         //Variables de recuperation de coordonnees
         public string coordonnes;
@@ -75,7 +75,7 @@ namespace SmartCityAndroid
 
                 _client.OuvrirDefautAsync(curImage, description.Text, coordonnes, mail.Text, commentaire.Text);
 
-                Toast.MakeText(this, "Le défaut a bien été envoyé ", ToastLength.Long).Show();
+                Toast.MakeText(this, "Le défaut a bien été envoyé " + curImage.Length, ToastLength.Long).Show();
 
                 commentaire.Text = "";
                 description.Text = "";
@@ -100,16 +100,16 @@ namespace SmartCityAndroid
 
         private void _client_OuvrirDefautCompleted(object sender, System.ComponentModel.AsyncCompletedEventArgs e)
         {
-            TextView tv = FindViewById<TextView>(Resource.Id.Titre);
-            
-
+           // TextView tv = FindViewById<TextView>(Resource.Id.Titre);
+           // EditText t = FindViewById<EditText>(Resource.Id.CommentaireTF);
+            //tv.Text = "ici";
             if(e.Error != null)
             {
-                tv.Text = e.Error.Message;
+               // t.Text = e.Error.Message;
             }
             if(e.Cancelled)
             {
-                tv.Text = "cancelled";
+              // t.Text = "cancelled";
             }
         }
 
@@ -180,8 +180,7 @@ namespace SmartCityAndroid
                 System.IO.MemoryStream bos = new System.IO.MemoryStream();
                 i.Compress(Bitmap.CompressFormat.Png, 0, bos);
 
-                curImage = new Binary();
-                curImage.Bytes = bos.ToArray();
+                curImage = bos.ToArray();
             }
             else
             {
