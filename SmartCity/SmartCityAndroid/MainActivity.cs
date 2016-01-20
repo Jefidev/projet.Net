@@ -14,6 +14,7 @@ using Uri = Android.Net.Uri;
 using Android.Locations;
 using System.Linq;
 using Android.Runtime;
+using SmartCityAndroid;
 
 namespace SmartCityAndroid
 {
@@ -53,8 +54,10 @@ namespace SmartCityAndroid
             //Si y'a un appareil photo
             if(IsThereAnAppToTakePictures())
             {
+                CreateDirectoryForPictures();
+
                 Button pictureButton = FindViewById<Button>(Resource.Id.photoButton);
-                pictureButton.Click += takPicture;
+                pictureButton.Click += takePicture;
             }
 
             essais = FindViewById<TextView>(Resource.Id.Titre);
@@ -113,7 +116,7 @@ namespace SmartCityAndroid
 
         #region Acces appareil photo
 
-        private void takPicture(object sender, EventArgs eventArgs)
+        private void takePicture(object sender, EventArgs eventArgs)
         {
             //Dans la foulee on va sauvegarder la position actuelle
 
@@ -161,18 +164,22 @@ namespace SmartCityAndroid
             base.OnActivityResult(requestCode, resultCode, data);
 
             // Met l'image dans la galerie
-
             Intent mediaScanIntent = new Intent(Intent.ActionMediaScannerScanFile);
             Uri contentUri = Uri.FromFile(_file);
             mediaScanIntent.SetData(contentUri);
             SendBroadcast(mediaScanIntent);
 
             //On prend l'image dans une variable membre
-            curImage = BitmapFactory.DecodeFile(_file.Path);
-        }
+            BitmapFactory.Options options = new BitmapFactory.Options { InJustDecodeBounds = true };
+            curImage = _file.Path.LoadAndResizeBitmap(50, 50);
 
+            if (curImage == null)
+                essais.Text = "trololo";
+            else
+                essais.Text = "ok";
+        }
         #endregion
-        
+
         #region recuperation coordonnes
 
         void InitializeLocationManager()
