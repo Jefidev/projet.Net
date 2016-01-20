@@ -39,7 +39,9 @@ namespace SmartCityAndroid
         public string locationProvider;
 
         //Affichage ecran
-        public TextView essais;
+        public EditText description;
+        public EditText commentaire;
+        public EditText mail;
 
         protected override void OnCreate(Bundle bundle)
         {
@@ -50,7 +52,29 @@ namespace SmartCityAndroid
             InitialisationService();
 
             Button sendButton = FindViewById<Button>(Resource.Id.sendButton);
-            sendButton.Click += delegate { _client.OuvrirDefautAsync(null, "test", "test", "test@test.be", "testificate"); };
+
+            //Recuperation des differents champs texte
+            description = FindViewById<EditText>(Resource.Id.DescriptionTF);
+            commentaire = FindViewById<EditText>(Resource.Id.CommentaireTF);
+            mail = FindViewById<EditText>(Resource.Id.mailTF);
+
+            //Methode effectuee lors de l'envoie
+            sendButton.Click += delegate {
+
+                if(curImage == null)
+                {
+                    Toast.MakeText(this, "Vous devez prendre une photo du défaut", ToastLength.Long).Show();
+                    return;
+                }
+
+                if(description.Text == null)
+                {
+                    Toast.MakeText(this, "Vous devez entrer une description du défaut", ToastLength.Long).Show();
+                    return;
+                }
+
+                _client.OuvrirDefautAsync(null, "test", "test", "test@test.be", "testificate");
+            };
 
             _client.OuvrirDefautCompleted += _client_OuvrirDefautCompleted;
 
@@ -63,8 +87,6 @@ namespace SmartCityAndroid
                 pictureButton.Click += takePicture;
             }
 
-            essais = FindViewById<TextView>(Resource.Id.Titre);
-
             InitializeLocationManager();
         }
 
@@ -75,14 +97,16 @@ namespace SmartCityAndroid
 
             if (e.Error != null)
             {
-                button.Text = e.Error.Message;
+                Toast.MakeText(this, e.Error.Message, ToastLength.Long).Show();
                 return;
             }
             else if (e.Cancelled)
             {
-                button.Text = e.Cancelled.ToString();
+                Toast.MakeText(this, e.Cancelled.ToString(), ToastLength.Long).Show();
                 return;
             }
+
+            Toast.MakeText(this, "Le défaut a bien été envoyé", ToastLength.Long).Show();
         }
 
         #region initialisation service
@@ -172,9 +196,9 @@ namespace SmartCityAndroid
             curImage = _file.Path.LoadAndResizeBitmap(50, 50);
 
             if (curImage == null)
-                essais.Text = "trololo";
+                Toast.MakeText(this,"null", ToastLength.Long).Show();
             else
-                essais.Text = "ok";
+                Toast.MakeText(this, "ok", ToastLength.Long).Show();
         }
         #endregion
 
