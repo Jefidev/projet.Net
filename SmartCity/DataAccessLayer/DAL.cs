@@ -85,6 +85,23 @@ namespace DataAccessLayer
             return d.IdDefaut;
         }
 
+
+        public static int AddDefaut(Binary ph, string descr, string po, DateTime t)
+        {
+            Defaut d = new Defaut
+            {
+                Photo = ph,
+                Description = descr,
+                Position = po,
+                DateDefaut = t  
+            };
+
+            InstanceDC.Defauts.InsertOnSubmit(d);
+            InstanceDC.SubmitChanges();
+
+            return d.IdDefaut;
+        }
+
         public static void AddPersonne(string m, string pwd, string n, string pr, string t)
         {
             Personne p = new Personne

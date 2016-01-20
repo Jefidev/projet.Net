@@ -44,18 +44,18 @@ namespace SmartCityAndroid
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
-            
+
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.Main);
             InitialisationService();
 
             Button sendButton = FindViewById<Button>(Resource.Id.sendButton);
-            sendButton.Click += delegate { sendInfo(); };
+            sendButton.Click += delegate { _client.OuvrirDefautAsync(null, "test", "test", "test@test.be", "testificate"); };
 
             _client.OuvrirDefautCompleted += _client_OuvrirDefautCompleted;
 
             //Si y'a un appareil photo
-            if(IsThereAnAppToTakePictures())
+            if (IsThereAnAppToTakePictures())
             {
                 CreateDirectoryForPictures();
 
@@ -66,14 +66,6 @@ namespace SmartCityAndroid
             essais = FindViewById<TextView>(Resource.Id.Titre);
 
             InitializeLocationManager();
-        }
-
-
-        private void sendInfo ()
-        {
-
-            //TO DO verification des infos
-            _client.OuvrirDefautAsync(null, "test", "test", "test@test.be", "testificate");
         }
 
 
